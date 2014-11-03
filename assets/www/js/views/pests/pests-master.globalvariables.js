@@ -1,0 +1,2 @@
+var pestsMasterId;
+var pestsMasterDate;

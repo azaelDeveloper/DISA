@@ -1,0 +1,2 @@
+var cleanMasterId;
+var cleanMasterDate;

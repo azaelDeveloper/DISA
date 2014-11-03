@@ -1,0 +1,100 @@
+<div class="page-header">
+	<h2>Encuestas</h2>
+	<div style="text-align: center; background-color: #3a87ad;" id="Advice"><b></b></div>
+</div>
+<table id="noRecordsFound" class="table table-striped table-bordered"
+	style="display: none;">
+	<thead>
+		<tr>
+			<th>No hay encuestas</th>
+		</tr>
+	</thead>
+</table>
+<div data-bind='visible: surveys().length > 0'>
+	<table class="table table-striped table-bordered hidden-phone visible-tablet visible-desktop" style="display: none;">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Fecha y Hora</th>
+				<th></th>				
+			</tr>
+		</thead>
+		<tbody data-bind='foreach: surveys'>
+			<tr>
+				<td data-bind="text: id"></td>
+				<td data-bind="text: timestamp"></td>
+				<td>
+					<div class="btn-group">
+						<button class="btn btn-primary" type="button" data-bind="click: $root.selectSurveyMaster, id: id, uniqueName: true">
+							<span class="glyphicon glyphicon-edit"></span><small>Editar</small>
+						</button>
+						<button class="btn btn-info" type="button" data-bind="click: $root.detailSurveyMaster, id: id, uniqueName: true">
+							<span class="glyphicon glyphicon-check"></span><small>Detalles</small>
+						</button>
+					</div>
+				</td>				
+			</tr>
+		</tbody>
+	</table>
+	<table class="table table-striped table-bordered visible-phone hidden-tablet hidden-desktop" style="display: none;">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Datos</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody data-bind='foreach: surveys'>
+			<tr>
+				<td data-bind="text: id"></td>
+				<td><b>Fecha y Hora</b></br><label data-bind="text: timestamp"></label>
+					<div class="btn-group">
+						<button class="btn btn-primary" type="button"
+							data-bind="click: $root.selectSurveyMaster, id: id, uniqueName: true">
+							<span class="glyphicon glyphicon-edit"></span>
+						</button>
+						<button class="btn btn-info" type="button"
+							data-bind="click: $root.detailSurveyMaster, id: id, uniqueName: true">
+							<span class="glyphicon glyphicon-check"></span>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div data-bind='visible: surveys().length > 0'><a href="#" id="sendAllEmail" class="btn btn-info">Enviar por @Email</a></div>
+<br />
+<br />
+<div id="messageSurvey" class="alert alert-success fade out">
+	<button class="close" type="button" onclick="$('.alert').hide()">&times;</button>
+	<strong id="messageSurveyTitle"></strong><br /><p id="messageSurveyBody"></p>
+	<button class="btn btn-default" type="button" onclick="$('.alert').hide()">Cerrar</button>
+</div>
+
+<div class='input-group date' id='datetimepicker1'>
+    <input type='text' class="form-control" />
+    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+    </span>
+</div>
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/survey-master.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/index.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/index.init.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/index.bind.js"></script>
+
+<!--
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/coreEmail.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/coreSync.functions.js"></script>
+	
+	-->

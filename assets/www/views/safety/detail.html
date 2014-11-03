@@ -1,0 +1,190 @@
+<div id="deleteModal" class="modal hide fade">
+	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    	<h3>Eliminar</h3>
+  	</div>
+	<div class="modal-body">
+		<p>¿Está seguro de eliminar esté registro?</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">No</button>
+		<a href='#' id='yesDelete' data-reveal-id='secondModal' class='btn btn-danger' data-bind='click: $root.deleteThisView'>Sí</a>
+	</div>
+</div>
+<blockquote>
+  <h2>BIT 12 - LISTADO DE VERIFICACION DE MATERIALES DE PRIMEROS AUXILIOS</h2>
+  <h3 id="firstAidMasterTitle"></h3>
+</blockquote>
+	<h3>1. Información del Monitoreo</h3>
+	<p>Por favor de llenar todos los campos con sus respectivas respuestas <strong>es de suma importancia escribir correctamente y evitar la mala redacción</strong> coloque en los espacios correspondientes los datos que se le piden.</p>
+	<b>1.1 Empresa</b><br />
+<div data-bind="foreach: informationArray">
+	<input class="span4" type="text" data-bind="value: company" placeholder="Nombre de empresa..." disabled="disabled"><br />
+	<b>1.2 Representante Legal</b><br />
+	<textarea class="span4" data-bind="value: representatitve" placeholder="Nombres de los representantes..." disabled="disabled"></textarea><br />
+	<b>1.3 Culvitvo y Variedad</b><br />
+	<input class="span4" type="text" data-bind="value: crop" placeholder="Cultivo..." disabled="disabled"><br />
+	<b>1.4 Unidad de Producción</b><br />
+	<input class="span4" type="text" data-bind="value: production" placeholder="Nombre del área..." disabled="disabled"><br />
+	<b>1.5 Superficie</b><br />
+	<input class="span4" type="text" data-bind="value: surface" placeholder="Superficie..." disabled="disabled"><br />
+	<b>1.6 Localización</b><br />
+	<input class="span4" type="text" data-bind="value: location" placeholder="Localización..." disabled="disabled"><br />
+	<b>1.7 Vigencia</b><br />
+	<input class="span4" type="text" name="datePicker" data-bind="value: validity" placeholder="Periodo de vigencia..." disabled="disabled"> <br />
+</div>
+
+<h4>2. Materiales de Primeros Auxilios</h4>
+<b><div style="text-align: center; background-color: #3a87ad;" id="kitMessage"></div></b>
+<table id="Kit" class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>
+				<button type="button" class="btn btn-primary" data-bind="click: $root.addKit"><i class="icon-plus-sign icon-white"></i></button>
+			</th>
+			<th>
+				<table data-bind="foreach: kitsArray">
+					<tr>
+						<th>Botiquín #<b data-bind="text: idKit"></b>
+						</th>
+						<th>
+							<button type="button" class="btn btn-primary" data-bind="click: $root.takePhotoKit"><i class="icon-camera icon-white"></i></button>
+						</th>
+						<th>
+							<button type="button" data-bind="click: $root.removeKit" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button>
+						</th>
+					</tr>
+				</table>
+			</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>2.1 Fecha de revisión</td>
+			<td data-bind="foreach: kitsArray"><br />Fecha de revisión #<b data-bind="text: idKit"></b><br/><input class="span4" name="datePicker" data-bind="value: checkDate" type="text" placeholder="fecha de hoy...." disabled="disabled">
+			</td>
+		</tr>
+		<tr>
+			<td>2.2 Desinfectante</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: desinfectant" disabled="disabled">	
+			</td>
+		</tr>
+		<tr>
+			<td>2.3 Alcohol</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: alcohol" disabled="disabled">
+			</td>
+		</tr>
+		<tr>
+			<td>2.4 Algodón</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: cotton" disabled="disabled">
+			</td>
+		</tr>
+		<tr>
+			<td>2.5 Gasas</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: gauze" disabled="disabled">
+			</td>
+		</tr>
+		<tr>
+			<td>2.6 Curitas</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: bandaid" disabled="disabled">
+			</td>
+		</tr>
+		<tr>
+			<td>2.7 Cinta Micropor</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: tape" disabled="disabled">
+			</td>
+		</tr>
+		<tr>
+			<td>2.8 Tabletas Paracetamol</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: tablets" disabled="disabled">
+			</td>
+		</tr>
+		<tr>
+			<td>2.9 Depto Bismol</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: bismuth" disabled="disabled">
+			</td>
+		</tr>
+		<tr>
+			<td>2.10 Guantes</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: gloves">
+			</td>
+		</tr>
+		<tr>
+			<td>2.11 Tijeras</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: scissors">
+			</td>
+		</tr>
+		<tr>
+			<td>2.12 Vendas</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: headbands">
+			</td>
+		</tr>
+		<tr>
+			<td>2.13 Isodine</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: isodine">
+			</td>
+		</tr>
+		<tr>
+			<td>2.14 Gel antibacterial</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" type="checkbox" data-bind="checked: antibactereal">
+			</td>
+		</tr>
+		<tr>
+			<td>2.15 Otros (especificar)</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" data-bind="value: others" type="text" placeholder="Especificar materiales...">						
+			</td>
+		</tr>
+		<tr>
+			<td>2.16 Verificó</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" data-bind="value: checker" type="text" placeholder="Nombre completo del verificador...">
+			</td>
+		</tr>
+		<tr>
+			<td>2.17 Responsable</td>
+			<td data-bind="foreach: kitsArray"><br />Botiquín #<b data-bind="text: idKit"></b><br/><input class="span4" data-bind="value: responsible" type="text" placeholder="Nombre completo del responsable...">						
+				<br />
+				<a href="#ModalFence" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getComment, comment : comment, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>3. Fotos del Botiquín</h4>	
+<table class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>Botiquín</th>
+			<th>Foto</th>
+		</tr>
+	<tbody data-bind="foreach: kitsArray">
+		<td width="10%"><b data-bind="text: idKit"></b></td>
+		<td width="90%"><img data-bind="attr: {id: idImageFirstAid}"></td>
+	</tbody>
+</table>
+
+
+<div id="ModalFence" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true" >
+  		<div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="myModalLabel1">Comentarios de la Lista de Botiquín #<b id="idComment"></b></h3>
+  		</div>
+  <div class="modal-body">
+    <p>
+    	<h3>Comentarios</h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsKit" disabled="disabled"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cerrar</button>    
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/first_aid/first_aid.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/first_aid/detail.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/first_aid/detail.init.js"></script>

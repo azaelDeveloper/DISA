@@ -1,0 +1,280 @@
+<h2 id="suppliersMasterTitle"></h2>
+<h3>IDENTIFICACIÓN Y EVALUACIÓN DE PROVEEDORES DE INSUMOS Y/O SERVICIOS</h3>
+<p>Por favor de llenar todos los campos con sus respectivas respuestas <strong>es de suma importancia escribir correctamente y evitar la mala redacción</strong> coloque en los espacios correspondientes los datos que se le piden.</p>	
+<h4>1.1 Información de proveedores.</h4>
+<div data-bind="foreach: suppliersInformationArray">
+	<b>1.1 Empresa</b><br />
+	<input class="span4" type="text" data-bind="value: company" placeholder="Nombre de empresa..." /><br />
+	<b>1.2 Representante Legal</b><br />
+	<textarea class="span4" data-bind="value: representative" placeholder="Nombres de los representantes..."></textarea><br />
+	<b>1.3 Cultivo y Variedad</b><br />
+	<input class="span4" type="text" data-bind="value: crop" placeholder="Cultivo y variedad..." /><br />
+	<b>1.4 Unidad de Producción</b><br />
+	<input class="span4" type="text" data-bind="value: production" placeholder="Nombre del área..." /><br />
+	<b>1.5 Superficie</b><br />
+	<input class="span4" type="text" data-bind="value: surface" placeholder="Superficie..." /><br />
+	<b>1.6 Localización</b><br />
+	<input class="span4" type="text" data-bind="value: location" placeholder="Localización..." /><br />
+	<b>1.7 Periodo de vigencia</b><br />
+	<div class="input-append date">
+		<input name="datePicker" data-format="yyyy-MM-dd" class="span4" type="text" data-bind="value: validity" placeholder="Periodo de vigencia..." readonly />
+		<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+	</div><br />
+	<b>1.8 Responsable de la Evaluación</b><br />
+	<input class="span4" type="text" data-bind="value: responsible" placeholder="Responsable de la evaluación..." /> <br />
+</div>
+
+<h4>2 Evaluación.</h4>
+<b><div style="text-align: center; background-color: #3a87ad;" id="ratingMessage"></div></b>
+<table id="rating" class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>
+				<button type="button" class="btn btn-primary" data-bind="click: $root.addRating">
+					<i class="icon-plus-sign icon-white"></i>
+				</button>
+			</th>
+			<th>
+				<table data-bind="foreach: ratingsArray">
+					<tr>
+						<th>
+							Evaluación #<b data-bind="text: idRating"></b>
+						</th>
+						<th>
+							<button type="button" class="btn btn-primary" data-bind="click: $root.takePhotoRating, idRating: idRating, uniquename: true">
+								<i class="icon-camera icon-white"></i>
+							</button>
+						</th>
+						<th>
+							<button type="button" data-bind="click: $root.removeRating" class="btn btn-danger">
+								<i class="icon-remove-sign icon-white"></i>
+							</button>
+						</th>							
+					</tr>
+				</table>
+			</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>2.1 Frecuencia de evaluación</td>
+			<td data-bind="foreach: ratingsArray">
+				Evaluación #<b data-bind="text: idRating"></b><br />
+				<input class="span4" data-bind="value: frequency" type="text" placeholder="Frecuencia de evaluación..." />
+				<br />
+				<!--<a href="#ModalRating" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentRating1, comment1 : comment1, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>2.2 Inspección visual de material y/o servicio</td>
+			<td data-bind="foreach: ratingsArray">
+				Evaluación #<b data-bind="text: idRating"></b><br />
+				<select class="span2" data-bind="options: $root.availableAnswers1, value: inspection.answerVal, optionsText: 'answerText', optionsValue: 'answerVal'" ></select>
+				<br />
+				<a href="#ModalRating" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentRating2, comment2 : comment2, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>2.3 Etiqueta e información de seguridad</td>
+			<td data-bind="foreach: ratingsArray">
+				Evaluación #<b data-bind="text: idRating"></b><br />
+				<input type="checkbox" data-bind="checked: security" />
+				<br />
+				<a href="#ModalRating" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentRating3, comment3 : comment3, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>2.4 Análisis de laboratorio acreditado</td>
+			<td data-bind="foreach: ratingsArray">
+				Evaluación #<b data-bind="text: idRating"></b><br />
+				<input type="checkbox" data-bind="checked: analysis" />
+				<br />
+				<a href="#ModalRating" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentRating4, comment4 : comment4, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>2.5 Registro o autorización SENASICA, SSA, otro</td>
+			<td data-bind="foreach: ratingsArray">
+				Evaluación #<b data-bind="text: idRating"></b><br />
+				<input type="checkbox" data-bind="checked: register" />
+				<br />
+				<a href="#ModalRating" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentRating5, comment5 : comment5, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />
+			</td>
+		</tr>		
+	</tbody>
+</table>
+
+<h4>Fotos de Evaluación</h4>	
+<table class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>Evaluación</th>
+			<th>Foto</th>
+		</tr>
+	<tbody data-bind="foreach: ratingsArray">
+		<td width="10%"><b data-bind="text: idRating"></b></td>
+		<td width="90%"><img data-bind="attr: {id: idImageRating}"></td>
+	</tbody>
+</table>
+
+<div id="ModalRating" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" >
+	<div class="modal-header">
+   		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+   		<h3 id="myModalLabel2">Comentarios de evaluación # <b id="idRating"></b></h3>
+	</div>
+	<div class="modal-body">
+   		<p>
+   			<h3>De la pregunta #<b id="idQuestion1"></b></h3>
+   			<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsRating"></textarea>
+   		</p>
+	</div>
+	<div class="modal-footer">
+   		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentRating">Guardar</button>    
+	</div>
+</div>
+
+<h4>3 Características del producto y/o servicio evaluado.</h4>
+<b><div style="text-align: center; background-color: #3a87ad;" id="featureProductMessage"></div></b>
+<table class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>
+				<button type="button" class="btn btn-primary" data-bind="click: $root.addFeatureProduct"><i class="icon-plus-sign icon-white"></i></button>
+			</th>
+			<th>
+				<table data-bind="foreach: featureProductsArray">
+					<tr>
+						<th>Característica #<b data-bind="text: idFeatureProduct"></b></th>
+						<th>
+							<button type="button" class="btn btn-primary" data-bind="click: $root.takePhotoFeatureProduct, idFeatureProduct: idFeatureProduct, uniquename: true"><i class="icon-camera icon-white"></i></button>
+						</th>						
+						<th>
+							<button type="button" data-bind="click: $root.removeFeatureProduct" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button>
+						</th>
+					</tr>
+				</table>
+			</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>3.1 Tiempos de entrega y especificaciones de compra</td>
+			<td data-bind="foreach: featureProductsArray">
+				Característica #<b data-bind="text: idFeatureProduct"></b><br />
+				<select class="span2" data-bind="options: $root.availableAnswers2, value: purchase.answerVal, optionsText: 'answerText', optionsValue: 'answerVal', event: { change: $root.getResultApproved }"></select>
+				<br />
+				<!--<a href="#ModalFeatureProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFeatureProduct6, comment6 : comment6, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.2 Atención a recomendaciones de mejora</td>
+			<td data-bind="foreach: featureProductsArray">
+				Característica #<b data-bind="text: idFeatureProduct"></b><br />
+				<select class="span2" data-bind="options: $root.availableAnswers2, value: recommendations.answerVal, optionsText: 'answerText', optionsValue: 'answerVal', event: { change: $root.getResultApproved }">
+				</select>
+				<br />
+				<!--<a href="#ModalFeatureProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFeatureProduct7, comment7 : comment7, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.3 Sumatoria total</td>
+			<td data-bind="foreach: featureProductsArray">
+				Característica #<b data-bind="text: idFeatureProduct"></b><br />
+				<i data-bind="text: result"></i> pts.
+				<br />
+				<!--<a href="#ModalFeatureProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFeatureProduct8, comment8 : comment8, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.4 Aprobado</td>
+			<td data-bind="foreach: featureProductsArray">
+				Característica #<b data-bind="text: idFeatureProduct"></b><br />
+				<i data-bind="text: approved"></i>
+				<br />
+				<!--<a href="#ModalFeatureProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFeatureProduct9, comment9 : comment9, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.5 ¿Se mantiene en lista de proveedores?</td>
+			<td data-bind="foreach: featureProductsArray">
+				Característica #<b data-bind="text: idFeatureProduct"></b><br />
+				<input type="checkbox" data-bind="checked: list" />
+				<br />
+				<!--<a href="#ModalFeatureProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFeatureProduct10, comment10 : comment10, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.6 Fecha de la próxima evaluación</td>
+			<td data-bind="foreach: featureProductsArray">
+				Característica #<b data-bind="text: idFeatureProduct"></b><br />
+				<div class="input-append date">
+					<input name="datePicker" data-format="yyyy-MM-dd" class="span2" data-bind="value: nextDate" type="text" placeholder="Próxima evaluación..." readonly />
+					<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+				</div>
+				<br / >
+				<a href="#ModalFeatureProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFeatureProduct11, comment11 : comment11, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />
+			</td>
+		</tr>		
+	</tbody>
+</table>
+
+<h4>Fotos de Características del producto y/o servicio evaluado</h4>	
+<table class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>Característica</th>
+			<th>Foto</th>
+		</tr>
+	<tbody data-bind="foreach: featureProductsArray">
+		<td width="10%"><b data-bind="text: idFeatureProduct"></b></td>
+		<td width="90%"><img data-bind="attr: {id: idImageFeatureProduct}"></td>
+	</tbody>
+</table>
+
+<div id="ModalFeatureProduct" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true" >
+	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel3">Comentarios de características del producto # <b id="idFeatureProduct"></b></h3>
+  	</div>
+  	<div class="modal-body">
+    	<p>
+    		<!--<h3>De la pregunta #<b id="idQuestion2"></b></h3>-->
+    		<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsFeatureProduct"></textarea>
+    	</p>
+  	</div>
+  	<div class="modal-footer">
+    	<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentFeatureProduct">Guardar</button>    
+  	</div>
+</div>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/suppliers-master.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/edit.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/edit.init.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/edit.bind.js"></script>

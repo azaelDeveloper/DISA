@@ -1,0 +1,23 @@
+backTitleUrl = "file:///android_asset/www/views/home/index.title.html";
+backBodyUrl = "file:///android_asset/www/views/home/index.html";
+getGuidUser();
+var viewModel;
+var synchronizeModel = [];
+var titleSurvey = [];
+var version = [];
+var arraySurveys = [];
+var idUpdateSurvey = [];
+var idSurveysWeb = [];
+var idQuestionsWeb = [];
+var idPosibleAnswers = [];
+var idTemporalQuestionsWeb = [];
+var queryPosibleAnswers = [];
+var date;
+var htmlBody = "";
+var completeModel;
+var htmlBody = "";
+$(function() {
+	db.transaction(queryDB, errorCB);
+});
+self.surveysMaster = ko.observableArray([]);
+$('#datetimepicker1').datetimepicker();

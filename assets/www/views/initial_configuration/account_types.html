@@ -1,0 +1,55 @@
+<form class="custom">
+	<div class="row">
+		<div class="span12">
+			<h2>
+				<a href="#">Paso 1</a>
+			</h2>
+			<h4 class="subheader">Tipo de cuenta.</h4>
+		</div>
+	</div>
+	<div id="selectAccountType" class="alert-box alert" style="display:none;">
+		Debes selecccionar un tipo de cuenta.
+	</div>
+	
+	<div class="row">
+		<div class="span12">
+			<div class="well">
+				<dl>
+					<dt>
+						<b><label for="admin" class="radio"><input name="accountType" type="radio"
+					id="admin"><b>ADMINISTRADOR</b></label></b>
+					</dt>
+					<dd>Selecciona esta opción si tu realizaras las actividades de
+						verificación y administración en la huerta.</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<div class="well">
+				<label for="adminchecker" class="radio"><input name="accountType"
+					type="radio" id="adminchecker"><b>ADMINISTRADOR Y
+							VERIFICADOR</b></label>
+
+				<dl>
+					<dt>
+						<b></b>
+					</dt>
+					<dd>Seleccione esta opción si un colaborador tuyo realizará
+						las actividades de verificación y tu las actividades
+						administrativas en la huerta.</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/initial_configuration/account_types.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/initial_configuration/account_types.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/initial_configuration/account_types.init.js"></script>

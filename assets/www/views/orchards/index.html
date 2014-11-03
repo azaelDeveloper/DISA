@@ -1,0 +1,52 @@
+<div class="page-header">
+<h2>Administración de Huertas</h2>
+<div style="text-align: center; background-color: #3a87ad;" id="Advice"><b></b></div>
+</div>
+
+<table id="noRecordsFound" class="table table-striped table-bordered"
+	style="display: none;">
+	<thead>
+		<tr>
+			<th>No hay huertas, agregue una por favor.</th>
+		</tr>
+	</thead>
+</table>
+<table data-bind='visible: orchardsMaster().length > 0'
+	class="table table-striped table-bordered" style="display: none;" width="100%">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Nombre de Huerta</th>
+			<th>Fecha</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody data-bind='foreach: orchardsMaster'>
+		<tr>
+			<td width="3%"><b data-bind="text: id" ></b></td>
+			<td data-bind="text: name" width="20%"></td>
+			<td data-bind="text: timestamp" width="10%"></td>
+			<td width="67%">
+				<div class="btn-group">
+					<button class="btn btn-primary" type="button"
+						data-bind="click: $root.selectOrchardMaster, id: id, uniqueName: true">
+						<small>Seleccionar</small>
+					</button>
+					<a class="btn btn-info" 
+						data-bind="click: $root.deleteOrchardMaster, id: id, uniqueName: true">
+						<small>Borrar</small>
+					</a>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orchards/index.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orchards/index.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orchards/index.init.js"></script>

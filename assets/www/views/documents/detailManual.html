@@ -1,0 +1,54 @@
+<section id="top">
+	<blockquote>
+  		<h2>Manual #<i id="manualNumber"></i></h2>
+  		<h3 id="manualTitle"></h3>
+	</blockquote>
+	<a href="#planButton">Ir a planes</a>
+</section>
+<br />
+<p id="manualHTML"></p>
+<br />
+<section id="planButton">
+<hr>
+<br />
+	<a href="javascript:window.scrollTo(0,0);">Ir arriba ↑</a>
+	<h3>Planes</h3>
+	<table id="noRecordsFound" class="table table-striped table-bordered" style="display: none;">
+		<thead>
+			<tr>
+				<th>Sin planes</th>
+			</tr>
+		</thead>
+	</table>
+	<table data-bind='visible: planArray().length > 0' 
+		class="table" style="display: none;">
+		<thead>
+			<tr>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody data-bind='foreach: planArray'>
+			<tr>
+				<td>
+					<div class="">
+						<button class="btn btn-default btn-lg btn-block" type="button"
+							data-bind="click: $root.detailDocumentPlan, id: id, uniqueName: true">
+							<i data-bind="text: number"></i>.<i data-bind="text: title"></i>(<i data-bind="text: code"></i>) V.<i data-bind="text: version"></i>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/documents/documents.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/documents/detailManual.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/documents/detailManual.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/documents/detailManual.init.js"></script>

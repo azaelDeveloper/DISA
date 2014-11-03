@@ -1,0 +1,1267 @@
+<blockquote>
+  <h2>REG-005: VERIFICACIÓN QUINCENAL DE LAS BUENAS PRÁCTICAS DE SEGURIDAD E HIGIENE EN LA UNIDAD DE PRODUCCIÓN</h2>
+  <h3 id="cleanMasterTitle"></h3>
+</blockquote>
+	<h3>1. Atuendo del personal</h3>
+	<p>Por favor de llenar todos los campos con sus respectivas respuestas <strong>es de suma importancia escribir correctamente y evitar la mala redacción</strong> coloque en los espacios correspondientes los datos que se le piden.</p>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="cleanMessage"></div></b>
+	<table id="grooming" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addGrooming"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: grooming">
+						<tr>
+							<th>Personal #<b data-bind="text: idGrooming"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoGrooming"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removeGrooming" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1.1 ¿Tiene reloj?</td>
+				<td data-bind="foreach: grooming"><br />Personal # <b data-bind="text: idGrooming"></b>				
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: watch, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.2 ¿Pulcera?</td>
+				<td data-bind="foreach: grooming"><br />Personal # <b data-bind="text: idGrooming"></b><br/>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: bracelet, optionsText: 'answerText'">
+					</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.3 ¿Anillos?</td>
+				<td data-bind="foreach: grooming"><br />Personal #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: ring, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.4 ¿Aretes?</td>
+				<td data-bind="foreach: grooming"><br />Personal # <b data-bind="text: idGrooming"></b><br/>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: earrings, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.5 ¿Pantalón largo?</td>
+				<td data-bind="foreach: grooming"><br />Personal #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: longPants, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.6 ¿Zapato cerrado?</td>
+				<td data-bind="foreach: grooming"><br />Personal #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: closeShoe, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.7 ¿Camisa con manga?</td>
+				<td data-bind="foreach: grooming"><br />Personal #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: shirt, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.8 ¿Ropa limpia?</td>
+				<td data-bind="foreach: grooming"><br />Personal #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: cleanClothes, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.9 ¿Pelo corto?</td>
+				<td data-bind="foreach: grooming"><br />Personal #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: shortHair, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.10 ¿Se baña todos los días?</td>
+				<td data-bind="foreach: grooming"><br />Personal #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: bath, optionsText: 'answerText'">
+						</select>
+				<br />						
+					<a href="#ModalGrooming" class="btn btn-primary" data-bind="click: $root.getComments, comments : comments, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+				
+	<h4>Fotos de Atuendo de Personal</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Atuendo #</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: grooming">
+			<td width="10%"><b data-bind="text: idGrooming"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageGrooming}"></td>
+		</tbody>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<h3>2. Seguridad de Trabajadores</h3>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="safetyMessage"></div></b>
+	<table id="safety" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addSafety"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: safety">
+						<tr>
+							<th>Persona #<b data-bind="text: idSafety"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoSafety"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removeSafety" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>2.1 ¿Tiene reloj?</td>
+				<td data-bind="foreach: safety"><br />Persona # <b data-bind="text: idGrooming"></b>				
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: watch, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>2.2 ¿Pulcera?</td>
+				<td data-bind="foreach: safety"><br />Persona # <b data-bind="text: idGrooming"></b><br/>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: bracelet, optionsText: 'answerText'">
+					</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>2.3 ¿Anillos?</td>
+				<td data-bind="foreach: safety"><br />Persona #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: ring, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>2.4 ¿Aretes?</td>
+				<td data-bind="foreach: safety"><br />Persona # <b data-bind="text: idGrooming"></b><br/>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: earrings, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>2.5 ¿Pantalón largo?</td>
+				<td data-bind="foreach: safety"><br />Persona #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: longPants, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>2.6 ¿Zapato cerrado?</td>
+				<td data-bind="foreach: safety"><br />Persona #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: closeShoe, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.7 ¿Camisa con manga?</td>
+				<td data-bind="foreach: safety"><br />Persona #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: shirt, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.8 ¿Ropa limpia?</td>
+				<td data-bind="foreach: safety"><br />Persona #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: cleanClothes, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.9 ¿Pelo corto?</td>
+				<td data-bind="foreach: safety"><br />Persona #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: shortHair, optionsText: 'answerText'">
+						</select>
+				<br />									
+				</td>
+			</tr>
+			<tr>
+				<td>1.10 ¿Se baña todos los días?</td>
+				<td data-bind="foreach: safety"><br />Persona #<b data-bind="text: idGrooming"></b>
+				<br/><select class="span2"
+						data-bind="options: $root.groomingAnswers, value: bath, optionsText: 'answerText'">
+						</select>
+				<br />						
+					<a href="#ModalGrooming" class="btn btn-primary" data-bind="click: $root.getComments, comments : comments, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+				
+	<h4>Fotos de Seguridad de Trabajadores</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Foto de equipo de seguridad</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: safety">
+			<td width="10%"><b data-bind="text: idSafety"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageSafety}"></td>
+		</tbody>
+	</table>
+<!--
+
+
+
+<h4>3 Tabla de Pestes</h4>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="pestsMessage"></div></b>
+	<table id="pests" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addPests"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: pests">
+						<tr>
+							<th>Plaga #<b data-bind="text: idPest"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoPests"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removePest" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>3.1 Sector</td>
+				<td data-bind="foreach: pests"><br />Plaga # <b data-bind="text: idPest"></b><br/><input type="text" class="span4"
+						data-bind="value: sector" placeholder="Sector dónde se econtró...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>3.2 Plaga identificada</td>
+				<td data-bind="foreach: pests"><br />Plaga # <b data-bind="text: idPest"></b><br/><input type="text" class="span4"
+						data-bind="value: pest" placeholder="Nombre de plaga identificada...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>3.3 Nivel de daño (Incidencias-Plagas) </td>
+				<td data-bind="foreach: pests"><br />Plaga # <b data-bind="text: idPest"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswersPests, value: damage, optionsText: 'answerText'">
+						</select>
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>3.4 ¿Presencia de enemigos naturales?(Plagas)</td>
+				<td data-bind="foreach: pests"><br />Plaga # <b data-bind="text: idPest"></b><br/><input type="checkbox"
+						data-bind="checked: enemies">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td>3.5 ¿Se justifica control?(Plagas)</td>
+				<td data-bind="foreach: pests"><br />Plaga # <b data-bind="text: idPest"></b><br/><input type="checkbox" 
+						data-bind="checked: justification">											
+				<br />
+				<a href="#ModalPests" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPest, comment : comment, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+				
+	<h4>Fotos de Plagas</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Plaga</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: pests">
+			<td width="10%"><b data-bind="text: idPest"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImagePests}"></td>
+		</tbody>
+	</table>
+	<div id="ModalPests" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel4">Comentarios de plaga # <b id="idPest"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Comentarios</h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentPest"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentPest">Guardar</button>    
+  </div>
+</div>
+
+
+
+
+<h4>4 Tabla de Enfermedades</h4>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="pestsMessage"></div></b>
+	<table id="pests" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addDisease"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: diseases">
+						<tr>
+							<th>Enfermedad #<b data-bind="text: idDisease"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoDisease"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removeDisease" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>4.1 Sector</td>
+				<td data-bind="foreach: diseases"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><input type="text" class="span4"
+						data-bind="value: sector" placeholder="Sector dónde se econtró...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>4.2 Enfermedad identificada</td>
+				<td data-bind="foreach: diseases"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><input type="text" class="span4"
+						data-bind="value: name" placeholder="Nombre de plaga identificada...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>4.3 Nivel de daño (Severidad-Enfermedades) </td>
+				<td data-bind="foreach: diseases"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswersDisease, value: damage, optionsText: 'answerText'">
+						</select>
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>4.4 ¿Presencia de enemigos naturales?(Enfermedades)</td>
+				<td data-bind="foreach: diseases"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><input type="checkbox"
+						data-bind="checked: enemies">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td>4.5 ¿Se justifica control?(Enfermedades)</td>
+				<td data-bind="foreach: diseases"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><input type="checkbox" 
+						data-bind="checked: justification">											
+				<br />
+				<a href="#ModalDisease" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentDisease, comment : comment, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4>Fotos de Enfermedades</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Enfermedad</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: diseases">
+			<td width="10%"><b data-bind="text: idDisease"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageDisease}"></td>
+		</tbody>
+	</table>
+<div id="ModalDisease" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel4">Comentarios de enfermedades # <b id="idDisease"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Comentarios</h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentDisease"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentDisease">Guardar</button>    
+  </div>
+</div>
+
+
+
+
+
+
+	<h4>5 Tabla de Malezas</h4>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="pestsMessage"></div></b>
+	<table id="pests" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addBush"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: bushes">
+						<tr>
+							<th>Maleza #<b data-bind="text: idBush"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoBush"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removeBush" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>5.1 Sector</td>
+				<td data-bind="foreach: bushes"><br />Maleza # <b data-bind="text: idBush"></b><br/><input type="text" class="span4"
+						data-bind="value: sector" placeholder="Sector dónde se econtró...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>5.2 Maleza identificada</td>
+				<td data-bind="foreach: bushes"><br />Maleza # <b data-bind="text: idBush"></b><br/><input type="text" class="span4"
+						data-bind="value: name" placeholder="Nombre de plaga identificada...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>5.3 Nivel de daño (Severidad-Maleza) </td>
+				<td data-bind="foreach: bushes"><br />Maleza # <b data-bind="text: idBush"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswersBushes, value: damage, optionsText: 'answerText'">
+						</select>
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>5.4 ¿Presencia de enemigos naturales?(Maleza)</td>
+				<td data-bind="foreach: bushes"><br />Maleza # <b data-bind="text: idBush"></b><br/><input type="checkbox"
+						data-bind="checked: enemies">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td>5.5 ¿Se justifica control?(Maleza)</td>
+				<td data-bind="foreach: bushes"><br />Maleza # <b data-bind="text: idBush"></b><br/><input type="checkbox" 
+						data-bind="checked: justification">											
+				<br />
+				<a href="#ModalBushes" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentBush, comment : comment, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4>Fotos de Enfermedades</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Malezas</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: bushes">
+			<td width="10%"><b data-bind="text: idBush"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageBush}"></td>
+		</tbody>
+	</table>
+<div id="ModalBushes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel4">Comentarios de malezas # <b id="idBush"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Comentarios</h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentBush"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentBush">Guardar</button>    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="table table-striped table-bordered hidden-phone visible-tablet visible-desktop" width="100%">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Sustancia Contaminante</th>
+				<th>Fuente</th>
+				<th>Destruir</th>
+				<th>Reducir</th>
+				<th>Reciclar</th>
+				<th>Plan</th>
+				<th>Comentarios</th>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: addContaminants"><i class="icon-plus-sign icon-white"></i></button></th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: contaminants">
+			<tr>
+				<td width="5%"><b data-bind="text: idContaminants"></b></td>
+				<td width="15%"><input class="span2" type="text" data-bind="value: product"></td>		
+				<td width="30%"><textarea placeholder="Fuente..." class="span2" data-bind="value: source"></textarea></td>		
+				<td width="5%">Destruir</br><select class="span1" data-bind="options: $root.availableAnswers, value: answerDestroy, optionsText: 'answerText'"></select></td>
+				<td width="5%">Reducir</br><select class="span1" data-bind="options: $root.availableAnswers, value: answerReduce, optionsText: 'answerText'"></select></td>
+				<td width="5%">Reciclar</br><select class="span1" data-bind="options: $root.availableAnswers, value: answerRecicle, optionsText: 'answerText'"></select></td>
+				<td width="25%"><textarea placeholder="Plan..." class="span2" data-bind="value: plan"></textarea></td>
+				<td width="10%">
+					<a href="#ModalContaminants" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentContaminats, comments : comments, uniqueName: true"><i class="icon-comment icon-white"></i></a>
+				</td>					
+				<td width="5%"><button type="button" data-bind="click: $root.removeContaminant" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table table-striped table-bordered visible-phone hidden-tablet hidden-desktop">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Datos</th>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addContaminants"><i class="icon-plus-sign icon-white"></i></button></th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: contaminants">
+			<tr>
+				<td><b data-bind="text: idContaminants"></b></td>
+				<td>Sustancia Contaminante</br><input type="text" class="input-medium" data-bind="value: product"></br>
+				<label>Fuente</label></br><textarea placeholder="Fuente..." class="span3" class="input-medium" data-bind="value: source"></textarea></br>
+				<label>Destruir</label><select class="span2" data-bind="options: $root.availableAnswers, value: answerDestroy, optionsText: 'answerText'"></select></br>
+				<label>Reducir</label><select class="span2" data-bind="options: $root.availableAnswers, value: answerReduce, optionsText: 'answerText'"></select></br>
+				<label>Reciclar</label><select class="span2" data-bind="options: $root.availableAnswers, value: answerRecicle, optionsText: 'answerText'"></select></br>
+				<label>Plan</label></br><textarea placeholder="Plan..." type="text" class="input-medium" data-bind="value: plan"></textarea></div></br>
+				<label>Comentarios</label></br><textarea placeholder="Comentarios..." class="span2" type="text" data-bind="value: comments"></textarea></td>		
+				<td><button type="button" data-bind="click: $root.removeContaminant" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h4>1.2 Monitoreo de plagas y organismos benéficos</h4>
+
+	<table class="table table-striped table-bordered hidden-phone visible-tablet visible-desktop" width="100%">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Plaga Encontrada</th>
+				<th>Población</th>
+				<th>Organismos Beneficos</th>
+				<th>Población</th>
+				<th>Comentarios</th>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addPests"><i class="icon-plus-sign icon-white"></i></button></th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: pests">
+			<tr >
+				<td width="5%"><b data-bind="text: idPests"></b></td>
+				<td width="15%"><input class="input-mini" type="text" data-bind="value: pest"></td>		
+				<td width="15%"><input class="input-mini" type="number" data-bind="value: poblation"></td>		
+				<td width="15%"><input class="input-mini" type="text" data-bind="value: agencies"></td>
+				<td width="15%"><input class="input-mini" type="number" data-bind="value: poblation2"></td>	
+				<td width="30%"><textarea placeholder="Comentarios..." class="span3" type="text" data-bind="value: comments"></textarea></td>				
+				<td width="5%"><button type="button" data-bind="click: $root.removePest" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></td>
+			</tr>			
+		</tbody>		
+	</table>
+	
+	<table class="table table-striped table-bordered visible-phone hidden-tablet hidden-desktop" width="100%">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Datos</th>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addPests"><i class="icon-plus-sign icon-white"></i></button></th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: pests">
+			<tr >
+				<td width="5%"><b data-bind="text: idPests"></b></td>
+				<td width="90%"><label>Plaga Encontrada</label></br><input type="text" class="input-medium" data-bind="value: pest"></br>
+				<label>Población</label></br><input type="number" class="input-medium" data-bind="value: poblation"></br>		
+				<label>Organismos Beneficos</label></br><input type="text" class="input-medium" data-bind="value: agencies"></br>
+				<label>Población</label></br><input type="number" class="input-medium" data-bind="value: poblation2"></br>		
+				<label>Comentarios</label></br><textarea placeholder="Comentarios..." class="span2" type="text" data-bind="value: comments"></textarea></td>	
+				<td width="5%"><button type="button" data-bind="click: $root.removePest" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></td>
+			</tr>			
+		</tbody>		
+	</table>	
+	
+	<table class="table table-striped table-bordered" data-bind="visible: pests().length > 0">
+		<tr>
+			<th>Promedio de Población de Plagas</th>
+			<td><b data-bind="text: $root.averagePests().toFixed(2)"></b></td>
+		</tr>
+		<tr>
+			<th>Promedio de Población de Organismos Beneficos</th>
+			<td><b data-bind="text: $root.averageAgencies().toFixed(2)"></b></td>
+		</tr>
+	</table>
+
+	<h4>1.3 Cercado Perimetral y Linderos</h4>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="fencesMessage"></div></b>
+	<table id="fences" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addFences"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: fences">
+						<tr>
+							<th>Cercado #<b data-bind="text: idFence"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoFences"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removeFence" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>¿Se encontraron zonas caídas?</td>
+				<td data-bind="foreach: fences"><br />Cercado <b data-bind="text: idFence"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: answerFences1, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalFence" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFence1, comment1 : comment1, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Se encontraron zonas abiertas ó con fácil acceso a animales salvajes o plagas urbanas?</td>
+				<td data-bind="foreach: fences"><br />Cercado <b data-bind="text: idFence"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: answerFences2, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalFence" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFence2, comment2 : comment2, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Se ubicó desprendimiento de alambre de púas en los postes?</td>
+				<td data-bind="foreach: fences"><br />Cercado <b data-bind="text: idFence"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: answerFences3, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalFence" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFence3, comment3 : comment3, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Los falsetes se encontraron abiertos ó caídos?</td>
+				<td data-bind="foreach: fences"><br />Cercado <b data-bind="text: idFence"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: answerFences4, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalFence" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentFence4, comment4 : comment4, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+				
+	<h4>Fotos de Cercado Perimetral y Linderos</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Cercado</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: fences">
+			<td width="10%"><b data-bind="text: idFence"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageFences}"></td>
+		</tbody>
+	</table>
+
+	<h4>1.4 Lámparas de las Instalaciones</h4>
+
+	<b><div style="text-align: center; background-color: #3a87ad;" id="lampMessage"></div></b>
+		<table id="lamps" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary" data-bind="click: $root.addLamps"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: lamps">
+						<tr>
+							<th>Lámpara #<b data-bind="text: idLamp"></b></span>
+							</th>
+						<th>
+							<button type="button" class="btn btn-primary"
+							data-bind="click: $root.takePhotoLamp"><i class="icon-camera icon-white"></i></button>
+						</th>
+							<th><button type="button" data-bind="click: $root.removeLamp" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>¿Se identificaron lámparas fuera de funcionamiento?</td>
+				<td data-bind="foreach: lamps"><br />Lámpara <b data-bind="text: idLamp"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: answerLamp1, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalLamp" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentLamp5, comment5 : comment5, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Se encontraron lámparas sin protección en caso de estallar el foco?</td>
+				<td data-bind="foreach: lamps"><br />Lámpara <b data-bind="text: idLamp"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: answerLamp2, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalLamp" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentLamp6, comment6 : comment6, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿El cableado se encontró en mal estado, con riesgo de generarse un corto circuito o chispa?</td>
+				<td data-bind="foreach: lamps"><br />Lámpara <b data-bind="text: idLamp"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: answerLamp3, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalLamp" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentLamp7, comment7 : comment7, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Los apagadores están en mal estado ó con problemas para realizar su función?</td>
+				<td data-bind="foreach: lamps"><br />Lámpara <b data-bind="text: idLamp"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: answerLamp4, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalLamp" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentLamp8, comment8 : comment8, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>			
+			
+	<h4>Fotos de Lámparas de las Instalaciones</h4>
+
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Cercado</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: lamps">
+			<td width="10%"><b data-bind="text: idLamp"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageLamps}"></td>
+		</tbody>
+	</table>
+
+	<h4>1.5 Estación Meteorológica</h4>
+
+	<b><div style="text-align: center; background-color: #3a87ad;" id="weathMessage"></div></b>
+
+	<table id="weather" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addWeathers"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: weathers">
+						<tr>
+							<th>Estación #<b data-bind="text: idWeather"></b></span>
+							</th>
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoWeather"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removeWeather" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>¿Se encontraron cables flojos en la torre de soporte de la estación?</td>
+				<td data-bind="foreach: weathers"><br />Estación <b data-bind="text: idWeather"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: weatherAnswer1, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalWeather" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentWeather9, comment9 : comment9, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿El panel se encuentra sucio ó fracturado?</td>
+				<td data-bind="foreach: weathers"><br />Estación <b data-bind="text: idWeather"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: weatherAnswer2, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalWeather" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentWeather10, comment10 : comment10, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿La torre está a desplomo y en mala posición?</td>
+				<td data-bind="foreach: weathers"><br />Estación <b data-bind="text: idWeather"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: weatherAnswer3, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalWeather" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentWeather11, comment11 : comment11, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Se notó un mal estado de sensores y cableado?</td>
+				<td data-bind="foreach: weathers"><br />Estación <b data-bind="text: idWeather"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: weatherAnswer4, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalWeather" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentWeather12, comment12 : comment12, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>			
+
+	<h4>Fotos de Estación Meteorológica</h4>
+
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Estación Meteorológica</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: weathers">
+			<td width="10%"><b data-bind="text: idWeather"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageWeather}"></td>
+		</tbody>
+	</table>
+
+	<h4>1.6 Tubería de Agua</h4>
+
+	<b><div style="text-align: center; background-color: #3a87ad;" id="pipeMessage"></div></b>
+
+	<table id="pipes" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addPipes"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: pipes">
+						<tr>
+							<th>Tubería <b data-bind="text: idPipe"></b></span>
+							</th>
+
+							<td>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoPipe"><i class="icon-camera icon-white"></i></button>
+							</td>
+							<th><button type="button" data-bind="click: $root.removePipe" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>¿Se encontraron fugas a lo largo del tubo?</td>
+				<td data-bind="foreach: pipes"><br />Tubería <b data-bind="text: idPipe"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: pipeAnswer1, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalPipe" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPipe13, comment13 : comment13, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>¿Las válvulas de aire se encuentran en mal estado?</td>
+				<td data-bind="foreach: pipes"><br />Tubería <b data-bind="text: idPipe"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: pipeAnswer2, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalPipe" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPipe14, comment14 : comment14, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>¿Las llaves de paso tienen fugas o se encuentran sueltas?</td>
+				<td data-bind="foreach: pipes"><br />Tubería <b data-bind="text: idPipe"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: pipeAnswer3, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalPipe" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPipe15, comment15 : comment15, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>¿Las uniones ó bridas presentan goteos de agua?</td>
+				<td data-bind="foreach: pipes"><br />Tubería <b data-bind="text: idPipe"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: pipeAnswer4, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalPipe" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPipe16, comment16 : comment16, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	
+	<h4>Fotos de Tubería de Agua</h4>
+
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Bomba</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: pipes">
+			<td width="10%"><b data-bind="text: idPipe"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImagePipe}"></td>
+		</tbody>
+	</table>
+
+	<h4>1.7 Bombas de Agua</h4>
+
+	<b><div style="text-align: center; background-color: #3a87ad;" id="pumpMessage"></div></b>
+
+	<table id="pumps" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addPumps"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: pumps">
+						<tr>
+							<th>Bomba #<b data-bind="text: idPump"></b></span>
+							</th>
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoPump"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removePump" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<td>¿El área alrededor de las bombas se encuentra llena de maleza y objetos varios?</td>
+				<td data-bind="foreach: pumps"><br />Bomba <b data-bind="text: idPump"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: pumpAnswer1, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalPump" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPump17, comment17 : comment17, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Las bombas se encuentran despintandas y con la pintura descascarada?</td>
+				<td data-bind="foreach: pumps"><br />Bomba <b data-bind="text: idPump"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: pumpAnswer2, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalPump" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPump18, comment18 : comment18, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Se observan los cables expuestos?</td>
+				<td data-bind="foreach: pumps"><br />Bomba <b data-bind="text: idPump"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: pumpAnswer3, optionsText: 'answerText'">
+						</select>
+						<br />
+					<a href="#ModalPump" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPump19, comment19 : comment19, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Se observan fugas de aceite y derrames importantes?</td>
+				<td data-bind="foreach: pumps"><br />Bomba <b data-bind="text: idPump"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: pumpAnswer4, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalPump" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPump20, comment20 : comment20, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>¿Los niveles de aceite en los contenedores son los adecuados?</td>
+				<td data-bind="foreach: pumps"><br />Bomba <b data-bind="text: idPump"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswers, value: pumpAnswer5, optionsText: 'answerText'">
+						</select>
+					<br />
+					<a href="#ModalPump" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPump21, comment21 : comment21, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+<h4>Fotos de Bombas de Agua</h4>
+
+<table class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>Número de Bomba</th>
+			<th>Foto</th>
+		</tr>
+	<tbody data-bind="foreach: pumps">
+		<td width="10%"><b data-bind="text: idPump"></b></td>
+		<td width="90%"><img data-bind="attr: {id: idImagePump}"></td>
+	</tbody>
+</table>
+
+<div id="ModalContaminants" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel0" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove-sign"></i></button>
+    <h3 id="myModalLabel0">Comentarios de Contaminante # <b id="idContaminants"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>    	
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsContaminants"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentContaminants">Guardar</button>    
+  </div>
+</div>
+
+<div id="ModalFence" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel1">Comentarios de cercados # <b id="idFence"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Pregunta #<b id="idQuestion1"></b></h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsFence"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentFence">Guardar</button>    
+  </div>
+</div>
+
+<div id="ModalLamp" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel2">Comentarios de lámparas # <b id="idLamp"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Pregunta #<b id="idQuestion2"></b></h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsLamp"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentLamp">Guardar</button>    
+  </div>
+</div>
+
+<div id="ModalWeather" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel3">Comentarios de estacíon meteorológicas # <b id="idWeather"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Pregunta #<b id="idQuestion3"></b></h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsWeather"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentWeather">Guardar</button>    
+  </div>
+</div>
+
+<div id="ModalPipe" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel4">Comentarios de la tubería de agua # <b id="idPipe"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Pregunta #<b id="idQuestion4"></b></h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsPipe"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentPipe">Guardar</button>    
+  </div>
+</div>
+
+<div id="ModalPump" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel5">Comentarios de bomba de agua # <b id="idPump"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Pregunta #<b id="idQuestion5"></b></h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsPump"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentPump">Guardar</button>    
+  </div>
+</div>
+
+-->
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/safety/clean/save.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/safety/clean/save.init.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/safety/clean/save.bind.js"></script>

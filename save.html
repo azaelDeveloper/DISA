@@ -1,0 +1,281 @@
+<blockquote>
+  <h2>Master diario</h2>
+  <h3 id="dailyMasterTitle"></h3>
+</blockquote>
+<form action="#" method="post" id="Formulary" class="custom">
+	<h3>1. ELABORACIÓN DEL PRODUCTO DESINFECTANTE.</h3>
+	
+	<h4>1.1 Datos de los desinfectantes</h4>
+	<table id="disinfectants" class="table table-striped table-bordered hidden-phone visible-tablet visible-desktop" width="100%">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nombre del desinfectante</th>
+				<th>pH del Agua</th>
+				<th>Concentración</th>
+				<th>Unidad</th>				
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: addDisinfectant">+</button></th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: disinfectants">
+			<tr>
+				<td width="3%"><b data-bind="text: id"></b></td>
+				<td width="30%"><input type="text" data-bind="value: name"></td>
+				<td width="15%"><input class="input-mini" type="number" name="row1col1" id="row1col2"
+					data-bind="value: ph"></td>
+				<td width="15%"><input class="input-mini" type="number" name="row1col1" id="row1col3"
+					data-bind="value: concentration"></td>
+				<td width="20%"><select class="span2" data-bind="options: $root.decinfectantsMeasures, value: unid, optionsText: 'Measure'"></select></td>
+				<td width="5%">
+					<button type="button" class="btn btn-primary"><i class="icon-camera icon-white"></i></button>
+				</td>							
+				</td>
+				<td width="5%"><button type="button" class="btn btn-danger"
+						data-bind="click: $root.removeDisinfectant">x</button></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<!--Phone version responsive-->
+	<table id="disinfectants" class="table table-striped table-bordered visible-phone hidden-tablet hidden-desktop" width="100%">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Datos</th>				
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: addDisinfectant">+</button></th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: disinfectants">
+			<tr>
+				<td width="3%"><b data-bind="text: id"></b></td>
+				<td width="80%"><label>Nombre del desinfectante</label></br><input class="input-large" type="text" data-bind="value: name"></br>
+				<label>pH del Agua</label></br><input class="input-mini" type="number" name="row1col1" id="row1col2"
+					data-bind="value: ph"></br>
+				<label>Concentración</label></br><input class="input-mini" type="number" name="row1col1" id="row1col3"
+					data-bind="value: concentration"></br>
+				<label>Unidad</label></br><select class="span2" data-bind="options: $root.decinfectantsMeasures, value: unid, optionsText: 'Measure'"></select></td>						
+				<td></td>
+				<td width="5%">
+					<button type="button" class="btn btn-primary"
+						><i class="icon-camera icon-white"></i></button>
+				</td>
+				<td width="5%"><button type="button" class="btn btn-danger"
+						data-bind="click: $root.removeDisinfectant">x</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<!--Ends phone version responsive-->
+	
+	<h3>2. INSPECCIÓN DE LAS INSTALACIONES.</h3>
+	<p>Conteste “si” ó “no” según corresponda en la inspección
+		realizada.</p>
+
+	<h4>2.1 BAÑOS.</h4>
+
+	<table id="restrooms" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<td bgcolor="#eee" colspan="6">Número de Baño</td>
+				<td rowspan="6"><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addRestroom">+</button></td>
+			</tr>
+			<tr>
+				<td bgcolor="#eee"></td>
+				<td bgcolor="#fff" colspan="5">¿Están limpios y desinfectados
+					el piso, paredes y techos?</td>
+			</tr>
+			<tr>
+				<td bgcolor="#eee"></td>
+				<td bgcolor="#fff"></td>
+				<td colspan="4" bgcolor="#eee">¿Los depósitos de basura están
+					limpios y vacíos?</td>
+			</tr>
+			<tr>
+				<td bgcolor="#eee"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#eee"></td>
+				<td colspan="3" bgcolor="#fff">¿Hay toallas para manos y papel
+					sanitario?</td>
+			</tr>
+			<tr>
+				<td bgcolo%r="#eee"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#eee"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#eee" colspan="2">¿El depósito de Jabón está lleno?</td>
+			</tr>			
+			<tr>
+				<td bgcolor="#eee"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#eee"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#eee"></td>
+				<td bgcolor="#fff">¿Hay agua potable?</td>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: restrooms">
+			<tr>
+				<td width="3%"><b data-bind="text: restroomRow"></b></td>
+				<td width="15%"><select class="span1"
+							data-bind="options: $root.availableAnswers, value: answerVal1, optionsText: 'answerText'">
+						</select></td>
+				<td width="15%"><select class="span1"
+							data-bind="options: $root.availableAnswers, value: answerVal2, optionsText: 'answerText'">
+						</select></td>
+				<td width="15%"><select class="span1"
+							data-bind="options: $root.availableAnswers, value: answerVal3, optionsText: 'answerText'">
+						</select></td>
+				<td width="15%"><select class="span1"
+							data-bind="options: $root.availableAnswers, value: answerVal4, optionsText: 'answerText'">
+						</select></td>		
+				<td width="15%"><select class="span1"
+							data-bind="options: $root.availableAnswers, value: answerVal5, optionsText: 'answerText'">
+						</select></td>				
+				<td class="centered" width="5%"><button type="button" class="btn btn-primary" data-bind="click: $root.takePhotoRestroom"><i class="icon-camera icon-white"></i></button></td>
+				<td class="centered" width="5%"><button type="button" data-bind="click: $root.removeRestroom" class="btn btn-danger">x</button></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h4>Fotos de baños</h4>
+	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th style="vertical-align: center;">Número de Baño</th>
+				<th style="vertical-align: center;">Foto</th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: restrooms">
+			<tr>
+				<td width="10%"><b data-bind="text: restroomRow"></td>				
+				<td width="90%"><img data-bind="attr: {id: idImageRestroom}"/> </td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h4>2.2 Comedores.</h4>
+
+	<table class="table table-striped table-bordered" id="canteens"  width="100%">
+		<thead>
+			<tr>
+				<td bgcolor="#ddd" colspan="7">Número de comedor</td>
+				<td rowspan="7"><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addCanteen">+</button></td>
+			</tr>
+			<tr>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff" colspan="6">¿Están limpios y desinfectados
+					el piso, paredes y techos?</TD>
+			</tr>
+			<tr>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff"></td>
+				<td colspan="5" bgcolor="#ddd">¿Los depósitos de basura están
+					limpios vacíos?</td>
+			</tr>
+			<tr>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#ddd"></td>
+				<td colspan="4" bgcolor="#fff">¿Hay toallas/servilletas para
+					manos?</td>
+			</tr>
+			<tr>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff"></td>
+				<td colspan="3" bgcolor="#ddd">¿El mobiliario y lockers están
+					limpios y ordenados?</td>
+			</tr>
+			<tr>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff" colspan="2">¿Hay agua para beber y vasos
+					desechables?</td>
+			</tr>
+
+			<tr>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#ddd"></td>
+				<td bgcolor="#fff"></td>
+				<td bgcolor="#ddd">¿La tarja para lavar trastes
+					está limpia y ordenada?</td>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: canteens">
+			<tr>
+				<td width="3%"><b data-bind="text: canteenRow"></b></td>
+				<td width="11.1%">
+					<select class="span1"
+						data-bind="options: $root.availableAnswers, value: answerVal6, optionsText: 'answerText'">
+					</select>
+				</td>
+				<td width="11.1%">
+					<select class="span1"
+						data-bind="options: $root.availableAnswers, value: answerVal7, optionsText: 'answerText'">
+					</select>
+				</td>
+				<td width="11.1%">
+					<select class="span1"
+						data-bind="options: $root.availableAnswers, value: answerVal8, optionsText: 'answerText'">
+					</select>
+				</td>
+				<td width="11.1%">
+						<select class="span1"
+							data-bind="options: $root.availableAnswers, value: answerVal9, optionsText: 'answerText'">
+						</select>
+				</td>
+
+				<td width="11.1%">
+						<select class="span1"
+							data-bind="options: $root.availableAnswers, value: answerVal10, optionsText: 'answerText'">
+						</select>
+				</td>
+
+				<td width="11.1%">
+						<select class="span1"
+							data-bind="options: $root.availableAnswers, value: answerVal11, optionsText: 'answerText'">
+						</select>
+				</td>
+				<td class="centered" width="5%"><button type="button" class="btn btn-primary"
+						data-bind="click: $root.takePhotoCan"><i class="icon-camera icon-white"></i></button></td>
+				<td class="centered" width="5%"><button type="button"
+						data-bind="click: $root.removeCanteen" class="btn btn-danger">x</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<h4>Fotos de  Comedores</h4>
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th style="vertical-align: center;">Número de comedor</th>
+				<th style="vertical-align: center;">Foto</i></th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: canteens">
+			<tr>
+				<td width="10%"><b data-bind="text: canteenRow"></b></td>								
+				<td width="90%"><img data-bind="attr: {id: idImageCanteen}"/> </td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/daily_master/daily-master.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/daily_master/save.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/daily_master/save.init.js"></script>

@@ -1,0 +1,376 @@
+<h2 id="pesticidesMasterTitle"></h2>
+<h3>APLICACIÓN DE PLAGUICIDAS</h3>
+<p>Por favor de llenar todos los campos con sus respectivas respuestas <strong>es de suma importancia escribir correctamente y evitar la mala redacción</strong> coloque en los espacios correspondientes los datos que se le piden.</p>	
+<h4>1 Información del área.</h4>
+<div data-bind="foreach: informationAreasArray">
+	<b>1.1 Cultivo</b><br />
+	<input class="span4" type="text" data-bind="value: crop" placeholder="Cultivo..." /><br />
+	<b>1.2 Fecha de Aplicación</b><br />
+	<div class="input-append date">
+		<input name="datePicker" data-format="yyyy-MM-dd" class="span4" data-bind="value: dateApplication" type="text" placeholder="Fecha de aplicación..." readonly />
+		<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+	</div><br />
+	<b>1.3 Superficie</b><br />
+	<input class="span4" type="text" data-bind="value: surface" placeholder="Superficie..." /><br />
+	<b>1.4 Localización</b><br />
+	<input class="span4" type="text" data-bind="value: location" placeholder="Localización..." /><br />
+	<b>1.5 Productor </b><br />
+	<input class="span4" type="text" data-bind="value: producer" placeholder="Productor ..." /> <br />
+	<b>1.6 Unidad de Producción/Zona de Aplicación</b><br />
+	<input class="span4" type="text" data-bind="value: productoUnit" placeholder="Unidad de producción / Zona de aplicación..." /> <br />
+</div>
+<h4>2 Registro del producto.</h4>
+<b><div style="text-align: center; background-color: #3a87ad;" id="productRegistrationMessage"></div></b>
+<table id="productRegistration" class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>
+				<button type="button" class="btn btn-primary" data-bind="click: $root.addProductRegistration"><i class="icon-plus-sign icon-white"></i></button>
+			</th>
+			<th>
+				<table data-bind="foreach: productsRegistrationArray">
+					<tr>
+						<th>Registro #<b data-bind="text: idProductRegistration"></b>
+						</th>
+						<th>
+							<button type="button" class="btn btn-primary" data-bind="click: $root.takePhotoProductRegistration"><i class="icon-camera icon-white"></i></button>
+						</th>
+						<th>
+							<button type="button" data-bind="click: $root.removeProductRegistration" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button>
+						</th>							
+					</tr>
+				</table>
+			</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>2.1 Producto</td>
+			<td data-bind="foreach: productsRegistrationArray">
+				Registro #<b data-bind="text: idProductRegistration"></b><br />
+				<input class="span4" data-bind="value: product" type="text" placeholder="Producto..." />
+				<br />
+				<!--<a href="#ModalProductRegistration" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentProductRegistration1, comment1 : comment1, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>2.2 Ingrediente Activo</td>
+			<td data-bind="foreach: productsRegistrationArray">
+				Registro #<b data-bind="text: idProductRegistration"></b><br />
+				<input class="span4" data-bind="value: activeIngredient" type="text" placeholder="Ingrediente Activo..." />
+				<br />
+				<!--<a href="#ModalProductRegistration" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentProductRegistration2, comment2 : comment2, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>2.3 Dósis en 2000 LT de agua</td>
+			<td data-bind="foreach: productsRegistrationArray">
+				Registro #<b data-bind="text: idProductRegistration"></b><br />
+				<input class="span4" data-bind="value: doseWater" type="text" placeholder="Dósis en 2000 LT de agua..." />
+				<br />
+				<!--<a href="#ModalProductRegistration" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentProductRegistration3, comment3 : comment3, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>2.4 Días de cocecha</td>
+			<td data-bind="foreach: productsRegistrationArray">
+				Registro #<b data-bind="text: idProductRegistration"></b><br />
+				<input class="span4" data-bind="value: cropDay" type="text" placeholder="Días de cocecha..." />
+				<br />
+				<!--<a href="#ModalProductRegistration" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentProductRegistration4, comment4 : comment4, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>2.5 Periodo de re-entrada</td>
+			<td data-bind="foreach: productsRegistrationArray">
+				Registro #<b data-bind="text: idProductRegistration"></b><br />
+				<input class="span4" data-bind="value: periodReEntry" type="text" placeholder="Periodo de re-entrada..." />
+				<br />
+				<a href="#ModalProductRegistration" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentProductRegistration5, comment5 : comment5, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />
+			</td>
+		</tr>		
+	</tbody>
+</table>
+
+<h4>Fotos de Registro del producto</h4>	
+<table class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>Registro</th>
+			<th>Foto</th>
+		</tr>
+	<tbody data-bind="foreach: productsRegistrationArray">
+		<td width="10%"><b data-bind="text: idProductRegistration"></b></td>
+		<td width="90%"><img data-bind="attr: {id: idImageProductRegistration}"></td>
+	</tbody>
+</table>
+
+<div id="ModalProductRegistration" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" >
+	<div class="modal-header">
+   		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+   		<h3 id="myModalLabel2">Comentarios de registro del producto # <b id="idProductRegistration"></b></h3>
+	</div>
+	<div class="modal-body">
+   		<p>
+   			<!--<h3>De la pregunta #<b id="idQuestion1"></b></h3>-->
+   			<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsProductRegistration"></textarea>
+   		</p>
+	</div>
+	<div class="modal-footer">
+   		<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentProductRegistration">Guardar</button>    
+	</div>
+</div>
+
+<h4>3 Evaluación de calidad del producto.</h4>
+<b><div style="text-align: center; background-color: #3a87ad;" id="qualityProductMessage"></div></b>
+<table  id="qualityProduct" class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>
+				<button type="button" class="btn btn-primary" data-bind="click: $root.addQualityProduct"><i class="icon-plus-sign icon-white"></i></button>
+			</th>
+			<th>
+				<table data-bind="foreach: productsQualityArray">
+					<tr>
+						<th>Calidad #<b data-bind="text: idQualityProduct"></b></th>
+						<th>
+							<button type="button" class="btn btn-primary" data-bind="click: $root.takePhotoQualityProduct"><i class="icon-camera icon-white"></i></button>
+						</th>						
+						<th>
+							<button type="button" data-bind="click: $root.removeQualityProduct" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button>
+						</th>
+					</tr>
+				</table>
+			</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>3.1 ¿Cuenta con el análisis de LMR?</td>
+			<td data-bind="foreach: productsQualityArray">
+				Calidad #<b data-bind="text: idQualityProduct"></b><br />
+				<input type="checkbox" data-bind="checked: lmr" />
+				<br />
+				<!--<a href="#ModalQualityProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentQualityProduct6, comment6 : comment6, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.2 ¿Cumple con ISD?</td>
+			<td data-bind="foreach: productsQualityArray">
+				Calidad #<b data-bind="text: idQualityProduct"></b><br />
+				<input type="checkbox" data-bind="checked: isd" />
+				<br />
+				<!--<a href="#ModalQualityProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentQualityProduct7, comment7 : comment7, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.3 ¿Realiza el triple lavado de envases?</td>
+			<td data-bind="foreach: productsQualityArray">
+				Calidad #<b data-bind="text: idQualityProduct"></b><br />
+				<input type="checkbox" data-bind="checked: bottleWashing" />
+				<br />
+				<!--<a href="#ModalQualityProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentQualityProduct8, comment8 : comment8, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.4 ¿Entrega envases al centro de acopio?</td>
+			<td data-bind="foreach: productsQualityArray">
+				Calidad #<b data-bind="text: idQualityProduct"></b><br />
+				<input type="checkbox" data-bind="checked: collectionCenter" />
+				<br />
+				<!--<a href="#ModalQualityProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentQualityProduct9, comment9 : comment9, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.5 ¿Usan equipo de protección?</td>
+			<td data-bind="foreach: productsQualityArray">
+				Calidad #<b data-bind="text: idQualityProduct"></b><br />
+				<input type="checkbox" data-bind="checked: protectionEquipment" />
+				<br />
+				<!--<a href="#ModalQualityProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentQualityProduct10, comment10 : comment10, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.6 ¿Calibra el equipo de aspersión?</td>
+			<td data-bind="foreach: productsQualityArray">
+				Calidad #<b data-bind="text: idQualityProduct"></b><br />
+				<input type="checkbox" data-bind="checked: sprayEquipment" />
+				<br / >
+				<!--<a href="#ModalQualityProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentQualityProduct11, comment11 : comment11, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>3.7 ¿Acondicionan el agua?</td>
+			<td data-bind="foreach: productsQualityArray">
+				Calidad #<b data-bind="text: idQualityProduct"></b><br />
+				<input type="checkbox" data-bind="checked: conditioningWater" />
+				<br / >
+				<a href="#ModalQualityProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentQualityProduct12, comment12 : comment12, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />
+			</td>
+		</tr>	
+	</tbody>
+</table>
+
+<h4>Fotos de Evaluación de calidad del producto</h4>	
+<table class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>Calidad</th>
+			<th>Foto</th>
+		</tr>
+	<tbody data-bind="foreach: productsQualityArray">
+		<td width="10%"><b data-bind="text: idQualityProduct"></b></td>
+		<td width="90%"><img data-bind="attr: {id: idImageQualityProduct}"></td>
+	</tbody>
+</table>
+
+<div id="ModalQualityProduct" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true" >
+	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel3">Comentarios de calidad del producto # <b id="idQualityProduct"></b></h3>
+  	</div>
+  	<div class="modal-body">
+    	<p>
+    		<!--<h3>De la pregunta #<b id="idQuestion2"></b></h3>-->
+    		<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsQualityProduct"></textarea>
+    	</p>
+  	</div>
+  	<div class="modal-footer">
+    	<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentQualityProduct">Guardar</button>    
+  	</div>
+</div>
+
+<h4>4 Concentración del producto.</h4>
+<b><div style="text-align: center; background-color: #3a87ad;" id="concentratedProductMessage"></div></b>
+<table  id="concentratedProduct" class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>
+				<button type="button" class="btn btn-primary" data-bind="click: $root.addConcentratedProduct"><i class="icon-plus-sign icon-white"></i></button>
+			</th>
+			<th>
+				<table data-bind="foreach: concetrationProductsArray">
+					<tr>
+						<th>Concentrado #<b data-bind="text: idConcentratedProduct"></b></th>
+						<th>
+							<button type="button" class="btn btn-primary" data-bind="click: $root.takePhotoConcentratedProduct"><i class="icon-camera icon-white"></i></button>
+						</th>						
+						<th>
+							<button type="button" data-bind="click: $root.removeConcentratedProduct" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button>
+						</th>
+					</tr>
+				</table>
+			</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>4.1 Producto</td>
+			<td data-bind="foreach: concetrationProductsArray">
+				Concentrado #<b data-bind="text: idConcentratedProduct"></b><br />
+				<input class="span4" data-bind="value: product" type="text" placeholder="Producto..." />
+				<br />
+				<!--<a href="#ModalConcentratedProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentConcentratedProduct13, comment13 : comment13, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>4.2 Concentración</td>
+			<td data-bind="foreach: concetrationProductsArray">
+				Concentrado #<b data-bind="text: idConcentratedProduct"></b><br />
+				<input class="span4" data-bind="value: concentration" type="text" placeholder="Concentración..." />
+				<br />
+				<!--<a href="#ModalConcentratedProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentConcentratedProduct14, comment14 : comment14, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />-->
+			</td>
+		</tr>
+		<tr>
+			<td>4.3 Fecha de llenado</td>
+			<td data-bind="foreach: concetrationProductsArray">
+				Concentrado #<b data-bind="text: idConcentratedProduct"></b><br />
+				<div class="input-append date">
+					<input name="datePicker" data-format="yyyy-MM-dd" class="span3" data-bind="value: fillingDate" type="text" placeholder="Fecha de llenado..." readonly />
+					<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+				</div>
+				<br />
+				<a href="#ModalConcentratedProduct" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentConcentratedProduct15, comment15 : comment15, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a><br />
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Fotos de Concentración del producto</h4>	
+<table class="table table-striped table-bordered" width="100%">
+	<thead>
+		<tr>
+			<th>Concentrado</th>
+			<th>Foto</th>
+		</tr>
+	<tbody data-bind="foreach: concetrationProductsArray">
+		<td width="10%"><b data-bind="text: idConcentratedProduct"></b></td>
+		<td width="90%"><img data-bind="attr: {id: idImageConcentratedProduct}"></td>
+	</tbody>
+</table>
+
+<div id="ModalConcentratedProduct" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true" >
+	<div class="modal-header">
+    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	<h3 id="myModalLabel3">Comentarios de concentración del producto # <b id="idConcentratedProduct"></b></h3>
+  	</div>
+  	<div class="modal-body">
+    	<p>
+    		<!--<h3> name="datePicker" #<b id="idQuestion3"></b></h3>-->
+    		<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsConcentratedProduct"></textarea>
+    	</p>
+  	</div>
+  	<div class="modal-footer">
+    	<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentConcentratedProduct">Guardar</button>    
+  	</div>
+</div>
+
+<h4>5 Responsabilidad de aplicación.</h4>
+<div data-bind="foreach: responsiblesApplicationArray">
+	<b>5.1 Aprobada por</b><br />
+	<input class="span4" type="text" data-bind="value: approved" placeholder="Aprobada por..." /><br />
+	<b>5.2 Responsable de aplicación</b><br />
+	<input class="span4" type="text" data-bind="value: responsible" placeholder="Responsable de aplicación..." /><br />
+</div>
+
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/surveys-master.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/edit.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/edit.init.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/surveys/edit.bind.js"></script>
+	

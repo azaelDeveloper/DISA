@@ -1,0 +1,2 @@
+var firstAidMasterId;
+var firstAidMasterDate;

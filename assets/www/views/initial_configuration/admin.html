@@ -1,0 +1,43 @@
+<form class="custom">
+	<div class="row">
+		<div class="span12">
+			<h2>
+				<a href="#">Paso 2</a>
+			</h2>
+			<h4 class="subheader">Registro de cuenta: ADMINISTRADOR.</h4>
+		</div>
+	</div>
+	<input type="text" style="display:none" name="AdminId" id="AdminId"/>
+	<div class="row">
+		<div class="span12">
+			<label id="errorLabelAdminName" for="AdminName"> Nombre(s): </label><input class="span12" type="text" name="AdminName" id="AdminName" /> <small class="error" id="errorMsgAdminName" style="display:none;"></small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<label id="errorLabelAdminLastName" for="AdminLastName">Apellidos: </label><input class="span12" type="text" name="AdminLastName" id="AdminLastName" /> <small class="error" id="errorMsgAdminLastName" style="display:none;"></small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<label id="errorLabelAdminEmail" for="AdminEmail">Correo electrónico:</label><input class="span12" type="email" name="AdminEmail" id="AdminEmail" /><small class="error" id="errorMsgAdminEmail" style="display:none;"></small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<label id="errorLabelAdminPassword" for="AdminPassword"> Contraseña: </label> <input class="span6" type="password" name="AdminPassword" id="AdminPassword" /> <small class="error" id="errorMsgAdminPassword" style="display:none;"></small>
+		</div>
+		<div class="span6">
+			<label id="errorLabelAdminRepeatPassword" for="AdminRepeatPassword"> Repita contraseña: </label> <input class="span6" type="password" name="AdminRepeatPassword" id="AdminRepeatPassword" /> <small class="error" id="errorMsgAdminRepeatPassword" style="display:none"></small>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/initial_configuration/admin.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/initial_configuration/admin.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/initial_configuration/admin.init.js"></script>

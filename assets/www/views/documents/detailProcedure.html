@@ -1,0 +1,54 @@
+<section id="top">
+	<blockquote>
+  		<h2>Procedimiento de <i id="planTitle"></i></h2>
+  		<h3 id="procedureTitle"></h3>
+	</blockquote>
+	<a href="#requirementButton">Ir a requerimientos</a>
+</section>
+<br />
+<p id="procedureHTML"></p>
+<br />
+<section id="requirementButton">
+<hr>
+<br />
+	<a href="javascript:window.scrollTo(0,0);">Ir arriba ↑</a>
+	<h3>Requerimientos</h3>
+	<table id="noRecordsFound" class="table table-striped table-bordered" style="display: none;">
+		<thead>
+			<tr>
+				<th>Sin requerimientos</th>
+			</tr>
+		</thead>
+	</table>
+	<table data-bind='visible: requirementArray().length > 0' 
+		class="table" style="display: none;">
+		<thead>
+			<tr>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody data-bind='foreach: requirementArray'>
+			<tr>
+				<td>
+					<div class="">
+						<button class="btn btn-default btn-lg btn-block" type="button"
+							data-bind="click: $root.detailDocumentRequirement, id: id, uniqueName: true">
+							<i data-bind="text: number"></i>.<i data-bind="text: title"></i>(<i data-bind="text: code"></i>) V.<i data-bind="text: version"></i>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/documents/documents.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/documents/detailProcedure.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/documents/detailProcedure.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/documents/detailProcedure.init.js"></script>

@@ -1,0 +1,63 @@
+<div class="page-header">
+	<h2>Datos de cabezara para registros</h2>
+	<div style="text-align: center; background-color: #3a87ad;" id="Advice"><b></b></div>
+</div>
+<div class="form-horizontal" data-bind="foreach: header">
+	<div class="control-group">
+    <label class="control-label" for="nameProductor">Nombre del Productor:</label>
+    <div class="controls">
+      <input type="text" id="nameProductor" class="span4" placeholder="Nombre..." data-bind="value: nameProductor">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="namePU">Producción por unidad:</label>
+    <div class="controls">
+      <input type="text" id="namePU" class="span4" placeholder="Producción por unidad..." data-bind="value: namePU">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="record_SAGARPA">Registro de SAGARPA:</label>
+    <div class="controls">
+      <input type="text" id="record_SAGARPA" class="span4" placeholder="Clave SAGARPA..." data-bind="value: sagarpa">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="crop">Cultivo:</label>
+    <div class="controls">
+      <input type="text" id="crop" class="span4" placeholder="Tipo de cultivo..." data-bind="value: crop"> 
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" class="span4" for="variety">Variedad:</label>
+    <div class="controls">
+      <input type="text" id="variety" class="span4" placeholder="Variedad..." data-bind="value: variety">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" class="span4" for="record_SENASICA">Registro SENASICA:</label>
+    <div class="controls">
+      <input type="text" id="record_SENASICA" class="span4" placeholder="Clave SENASICA..." data-bind="value: senasica">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="address">Dirección</label>
+    <div class="controls">
+      <input type="text" id="address" class="span4" placeholder="Dirección..." data-bind="value: address">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="surface">Superficie</label>
+    <div class="controls">
+      <input type="text" id="surface" class="span4" placeholder="Superficie..." data-bind="value: surface">
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/safety/header.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/safety/header.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/safety/header.init.js"></script>

@@ -1,0 +1,104 @@
+<br />
+<br />
+<br />
+<h2 id="top">Pedido : <b id="welcome"></b></h2>
+Ruta: <b id="route"></b><br />
+Dirección: <b id="direction"></b><br />
+Población: <b id="entity"></b><br />
+Colonia: <b id="colony"></b><br />
+C.P.: <b id="cp"></b><br />
+Municipio: <b>Michoácan</b><br />
+
+
+<br />
+<br />
+<br />
+<div id="bottomLink">
+</div>
+<br />
+<br />
+<br />
+<div class="visible-tablet visible-desktop hidden-phone">
+<label><input type="radio" name="filters" id="idProductT" value="idProduct">Clave</label>
+    <label><input type="radio" name="filters"  id="nameProductT" value="nameProduct">Nombre</label>
+    <label><input type="radio" name="filters"  id="categoryT" value="category">Familia</a></label>
+    <br />
+    <div class="col-lg-4">
+    <input type="text" placeholder="Nombre del producto" id="filterProductTablet" class="form-control">
+    <button class="btn" id="searchTablet"><span class="glyphicon glyphicon-search"></span></button>
+    </div>
+    <br />
+    
+</div>
+<div class="visible-phone hidden-tablet hidden-desktop">  
+    
+    <label><input type="radio" name="filters" id="idProductP" value="idProduct">Clave</label>
+    <label><input type="radio" name="filters"  id="nameProductP" value="nameProduct">Nombre</label>
+    <label><input type="radio" name="filters"  id="categoryP" value="category">Familia</a></label>
+    <br />
+    <input type="text" placeholder="Nombre del producto" id="filterProductPhone" class="col-lg-1">
+    <br />
+    <button class="btn" id="searchPhone"><span class="glyphicon glyphicon-search"></span></button>
+</div>
+
+  <h3 data-bind='visible: lines().length > 0'>Pedido agregado</h3>
+  <table class="table table-striped" data-bind='visible: lines().length > 0'>
+        <thead>
+            <tr>
+              <th ># Venta</th>
+                <th >Clave</th>
+                <th >Cantidad</th>
+                <th>Unidad</th>
+                <th >Nombre del Producto</th>                
+                <th >Precio</th>                
+                <th >Subtotal</th>
+                <th >Eliminar</th>
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: lines'>
+            <tr>
+                <td >
+                    <label data-bind="text: idSell"></label>
+                </td>
+                <td>
+                    <span data-bind="text: idProd"></span>
+                </td>
+                <td>                    
+                    <input type="number" class="form-control" data-bind='value: quantity, valueUpdate: ["afterkeydown", "keyup", "keypress", "input"]' />
+                </td>
+                <td>
+                	<span data-bind="text: unit"></span>
+                </td>
+                <td>
+                    <span data-bind="text: product"></span>
+                </td>                
+                <td>
+                    <input type="number" data-bind='value: price, valueUpdate: ["afterkeydown", "keyup", "keypress", "input"]' size="8" />
+                </td>                                
+                <td>
+                    <strong><span data-bind="text: formattedPrice"></span></strong>
+                </td>
+                <td>
+                    <button data-bind='click: $parent.removeLine' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  <h2 class="pull-right" data-bind="visible: totalSurcharge() > 0">Total: $<span data-bind='text: totalSurcharge().toFixed(2)'></span></h2>
+  <br /> <br />
+
+<div id="filteredTable"></div>
+<div id="topLink">
+</div>
+
+ 
+
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orders/newOrder.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orders/newOrder.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orders/newOrder.init.js"></script>

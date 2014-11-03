@@ -1,0 +1,13 @@
+var manualId;
+var manualNumber;
+var manualTitle;
+var manualHTML;
+var planId;
+var planTitle;
+var planHTML;
+var procedureId;
+var procedureTitle;
+var procedureHTML;
+var requirementId;
+var requirementTitle;
+var requirementHTML;

@@ -1,0 +1,102 @@
+<div class="page-header">
+	<h2>BIT 21 - IDENTIFICACIÓN Y EVALUACIÓN DE PROVEEDORES DE INSUMOS Y/O SERVICIOS</h2>
+	<div style="text-align: center; background-color: #3a87ad;" id="Advice"><b></b></div>
+</div>
+<table id="noRecordsFound" class="table table-striped table-bordered"
+	style="display: none;">
+	<thead>
+		<tr>
+			<th>Sin regístros</th>
+		</tr>
+	</thead>
+</table>
+<div data-bind='visible: suppliersMasters().length > 0'>
+	<table class="table table-striped table-bordered hidden-phone visible-tablet visible-desktop" style="display: none;">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Fecha y Hora</th>
+				<th></th>
+				<th>Sinc<i class="icon-refresh"></i></th>
+			</tr>
+		</thead>
+		<tbody data-bind='foreach: suppliersMasters'>
+			<tr>
+				<td data-bind="text: id"></td>
+				<td data-bind="text: timestamp"></td>
+				<td>
+					<div class="btn-group">
+						<button class="btn btn-primary" type="button" data-bind="click: $root.editSupplierMaster, id: id, uniqueName: true, visible: finished">
+							<small>Editar</small>
+						</button>
+						<button class="btn btn-info" type="button" data-bind="click: $root.detailSupplierMaster, id: id, uniqueName: true" data-reveal-id="modalContainer">
+							<small>Detalles</small>
+						</button>
+					</div>
+				</td>
+				<td>
+					<div data-bind="visible: synchronized">				
+						<i class="icon-ok"></i>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="table table-striped table-bordered visible-phone hidden-tablet hidden-desktop" style="display: none;">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Datos</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody data-bind='foreach: suppliersMasters'>
+			<tr>
+				<td data-bind="text: id"></td>
+				<td><b>Fecha y Hora</b></br><label data-bind="text: timestamp"></label>
+					<div class="btn-group">
+						<button class="btn btn-primary" type="button"
+							data-bind="click: $root.editSupplierMaster, id: id, uniqueName: true, visible: finished">
+							<small>Editar</small>
+						</button>
+						<button class="btn btn-info" type="button"
+							data-bind="click: $root.detailSupplierMaster, id: id, uniqueName: true"
+							data-reveal-id="modalContainer">
+							<small>Detalles</small>
+						</button>
+					</div>
+				</td>
+				<td>
+					Sinc<i class="icon-refresh"></i><br />
+					<div data-bind="visible: synchronized">				
+					<i class="icon-ok"></i>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div data-bind='visible: suppliersMasters().length > 0'><a href="#" id="sendAllEmail" class="btn btn-info">Enviar por @Email</a></div>
+<br />
+<br />
+<div data-bind='visible: sincronizeMasters().length > 0'>
+<button type="button" data-loading-text="Sincronizando..." class="btn btn-warning" id="Sync">Sincronizar</button>
+</div>
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/suppliers-master.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/index.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/index.init.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/index.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/coreEmail.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/suppliers/coreSync.functions.js"></script>
+	

@@ -1,0 +1,16 @@
+backTitleUrl = "file:///android_asset/www/views/surveys/index.title.html";
+backBodyUrl = "file:///android_asset/www/views/surveys/index.html";
+var self;
+var answersTextAreas = [];
+var idTextAreas = [];
+var answersRadio = [];
+var idRadios = [];
+var answersCheckBox = [];
+var idCheckBoxs = [];
+var answersDate = [];
+var idDates = [];
+var idSurveyWeb;
+incompleteSurvey = true;
+isForClean = false;
+db.transaction(cleanSurvey, errorCB);
+$("div[class*='input-group date']").datetimepicker();

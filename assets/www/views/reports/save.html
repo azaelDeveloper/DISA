@@ -1,0 +1,57 @@
+<blockquote>
+  <h2>Reportes</h2>
+  <h3 id="reportTitle"></h3>
+</blockquote>
+<form data-bind="foreach: reports">
+	
+	<label for="question1"><b>¿Quién solicita?</b></label>	
+	<input type="text" class="span12" id="question1" data-bind="value: answerReport1">  
+	
+	<label for="question2"><b>¿Quién emite?</b></label>
+	<input type="text" class="span12" id="question2" data-bind="value: answerReport2">  
+	
+	<label for="question3"><b>¿Quién lo detectó?</b></label>
+	<input type="text" class="span12" id="question3" data-bind="value: answerReport3">  	
+	
+	<label for="question4"><b>Personal, instalaciones, equipo, materiales o insumos afectados:</b></label>
+	<textarea class="span12" id="question4" data-bind="value: answerReport4"></textarea>	
+
+	<label for="question5"><b>¿Qué es el problema?</b></label>
+	<input type="text" class="span12" id="question5" data-bind="value: answerReport5">  
+
+	<label for="question6"><b>¿Por qué es un problema?</b></label>
+	<input type="text" class="span12" id="question6" data-bind="value: answerReport6">  
+
+	<label for="question7"><b>¿Dónde se detecto?</b></label>
+	<input type="text" class="span12" id="question7" data-bind="value: answerReport7">  
+
+	<label for="question9"><b>¿Cómo se detecto?</b></label>
+	<input type="text" class="span12" id="question9" data-bind="value: answerReport8">  
+
+	<label for="question10"><b>¿Cuantos problemas del mismo tipo se dieron?</b></label>
+	<input type="number" class="span12" id="question10" data-bind="value: answerReport9">  
+
+	<label for="question11"><b>Documentación del soporte:</b></label>
+	<input type="text" class="span12" id="question11" data-bind="value: answerReport10">  
+	<h3>Foto del Reporte</h3>
+	<button class="btn btn-large btn-primary" type="button" data-bind="click: $root.takePhotoReport"><i class="icon-camera icon-white"></i></button>
+	<table class="span12">
+		<thead>
+		<th>Foto</th>
+		</thead>
+		<tbody>
+			<td><img id="ImageReport" /></td>
+		</tbody>
+	</table>
+	
+ 
+</form>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/reports/reports.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/reports/save.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/reports/save.init.js"></script>

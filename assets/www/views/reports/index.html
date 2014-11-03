@@ -1,0 +1,53 @@
+<div class="page-header">
+	<h2>Reportes</h2>
+	<div style="text-align: center; background-color: #3a87ad;" id="Advice"><b></b></div>
+</div>
+<table id="noRecordsFound" class="table table-striped table-bordered"
+	style="display: none;">
+	<thead>
+		<tr>
+			<th>Sin regístros</th>
+		</tr>
+	</thead>
+</table>
+<table data-bind='visible: reports().length > 0'
+	class="table table-striped table-bordered" style="display: none;">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Fecha y Hora</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody data-bind='foreach: reports'>
+		<tr>
+			<td data-bind="text: id"></td>
+			<td data-bind="text: timestamp"></td>
+			<td>
+				<div class="btn-group">
+					<button class="btn btn-primary" type="button"
+						data-bind="click: $root.editReports, id: id, uniqueName: true">
+						<small>Editar</small>
+					</button>
+					<button class="btn btn-info" type="button"
+						data-bind="click: $root.detailReports, id: id, uniqueName: true"
+						data-reveal-id="modalContainer">
+						<small>Detalles</small>
+					</button>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/reports/reports.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/reports/index.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/reports/index.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/reports/index.init.js"></script>

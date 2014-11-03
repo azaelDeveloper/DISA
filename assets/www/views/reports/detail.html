@@ -1,0 +1,77 @@
+<div id="deleteModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Eliminar</h3>
+  </div>
+  <div class="modal-body">
+    <p>¿Está seguro de eliminar esté registro?</p>
+  </div>
+  <div class="modal-footer">
+	<button class="btn" data-dismiss="modal" aria-hidden="true">No</button>
+	<a href='#' id='yesDelete' data-reveal-id='secondModal' class='btn btn-danger' data-bind='click: $root.deleteThisView'>Sí</a>
+  </div>
+</div>
+<blockquote>  
+  <div id="reportComplete">
+  <h2>Reportes</h2>
+  
+  <h3 id="reportTitle"></h3>
+</blockquote>
+<div data-bind="foreach: reportsArray" id="bodyReport">
+  
+  <label for="question1"><b>¿Quién solicita?</b></label>  
+  <p data-bind="text: answerReport1"></p>  
+  
+  <label for="question2"><b>¿Quién emite?</b></label>
+  <p data-bind="text: answerReport2"></p>  
+  
+  <label for="question3"><b>¿Quién lo detectó?</b></label>
+  <p data-bind="text: answerReport3"></p>  
+  
+  <label for="question4"><b>Personal, instalaciones, equipo, materiales o insumos afectados:</b></label>
+  <p data-bind="text: answerReport4"></p>  
+
+  <label for="question5"><b>¿Qué es el problema?</b></label>
+  <p data-bind="text: answerReport5"></p>  
+
+  <label for="question6"><b>¿Por qué es un problema?</b></label>
+  <p data-bind="text: answerReport6"></p>  
+
+  <label for="question7"><b>¿Dónde se detecto?</b></label>
+  <p data-bind="text: answerReport7"></p>  
+
+  <label for="question9"><b>¿Cómo se detecto?</b></label>
+  <p data-bind="text: answerReport8"></p>  
+
+  <label for="question10"><b>¿Cuantos problemas del mismo tipo se dieron?</b></label>
+  <p data-bind="text: answerReport9"></p>  
+
+  <label for="question11"><b>Documentación del soporte:</b></label>
+  <p data-bind="text: answerReport10"></p>  
+
+  <h3>Foto del Reporte</h3>
+  <table class="span12">
+    <thead>
+    <th>Foto</th>
+    </thead>
+    <tbody>
+      <td><img data-bind="attr: {src: photoReport}" /></td>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+  <br><br><br>
+   <a class="btn btn-info" data-bind="click: $root.sendByMail">Enviar por @Email</a>   
+<script type="text/javascript" charset="utf-8"
+  src="../../js/core/EmailComposer.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+  src="file:///android_asset/www/js/views/reports/reports.globalvariables.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+  src="file:///android_asset/www/js/views/reports/detail.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+  src="file:///android_asset/www/js/views/reports/detail.init.js"></script>

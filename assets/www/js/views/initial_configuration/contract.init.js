@@ -1,0 +1,3 @@
+$(function (){
+	$("#topBar").show("fast");
+});

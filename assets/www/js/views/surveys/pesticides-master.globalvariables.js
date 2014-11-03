@@ -1,0 +1,2 @@
+var surveyMasterId;
+var surveyMasterDate;

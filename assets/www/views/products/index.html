@@ -1,0 +1,40 @@
+<br />
+<br />
+<br />
+<h1>Productos</h1>
+<table class="table table-striped" data-bind='visible: products().length > 0'>
+  <thead>
+    <tr>
+      <th>Clave del Producto</th>
+      <th>Nombre del Producto</th>
+      <th>Precio 1</th>
+      <th>Precio 2</th>
+      <th>Precio 3</th>
+      <th>Precio 4</th>
+      <th>Unidad</th>
+      <th>Existencias</th>
+      <th>Fecha</th>      
+    </tr>
+  </thead>  
+  <tbody data-bind="foreach: products">
+    <tr>      
+      <td><p data-bind="text: idProduct"></p></td>
+      <td><p data-bind="text: nameProduct"></p></td>
+      <td><p data-bind="text: price1"></p></td>
+      <td><p data-bind="text: price2"></p></td>      
+      <td><p data-bind="text: price3"></p></td>      
+      <td><p data-bind="text: price4"></p></td>            
+      <td><p data-bind="text: unit"></p></td>      
+      <td><p data-bind="text: existence"></p></td>      
+      <td><p data-bind="text: timestampp"></p></td>            
+    </tr>
+  </tbody>
+
+</table>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/products/index.functions.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/products/index.bind.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/products/index.init.js"></script>

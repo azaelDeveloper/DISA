@@ -1,0 +1,55 @@
+<div class="page-header">
+	<br /> 
+	<br />
+	<br />
+	<h2>Pedidos</h2>	
+</div>
+<table id="noRecordsFound" class="table table-striped table-bordered"
+	style="display: none;">
+	<thead>
+		<tr>
+			<th>Sin pedidos</th>
+		</tr>
+	</thead>
+</table>
+<table data-bind='visible: sells().length > 0' class="table table-striped table-bordered" style="display: none;">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nombre del cliente</th>
+			<th>Total</th>
+			<th>Fecha y Hora</th>
+			<th>Seleccionar</th>
+			<th>Sincronizado</th>
+		</tr>
+	</thead>
+	<tbody data-bind='foreach: sells'>
+		<tr>
+			<td data-bind="text: id"></td>
+			<td data-bind="text: nameClient"></td>
+			<td data-bind="text: total"></td>
+			<td data-bind="text: timestamp"></td>
+			<td>
+				<div class="btn-group">
+					<button class="btn btn-primary" type="button"
+						data-bind="click: $root.detailReports, id: id, uniqueName: true">
+						<span class="glyphicon glyphicon-check"></span>
+					</button>
+				</div>
+			</td>
+			<td><span data-bind="visible: synchronized" class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+	</tbody>
+</table>
+<h3 data-bind="visible: totalSurcharge() > 0">Venta total: $<span data-bind='text: totalSurcharge(), valueUpdate: "afterkeydown"'></span></h3>
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orders/coreSynchronize.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orders/checkOrder.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orders/checkOrder.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/orders/checkOrder.init.js"></script>

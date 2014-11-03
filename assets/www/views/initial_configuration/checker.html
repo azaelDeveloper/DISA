@@ -1,0 +1,43 @@
+<form class="custom">
+	<div class="row">
+		<div class="span12">
+			<h2>
+				<a href="#">Paso 3</a>
+			</h2>
+			<h4 class="subheader">Registro de cuenta: VERIFICADOR.</h4>
+		</div>
+	</div>
+	<input type="text" style="display:none" name="CheckerId" id="CheckerId"/>
+	<div class="row">
+		<div class="span12">
+			<label id="errorLabelCheckerName" for="CheckerName"> Nombre(s): </label><input class="span12" type="text" name="CheckerName" id="CheckerName" /> <small class="error" id="errorMsgCheckerName" style="display:none;"></small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<label id="errorLabelCheckerLastName" for="CheckerLastName">Apellidos: </label><input class="span12" type="text" name="CheckerLastName" id="CheckerLastName" /> <small class="error" id="errorMsgCheckerLastName" style="display:none;"></small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<label id="errorLabelCheckerEmail" for="CheckerEmail">Correo electrónico:</label><input class="span12" type="email" name="CheckerEmail" id="CheckerEmail" /><small class="error" id="errorMsgCheckerEmail" style="display:none;"></small>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<label id="errorLabelCheckerPassword" for="CheckerPassword"> Contraseña: </label> <input class="span6" type="password" name="CheckerPassword" id="CheckerPassword" /> <small class="error" id="errorMsgCheckerPassword" style="display:none;"></small>
+		</div>
+		<div class="span6">
+			<label id="errorLabelCheckerRepeatPassword" for="CheckerRepeatPassword"> Repita contraseña: </label> <input class="span6" type="password" name="CheckerRepeatPassword" id="CheckerRepeatPassword" /> <small class="error" id="errorMsgCheckerRepeatPassword" style="display:none"></small>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/initial_configuration/checker.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/initial_configuration/checker.bind.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="../../js/views/initial_configuration/checker.init.js"></script>

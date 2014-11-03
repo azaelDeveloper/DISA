@@ -1,0 +1,420 @@
+<blockquote>
+  <h2>BIT 22 - REGISTRO DE MONITOREO DE PLAGAS, ENFERMEDADES Y MALEZAS</h2>
+  <h3 id="monthlyMasterTitle"></h3>
+</blockquote>
+	<h3>1. INFORMACIÓN DEL MONITOREO</h3>
+	<p>Por favor de llenar todos los campos con sus respectivas respuestas <strong>es de suma importancia escribir correctamente y evitar la mala redacción</strong> coloque en los espacios correspondientes los datos que se le piden.</p>	
+	<b>1.1 Empresa</b><br />
+<div data-bind="foreach: informationArray">
+	<input class="span4" type="text" data-bind="value: company" placeholder="Nombre de empresa..."><br />
+	<b>1.2 Representante Legal</b><br />
+	<textarea class="span4" data-bind="value: representatitve" placeholder="Nombres de los representantes..."></textarea><br />
+	<b>1.3 Culvitvo y Variedad</b><br />
+	<input class="span4" type="text" data-bind="value: crop" placeholder="Cultivo..."><br />
+	<b>1.4 Unidad de Producción</b><br />
+	<input class="span4" type="text" data-bind="value: production" placeholder="Nombre del área..."><br />
+	<b>1.5 Superficie</b><br />
+	<input class="span4" type="text" data-bind="value: surface" placeholder="Superficie..."><br />
+	<b>1.6 Localización</b><br />
+	<input class="span4" type="text" data-bind="value: location" placeholder="Localización..."><br />
+	<b>1.7 Vigencia</b><br />
+	<div class="input-append date">
+		<input data-format="yyyy-MM-dd" name="datePicker" class="span4" type="text" data-bind="value: validity" placeholder="Periodo de vigencia..." readonly />
+		<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+	</div>
+	<br />
+</div>
+<h4>2 Registro de Plagas</h4>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="recordMessage"></div></b>
+	<table id="records" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addRecords"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: recordsArray">
+						<tr>
+							<th>Plaga Registrada #<b data-bind="text: idRecord"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoRecord"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removeRecords" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>2.1 Fecha de monitoreo</td>
+				<td data-bind="foreach: recordsArray"><br />Plaga Registrada # <b data-bind="text: idRecord"></b><br/>
+					<div class="input-append date">
+						<input class="span4" name="datePicker" data-format="yyyy-MM-dd" data-bind="value: recordDate" type="text" placeholder="fecha de hoy...." readonly>
+						<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>						
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>2.2 Sector</td>
+				<td data-bind="foreach: recordsArray"><br />Plaga Registrada # <b data-bind="text: idRecord"></b><br/><input class="span4"
+						data-bind="value: sector" type="text" placeholder="Sector dónde se encontro....">						
+				</td>
+			</tr>
+			<tr>
+				<td>2.3 ¿Edad del cultivo?</td>
+				<td data-bind="foreach: recordsArray"><br />Plaga Registrada #<b data-bind="text: idRecord"></b><br/><input class="span4"
+						data-bind="value: age" type="text" placeholder="# de semanas, meses, años, etc...">						
+				</td>
+			</tr>
+			<tr>
+				<td>2.4 Etapa fenológica del cultivo</td>
+				<!--data-bind="options: $root.availableAnswers, value: pumpAnswer4.answerVal, optionsText: 'answerText', optionsValue: 'answerVal'">-->
+				<td data-bind="foreach: recordsArray"><br />Plaga Registrada # <b data-bind="text: idRecord"></b><br/><select class="span4"
+						data-bind="options: $root.available, value: stage.posibleAnswerID, optionsText: 'answerText', optionsValue: 'posibleAnswerID'">
+						</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>2.5 Responsable del registro</td>
+				<td data-bind="foreach: recordsArray"><br />Plaga Registrada #<b data-bind="text: idRecord"></b><br/><input class="span4"
+						data-bind="value: responsible" type="text" placeholder="Nombre completo del resposable...">						
+					<br />
+					<a href="#ModalRecord" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getComment, comment : comment, uniqueName: true">
+						<i class="icon-comment icon-white"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+				
+	<h4>Fotos de Plaga Registrada</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Plaga Registrada</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: recordsArray">
+			<td width="10%"><b data-bind="text: idRecord"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageRecord}"></td>
+		</tbody>
+	</table>
+
+	<div id="ModalRecord" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true" >
+  		<div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="myModalLabel1">Comentarios de plaga registrada # <b id="idComment"></b></h3>
+  		</div>
+  <div class="modal-body">
+    <p>
+    	<h3>Comentarios...</h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentsRecord"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentRecord">Guardar</button>    
+  </div>
+</div>
+
+
+
+
+
+<h4>3 Tabla de Pestes</h4>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="pestsMessage"></div></b>
+	<table id="pests" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addPests"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: pestsArray">
+						<tr>
+							<th>Plaga #<b data-bind="text: idPest"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoPests"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removePest" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>3.1 Sector</td>
+				<td data-bind="foreach: pestsArray"><br />Plaga # <b data-bind="text: idPest"></b><br/><input type="text" class="span4"
+						data-bind="value: sector" placeholder="Sector dónde se econtró...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>3.2 Plaga identificada</td>
+				<td data-bind="foreach: pestsArray"><br />Plaga # <b data-bind="text: idPest"></b><br/><input type="text" class="span4"
+						data-bind="value: pest" placeholder="Nombre de plaga identificada...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>3.3 Nivel de daño (Incidencias-Plagas) </td>
+				<!--data-bind="options: $root.availableAnswersPests, value: damage.posibleAnswerID, optionsText: 'answerText', optionsValue: 'posibleAnswerID'">-->
+				<td data-bind="foreach: pestsArray"><br />Plaga # <b data-bind="text: idPest"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswersPests, value: damage.posibleAnswerID, optionsText: 'answerText', optionsValue: 'posibleAnswerID'">
+						</select>
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>3.4 ¿Presencia de enemigos naturales?(Plagas)</td>
+				<td data-bind="foreach: pestsArray"><br />Plaga # <b data-bind="text: idPest"></b><br/><input type="checkbox"
+						data-bind="checked: enemies">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td>3.5 ¿Se justifica control?(Plagas)</td>
+				<td data-bind="foreach: pestsArray"><br />Plaga # <b data-bind="text: idPest"></b><br/><input type="checkbox" 
+						data-bind="checked: justification">											
+				<br />
+				<a href="#ModalPests" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentPest, comment : comment, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+				
+	<h4>Fotos de Plagas</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Plaga</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: pestsArray">
+			<td width="10%"><b data-bind="text: idPest"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImagePests}"></td>
+		</tbody>
+	</table>
+	<div id="ModalPests" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel4">Comentarios de plaga # <b id="idPest"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Comentarios</h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentPest"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentPest">Guardar</button>    
+  </div>
+</div>
+
+
+
+
+<h4>4 Tabla de Enfermedades</h4>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="diseaseMessage"></div></b>
+	<table id="pests" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addDisease"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: diseasesArray">
+						<tr>
+							<th>Enfermedad #<b data-bind="text: idDisease"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoDisease"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removeDisease" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>4.1 Sector</td>
+				<td data-bind="foreach: diseasesArray"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><input type="text" class="span4"
+						data-bind="value: sector" placeholder="Sector dónde se econtró...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>4.2 Enfermedad identificada</td>
+				<td data-bind="foreach: diseasesArray"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><input type="text" class="span4"
+						data-bind="value: name" placeholder="Nombre de plaga identificada...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>4.3 Nivel de daño (Severidad-Enfermedades) </td>
+				<!--data-bind="options: $root.availableAnswersPests, value: damage.posibleAnswerID, optionsText: 'answerText', optionsValue: 'posibleAnswerID'">-->
+				<td data-bind="foreach: diseasesArray"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswersDisease, value: damage.posibleAnswerID, optionsText: 'answerText', optionsValue: 'posibleAnswerID'">
+						</select>
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>4.4 ¿Presencia de enemigos naturales?(Enfermedades)</td>
+				<td data-bind="foreach: diseasesArray"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><input type="checkbox"
+						data-bind="checked: enemies">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td>4.5 ¿Se justifica control?(Enfermedades)</td>
+				<td data-bind="foreach: diseasesArray"><br />Enfermedad # <b data-bind="text: idDisease"></b><br/><input type="checkbox" 
+						data-bind="checked: justification">											
+				<br />
+				<a href="#ModalDisease" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentDisease, comment : comment, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4>Fotos de Enfermedades</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Enfermedad</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: diseasesArray">
+			<td width="10%"><b data-bind="text: idDisease"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageDisease}"></td>
+		</tbody>
+	</table>
+<div id="ModalDisease" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel4">Comentarios de enfermedades # <b id="idDisease"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Comentarios</h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentDisease"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentDisease">Guardar</button>    
+  </div>
+</div>
+
+
+
+
+
+
+	<h4>5 Tabla de Malezas</h4>	
+	<b><div style="text-align: center; background-color: #3a87ad;" id="bushesMessage"></div></b>
+	<table id="bushes" class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-primary"
+						data-bind="click: $root.addBush"><i class="icon-plus-sign icon-white"></i></button></th>
+				<th>
+					<table data-bind="foreach: bushesArray">
+						<tr>
+							<th>Maleza #<b data-bind="text: idBush"></b></span>
+							</th>
+
+							<th>
+								<button type="button" class="btn btn-primary"
+								data-bind="click: $root.takePhotoBush"><i class="icon-camera icon-white"></i></button>
+							</th>
+							<th><button type="button" data-bind="click: $root.removeBush" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i></button></th>
+						</tr>
+					</table>
+				</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>5.1 Sector</td>
+				<td data-bind="foreach: bushesArray"><br />Maleza # <b data-bind="text: idBush"></b><br/><input type="text" class="span4"
+						data-bind="value: sector" placeholder="Sector dónde se econtró...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>5.2 Maleza identificada</td>
+				<td data-bind="foreach: bushesArray"><br />Maleza # <b data-bind="text: idBush"></b><br/><input type="text" class="span4"
+						data-bind="value: name" placeholder="Nombre de plaga identificada...">						
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>5.3 Nivel de daño (Severidad-Maleza) </td>
+				<!--data-bind="options: $root.availableAnswersPests, value: damage.posibleAnswerID, optionsText: 'answerText', optionsValue: 'posibleAnswerID'">-->
+				<td data-bind="foreach: bushesArray"><br />Maleza # <b data-bind="text: idBush"></b><br/><select class="span2"
+						data-bind="options: $root.availableAnswersBushes, value: damage.posibleAnswerID, optionsText: 'answerText', optionsValue: 'posibleAnswerID'">
+						</select>
+					<br />					
+				</td>
+			</tr>
+			<tr>
+				<td>5.4 ¿Presencia de enemigos naturales?(Maleza)</td>
+				<td data-bind="foreach: bushesArray"><br />Maleza # <b data-bind="text: idBush"></b><br/><input type="checkbox"
+						data-bind="checked: enemies">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td>5.5 ¿Se justifica control?(Maleza)</td>
+				<td data-bind="foreach: bushesArray"><br />Maleza # <b data-bind="text: idBush"></b><br/><input type="checkbox" 
+						data-bind="checked: justification">											
+				<br />
+				<a href="#ModalBushes" role="button" class="btn btn-primary" data-toggle="modal" data-bind="click: $root.getCommentBush, comment : comment, uniqueName: true">
+					<i class="icon-comment icon-white"></i>
+				</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4>Fotos de Enfermedades</h4>	
+	<table class="table table-striped table-bordered" width="100%">
+		<thead>
+			<tr>
+				<th>Número de Malezas</th>
+				<th>Foto</th>
+			</tr>
+		<tbody data-bind="foreach: bushesArray">
+			<td width="10%"><b data-bind="text: idBush"></b></td>
+			<td width="90%"><img data-bind="attr: {id: idImageBush}"></td>
+		</tbody>
+	</table>
+<div id="ModalBushes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true" >
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel4">Comentarios de malezas # <b id="idBush"></b></h3>
+  </div>
+  <div class="modal-body">
+    <p>
+    	<h3>Comentarios</h3>
+    	<textarea placeholder="Comentarios..." class="input-block-level" id="CommentBush"></textarea>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" data-bind="click: $root.saveCommentBush">Guardar</button>    
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/pests/edit.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/pests/edit.init.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/pests/edit.bind.js"></script>
