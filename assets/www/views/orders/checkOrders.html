@@ -41,7 +41,7 @@
 		</tr>
 	</tbody>
 </table>
-<h3 data-bind="visible: totalSurcharge() > 0">Venta total: $<span data-bind='text: totalSurcharge(), valueUpdate: "afterkeydown"'></span></h3>
+<h3 data-bind="visible: totalSurcharge() > 0">Venta total: $<span data-bind='text: totalSurcharge().toFixed(2), valueUpdate: "afterkeydown"'></span></h3>
 <script type="text/javascript" charset="utf-8"
 	src="file:///android_asset/www/js/views/orders/coreSynchronize.functions.js"></script>
 

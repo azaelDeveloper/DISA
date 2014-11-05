@@ -32,18 +32,6 @@ $("#nameProductP").click(function(){
 $("#categoryP").click(function(){	
 	filter = "category";	
 });
-$("#filteredTable").on("click","input:radio[name='prices']", function(){
-	var checked = $(this).attr("checked");
-	if(checked == "checked"){
-		if(firstPass == true){
-			firstPass = false;
-			$(this).attr("checked", false);
-		}
-		else
-			firstPass = true;
-	}
-	//$(this).attr("checked", false);
-
 });
 $("#filteredTable").on("click","button[id='addProduct']", function(){
 	var minPrice = $(this).attr("data-minPrice");
@@ -164,27 +152,23 @@ function saveDetail(tx){
 	var line = 0;
 	var minPrice;
 	var actualPrice;
-	for(var i = 0; i < self.lines().length; i++){
-		line = i;
-		if (self.lines()[i].price() > self.lines()[i].minPrice())
-		{
-			var sqlDetail = 'INSERT INTO sellsdetail (idSell, idProduct, nameProduct, quantity, price, minPrice, subtotal) VALUES';
-			sqlDetail += "('"+ lastID +"', '" + self.lines()[i].idProd() + "', '"+ self.lines()[i].product() +"', '"+ self.lines()[i].quantity() +"', '"+ self.lines()[i].price() +"', '"+ self.lines()[i].minPrice() +"', '"+ self.lines()[i].subtotal() +"')";				
-			tx.executeSql(sqlDetail);				
-		}
-		else
-		{
-			minPrice = self.lines()[i].minPrice();
-			actualPrice = self.lines()[i].price();
-			error = true;
-			break;			
-		}		 
+	var allGood = checkPrices();
+	if(allGood == true){
+		var sqlDetail = 'INSERT INTO sellsdetail (idSell, idProduct, nameProduct, quantity, price, minPrice, subtotal) VALUES';
+		sqlDetail += "('"+ lastID +"', '" + self.lines()[i].idProd() + "', '"+ self.lines()[i].product() +"', '"+ self.lines()[i].quantity() +"', '"+ self.lines()[i].price() +"', '"+ self.lines()[i].minPrice() +"', '"+ self.lines()[i].subtotal() +"')";				
+		tx.executeSql(sqlDetail);				
 	}
-	if (error == false)
-		messageSuccess();
-	else
-		messageError(line, minPrice, actualprice);
+	else{
+		navigator.notification.alert("El precio es muy bajo en el pedido: #" + (line + 1), alertMiss, "Precio menor al mínimo", "Aceptar");	            
+	}
 
+}
+function checkPrices(){
+	var allGood = true;
+	for(var i=0; i < self.lines().length; i++){
+		self.lines()[]
+	}
+	return allGood;
 }
 function messageSuccess(){
 	navigator.notification.alert("Se guardo pedido con éxito...", alertMiss, "Pedido guardado", "Aceptar");	            

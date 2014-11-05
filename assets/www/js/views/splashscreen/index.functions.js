@@ -23,9 +23,11 @@ function populateDB(tx) {
 	//tx.executeSql('DROP TABLE IF EXISTS products');	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS products(id INTEGER PRIMARY KEY,selected NUMERIC, idProduct TEXT, nameProduct TEXT, price1 TEXT, price2 TEXT, price3 TEXT, price4 TEXT, priceFree TEXT, account_type TEXT, unit TEXT, category TEXT, existence TEXT, timestampp NUMERIC)');
 	//COMMERCIAL_INVOICE
-	tx.executeSql('DROP TABLE IF EXISTS commercial_invoice');
-	//CHANGE FOR TEXT
+	tx.executeSql('DROP TABLE IF EXISTS commercial_invoice');	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS commercial_invoice (id INTEGER PRIMARY KEY, clientID TEXT, nameClient TEXT, num_Fact NUMERIC, amount TEXT, expiration TEXT, timestamp NUMERIC)');	
+	//COMERCIAL_DETAIL
+	tx.executeSql('DROP TABLE IF EXISTS commercial_detail');	
+	tx.executeSql('CREATE TABLE IF NOT EXISTS commercial_invoice (id INTEGER PRIMARY KEY, clientID TEXT, nameClient TEXT, num_Fact NUMERIC, paid TEXT, totalPaid TEXT, timestamp NUMERIC)');	
 	//PAYMENTS
 	tx.executeSql('DROP TABLE IF EXISTS payments');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS payments (id INTEGER PRIMARY KEY, IdClient INTEGER, num_Fact TEXT, amount TEXT,  timestamp NUMERIC)');
