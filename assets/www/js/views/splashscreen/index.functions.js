@@ -42,7 +42,7 @@ function populateDB(tx) {
 	tx.executeSql('CREATE TABLE IF NOT EXISTS sells (id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, total TEXT, idSeller TEXT, synchronized NUMERIC, timestamp NUMERIC)');
 	//SELLSDETAIL
 	tx.executeSql('DROP TABLE IF EXISTS sellsdetail');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS sellsdetail (id INTEGER PRIMARY KEY, idSell TEXT, idProduct TEXT, nameProduct TEXT, quantity TEXT, price TEXT, minPrice TEXT, subtotal TEXT)');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS sellsdetail (id INTEGER PRIMARY KEY, idSell TEXT, idProduct TEXT, unit TEXT, nameProduct TEXT, quantity TEXT, price TEXT, minPrice TEXT, subtotal TEXT)');
 }
 
 // Transaction success callback
