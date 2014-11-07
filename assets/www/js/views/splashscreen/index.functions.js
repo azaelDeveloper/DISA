@@ -38,10 +38,10 @@ function populateDB(tx) {
 	tx.executeSql('DROP TABLE IF EXISTS categorys');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS categorys (id INTEGER PRIMARY KEY, category TEXT, timestamp NUMERIC)');
 	//SELLS
-	//tx.executeSql('DROP TABLE IF EXISTS sells');
+	tx.executeSql('DROP TABLE IF EXISTS sells');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS sells (id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, total TEXT, idSeller TEXT, synchronized NUMERIC, timestamp NUMERIC)');
 	//SELLSDETAIL
-	//tx.executeSql('DROP TABLE IF EXISTS sellsdetail');
+	tx.executeSql('DROP TABLE IF EXISTS sellsdetail');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS sellsdetail (id INTEGER PRIMARY KEY, idSell TEXT, idProduct TEXT, nameProduct TEXT, quantity TEXT, price TEXT, minPrice TEXT, subtotal TEXT)');
 }
 

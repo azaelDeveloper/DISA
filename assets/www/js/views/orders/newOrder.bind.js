@@ -32,7 +32,6 @@ $("#nameProductP").click(function(){
 $("#categoryP").click(function(){	
 	filter = "category";	
 });
-});
 $("#filteredTable").on("click","button[id='addProduct']", function(){
 	var minPrice = $(this).attr("data-minPrice");
 	idToAdd = $(this).attr("data-idProduct");		
@@ -154,20 +153,25 @@ function saveDetail(tx){
 	var actualPrice;
 	var allGood = checkPrices();
 	if(allGood == true){
-		var sqlDetail = 'INSERT INTO sellsdetail (idSell, idProduct, nameProduct, quantity, price, minPrice, subtotal) VALUES';
-		sqlDetail += "('"+ lastID +"', '" + self.lines()[i].idProd() + "', '"+ self.lines()[i].product() +"', '"+ self.lines()[i].quantity() +"', '"+ self.lines()[i].price() +"', '"+ self.lines()[i].minPrice() +"', '"+ self.lines()[i].subtotal() +"')";				
-		tx.executeSql(sqlDetail);				
+		for(var i=0; i < self.lines().length; i++){				
+			var sqlDetail = 'INSERT INTO sellsdetail (idSell, idProduct, nameProduct, quantity, price, minPrice, subtotal) VALUES';
+			sqlDetail += "('"+ lastID +"', '" + self.lines()[i].idProd() + "', '"+ self.lines()[i].product() +"', '"+ self.lines()[i].quantity() +"', '"+ self.lines()[i].price() +"', '"+ self.lines()[i].minPrice() +"', '"+ self.lines()[i].subtotal() +"')";				
+			tx.executeSql(sqlDetail);							
+		}
+		navigator.notification.alert("Se guardo pedido con éxito...", alertMiss, "Pedido guardado", "Aceptar");	            
+		getPage("file:///android_asset/www/views/orders/checkOrders.title.html", "file:///android_asset/www/views/orders/checkOrders.html");		
 	}
-	else{
-		navigator.notification.alert("El precio es muy bajo en el pedido: #" + (line + 1), alertMiss, "Precio menor al mínimo", "Aceptar");	            
-	}
-
 }
 function checkPrices(){
-	var allGood = true;
-	for(var i=0; i < self.lines().length; i++){
-		self.lines()[]
-	}
+	var allGood = true;	
+	for(var i=0; i < self.lines().length; i++){				
+		if(self.lines()[i].price() < self.lines()[i].minPrice())
+		{
+			alert("Wrong");
+			allGood = false;
+			alert("Error en pedido: " + (i + 1) +", precio: "+ self.lines()[i].price() + ", precio mínimo :" + self.lines()[i].minPrice());
+		}
+	}	
 	return allGood;
 }
 function messageSuccess(){
