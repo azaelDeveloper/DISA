@@ -15,9 +15,10 @@
             <tr>
             	<th ># Venta</th>
                 <th >Clave del Producto</th>
-                <th >Nombre del Producto</th>
-                <th >Precio</th>
                 <th >Cantidad</th>
+                <th >Unidad</th>
+                <th >Producto</th>
+                <th >Precio</th>                
                 <th >Subtotal</th>                
             </tr>
         </thead>
@@ -30,16 +31,20 @@
                     <span data-bind="text: idProduct"></span>
                 </td>
                 <td>
+                    <span data-bind='text: quantity'></span>
+                </td>
+                <td>
+                    <span data-bind="text: unit"></span>
+                </td>
+                <td>
                     <span data-bind="text: nameProduct"></span>
                 </td>
                 <td>
                     <span data-bind='text: price'></span>
                 </td>
+                
                 <td>
-                    <span data-bind='text: quantity'></span>
-                </td>
-                <td>
-                    <strong><span data-bind="text: subtotal.toFixed(2)"></span></strong>
+                    <strong><span data-bind="text: subtotal"></span></strong>
                 </td>                
             </tr>
         </tbody>

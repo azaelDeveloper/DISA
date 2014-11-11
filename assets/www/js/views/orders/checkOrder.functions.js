@@ -26,7 +26,7 @@ function sells(tx, results) {
 	for (var i = 0; i < len; i++) {				
 		if(results.rows.item(i).synchronized == 0){
 			unsynchronized.push(results.rows.item(i));		
-			idunsynchronized.push(results.rows.item(i).idSell);
+			idunsynchronized.push(results.rows.item(i).id);
 		}
 		sells.push(results.rows.item(i));		
 	}		

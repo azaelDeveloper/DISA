@@ -152,10 +152,11 @@ function saveDetail(tx){
 	var minPrice;
 	var actualPrice;
 	var allGood = checkPrices();
+	//HACER UN DELETE LAST ID SI ALGO SALE MAL
 	if(allGood == true){
 		for(var i=0; i < self.lines().length; i++){				
-			var sqlDetail = 'INSERT INTO sellsdetail (idSell, idProduct, nameProduct, quantity, price, minPrice, subtotal) VALUES';
-			sqlDetail += "('"+ lastID +"', '" + self.lines()[i].idProd() + "', '"+ self.lines()[i].product() +"', '"+ self.lines()[i].quantity() +"', '"+ self.lines()[i].price() +"', '"+ self.lines()[i].minPrice() +"', '"+ self.lines()[i].subtotal() +"')";				
+			var sqlDetail = 'INSERT INTO sellsdetail (idSell, idProduct, unit, nameProduct, quantity, price, minPrice, subtotal) VALUES';
+			sqlDetail += "('"+ lastID +"', '" + self.lines()[i].idProd() + "', '"+ self.lines()[i].unit() +"',  '"+ self.lines()[i].product() +"', '"+ self.lines()[i].quantity() +"', '"+ self.lines()[i].price() +"', '"+ self.lines()[i].minPrice() +"', '"+ parseFloat(self.lines()[i].subtotal()).toFixed(2) +"')";				
 			tx.executeSql(sqlDetail);							
 		}
 		navigator.notification.alert("Se guardo pedido con éxito...", alertMiss, "Pedido guardado", "Aceptar");	            

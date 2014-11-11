@@ -4,5 +4,5 @@ var self;
 var unsynchronized = [];
 var unsynchronizedDetail = [];
 var idunsynchronized = [];
-var jsonDetail = "";
+var jsonDetail = [];
 db.transaction(getOrders, errorCB);
