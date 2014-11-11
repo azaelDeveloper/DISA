@@ -9,7 +9,86 @@ function synclients() {
 	    cache: false,
 	    success: function(result) {       	    	
 	      	if (result != null){	      		
-				chargeClients(result);
+				//chargeClients(result);
+			result = [{
+	"IdClient": 1001,
+	"nameClient": "Jesús Corona Hurtado",
+	"direction": "San jóse de la mina #123",
+	"poblation": "Carapan",
+	"entity": "Michoacan",
+	"colony": "Dr. Miguel Silva",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Carapan",
+	"timestamp": "12/03/2003"
+},
+{
+	"IdClient": 1002,
+	"nameClient": "Azael Sánchez Oritz",
+	"direction": "San jóse #1223343",
+	"poblation": "Uruapan",
+	"entity": "Michoacan",
+	"colony": "Dr. Miguel Silva",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Carapan",
+	"timestamp": "12/03/2003"
+},
+{
+	"IdClient": 1003,
+	"nameClient": "Rafael Larios Rufian",
+	"direction": "La mina #123",
+	"poblation": "Los Reyes",
+	"entity": "Michoacan",
+	"colony": "Centro",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Carapan",
+	"timestamp": "12/03/2003"
+},
+{
+	"IdClient": 1004,
+	"nameClient": "Alberto Lopez Marroquin",
+	"direction": "Reforma #123",
+	"poblation": "Los Reyes",
+	"entity": "Michoacan",
+	"colony": "Dr. Miguel Silva",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Los Reyes",
+	"timestamp": "12/03/2003"
+},
+{
+	"IdClient": 1005,
+	"nameClient": "Juan Luis Corona Hurtado",
+	"direction": "Heóres de Nocupetaro #123",
+	"poblation": "Uruapan",
+	"entity": "Michoacan",
+	"colony": "Benito Juárez",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Uruapan",
+	"timestamp": "12/03/2003"
+},
+{
+	"IdClient": 1006,
+	"nameClient": "Roberto Pérez Melgoza",
+	"direction": "San jóse de la mina #123",
+	"poblation": "Uruapan",
+	"entity": "Michoacan",
+	"colony": "Silvando",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Uruapan",
+	"timestamp": "12/03/2003"
+}];
+			chargeClients(result);
 				pass = true;
 				navigator.notification.alert("Se actualizaron clientes...", alertMiss, "Respuesta del servidor", "Aceptar");	            
 	      	}
@@ -33,24 +112,91 @@ function clientsViewModel(clients){
 	self.clients(clients);
 	db.transaction(saveClients, errorCB);
 	function saveClients(tx){
-		//tx.executeSql('CREATE TABLE IF NOT EXISTS clients(id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, creditLimit TEXT, active TEXT, route TEXT, timestamp NUMERIC)');		
+		alert(self.clients().length);
 		for (var x = 0; x < self.clients().length; x++){			
-			var query = "INSERT INTO clients (IdClient, nameClient, creditLimit, active, route, timestamp) VALUES ("+ self.clients()[x].IdClient +", '"+ self.clients()[x].nameClient +"', '"+ self.clients()[x].limit +"', '"+ self.clients()[x].Active +"', '"+ self.clients()[x].route +"', '"+ getCurrentDateTime() +"')";				
+			var query = "INSERT INTO clients (IdClient, nameClient, direction, poblation, entity, colony, cp, creditLimit, active, route, timestamp) VALUES ("+ self.clients()[x].IdClient +", '"+ self.clients()[x].nameClient +"', '" + self.clients()[x].direction +"', '"+ self.clients()[x].poblation +"', '"+ self.clients()[x].entity +"', '"+ self.clients()[x].colony +"', '"+ self.clients()[x].cp +"', '"+ self.clients()[x].limit +"', '"+ self.clients()[x].Active +"', '"+ self.clients()[x].route +"', '"+ self.clients()[x].timestamp +"')";				
 			tx.executeSql(query);
 		}
 	}
 }
 
 /*
-{"menu": { 
-  "id": "file",
-  "value": "File",
-  "popup": {
-    "menuitem": [
-      {"value": "New", "onclick": "CreateNewDoc()"},
-      {"value": "Open", "onclick": "OpenDoc()"},
-      {"value": "Close", "onclick": "CloseDoc()"}
-    ]
-  }
-}}
+[{
+	"IdClient": 1001,
+	"nameClient": "Jesús Corona Hurtado",
+	"direction": "San jóse de la mina #123",
+	"poblation": "Carapan",
+	"entity": "Michoacan",
+	"colony": "Dr. Miguel Silva",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Carapan",
+	"TimeStamp": "12/03/2003"
+},
+{
+	"IdClient": 1002,
+	"nameClient": "Azael Sánchez Oritz",
+	"direction": "San jóse #1223343",
+	"poblation": "Uruapan",
+	"entity": "Michoacan",
+	"colony": "Dr. Miguel Silva",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Carapan",
+	"TimeStamp": "12/03/2003"
+},
+{
+	"IdClient": 1003,
+	"nameClient": "Rafael Larios Rufian",
+	"direction": "La mina #123",
+	"poblation": "Los Reyes",
+	"entity": "Michoacan",
+	"colony": "Centro",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Carapan",
+	"TimeStamp": "12/03/2003"
+},
+{
+	"IdClient": 1004,
+	"nameClient": "Alberto Lopez Marroquin",
+	"direction": "Reforma #123",
+	"poblation": "Los Reyes",
+	"entity": "Michoacan",
+	"colony": "Dr. Miguel Silva",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Los Reyes",
+	"TimeStamp": "12/03/2003"
+},
+{
+	"IdClient": 1005,
+	"nameClient": "Juan Luis Corona Hurtado",
+	"direction": "Heóres de Nocupetaro #123",
+	"poblation": "Uruapan",
+	"entity": "Michoacan",
+	"colony": "Benito Juárez",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Uruapan",
+	"TimeStamp": "12/03/2003"
+},
+{
+	"IdClient": 1006,
+	"nameClient": "Roberto Pérez Melgoza",
+	"direction": "San jóse de la mina #123",
+	"poblation": "Uruapan",
+	"entity": "Michoacan",
+	"colony": "Silvando",
+	"cp": 60021,
+	"limit": 67079,
+	"Active": true,
+	"route": "Uruapan",
+	"TimeStamp": "12/03/2003"
+}]
 */

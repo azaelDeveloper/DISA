@@ -3,27 +3,40 @@
 <br />
 <h2>Clientes</h2>
 <p>Seleccione un cliente para hacer el pedido.</p>
-<table id="noRecordsFound" class="table table-striped table-bordered"
-  style="display: none;">
+<table class="table table-striped" data-bind='visible: clients().length > 0'>
   <thead>
     <tr>
-      <th>No hay clientes</th>
-    </tr>
-  </thead>
-</table>
-<div id="repeatModel">
-<table class="table table-striped">
-  <thead>
-    <tr>      
-      <th></th>
+      <th>Clave del cliente</th>
       <th>Nombre del cliente</th>
-      <th>Limite</th>
-      <th>Ruta</th>      
+      <th>Dirección</th>
+      <th>Población</th>
+      <th>Entidad</th>
+      <th>Colonia</th>
+      <th>C.P.</th>      
+      <th>Límite</th>
+      <th>Ruta</th>
+      <th>Activo</th>
+      <th>Última visita</th>
     </tr>
   </thead>  
-  <tbody id="bodyTable">    
+  <tbody data-bind="foreach: clients">
+    <tr>      
+      <td><p data-bind="text: IdClient"></p></td>
+      <td><p data-bind="text: nameClient"></p></td>
+      <td><p data-bind="text: direction"></p></td>
+      <td><p data-bind="text: poblation"></p></td>
+      <td><p data-bind="text: entity"></p></td>
+      <td><p data-bind="text: colony"></p></td>
+      <td><p data-bind="text: cp"></p></td>      
+      <td><p data-bind="text: limit"></p></td>
+      <td><p data-bind="text: route"></p>      </td>
+      <td><span data-bind="visible: Active" class="glyphicon glyphicon-ok"></span></td>
+      <td><b data-bind="text: timestamp"></b></td>
+    </tr>
   </tbody>
+
 </table>
+
 
 </div>
 
