@@ -170,7 +170,7 @@ function checkPrices(){
 		{
 			alert("Wrong");
 			allGood = false;
-			alert("Error en pedido: " + (i + 1) +", precio: "+ self.lines()[i].price() + ", precio mínimo :" + self.lines()[i].minPrice());
+			alert("Error en el precio mínimo de '"+ self.lines()[i].nameProduct() +"' : " + (i + 1) +", precio: "+ self.lines()[i].price() + ", precio mínimo :" + self.lines()[i].minPrice());
 		}
 	}	
 	return allGood;
