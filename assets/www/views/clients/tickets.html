@@ -1,0 +1,50 @@
+<br />
+<br />
+<br />
+<h2>Facturas</h2>
+<p>Seleccione una facturas para detalles.</p>
+<table class="table table-striped" data-bind='visible: tickets().length > 0'>
+  <thead>
+    <tr>
+      <th>Clave Cliente</th>
+      <th>Nombre</th>
+      <th>Factura</th>
+      <th>Adeudo Factura</th>
+      <th>Pagado</th>
+      <th>Expiración</th>
+      <th>Fecha Elaborada</th>
+      <th>
+        Seleccionar
+      </th>
+    </tr>
+  </thead>  
+  <tbody data-bind="foreach: tickets">
+    <tr>      
+      <td><span data-bind="text: clientID"></span></td>
+      <td><span data-bind="text: nameClient"></span></td>
+      <td><span data-bind="text: num_Fact"></span></td>
+      <td><span data-bind="text: amount"></span></td>
+      <td><span data-bind="text: paid"></span></td>
+      <td><span data-bind="text: expiration"></span> <span>día(s) </span></td>
+      <td><span data-bind="text: timestamp"></span></td>      
+      <td>        
+          <button class="btn btn-primary" type="button" data-bind="click: detailReports">
+            <span class="glyphicon glyphicon-check"></span>
+          </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 data-bind="visible: totalSurcharge() > 0">Deuda Total: $<span data-bind='text: totalSurcharge().toFixed(2), valueUpdate: "afterkeydown"'></span></h3>
+<script type="text/javascript" charset="utf-8"
+  src="file:///android_asset/www/js/views/clients/ticketsCoreSyncronized.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/clients/tickets.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+  src="file:///android_asset/www/js/views/clients/tickets.init.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/clients/tickets.bind.js"></script>
+

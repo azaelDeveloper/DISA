@@ -1,17 +1,31 @@
+function ClientsOrderViewModel(clients){
+	var self = this;
+	self.clients = ko.observableArray([]);	
+	self.clients(clients);	
+	self.detailReports = function(client) {				
+		clientName = client.nameClient;
+		route = client.route;
+		direction = client.direction;
+		entity = client.entity;
+		colony = client.colony;
+		cp = client.cp;
+		creditLimit = client.creditLimit
+		getPage("file:///android_asset/www/views/orders/newOrder.title.html", "file:///android_asset/www/views/orders/newOrder.html");
+		//tx.executeSql('CREATE TABLE IF NOT EXISTS clients(id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, direction TEXT, poblation TEXT, entity TEXT, colony TEXT, cp TEXT, creditLimit TEXT, active INTEGER, route TEXT, timestamp NUMERIC)');
+	};
+}
 function getClients(tx) {
 	tx.executeSql('SELECT * FROM clients', [], clients, errorCB);
 }
 function clients(tx, results) {
 	var len = results.rows.length;
-	var clients = [];	
-	var table = "";
+	var clients = [];		
 	for (var i = 0; i < len; i++){
-		if(results.rows.item(i).active == "true"){									
-			table += '<tr>';
-			table += '<td><input type="radio" name="clients" value="'+ results.rows.item(i).idClient +'" data-route="'+ results.rows.item(i).route +'" data-clientName="'+ results.rows.item(i).nameClient +'" data-direction="Prolongación Benito Juárez #139" data-poblation="Carapan" data-entity="Michoacan" data-colony="Los ángeles" data-cp="60055"></td><td>'+ results.rows.item(i).nameClient +'</td><td>'+ results.rows.item(i).creditLimit +'</td><td>'+ results.rows.item(i).route +'</td>';
-			table += '</tr>';
+		if(results.rows.item(i).active == 1){									
+			clients.push(results.rows.item(i));
 			$("#noRecordsFound").hide("fast");
 		}		
 	}
-	$("#bodyTable").html(table);
+	var viewModel = ClientsOrderViewModel(eval(clients));
+	ko.applyBindings(viewModel);			
 }

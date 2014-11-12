@@ -1,5 +1,5 @@
-backTitleUrl = "file:///android_asset/www/views/orders/index.title.html";
-backBodyUrl = "file:///android_asset/www/views/orders/index.html";
+backTitleUrl = "file:///android_asset/www/views/orders/clients.title.html";
+backBodyUrl = "file:///android_asset/www/views/orders/clients.html";
 //db.transaction(getProducts, errorCB);
 var self;
 var firstPass = true;
@@ -22,5 +22,6 @@ $("#direction").html(direction);
 $("#entity").html(entity);
 $("#colony").html(colony);
 $("#cp").html(cp);
+$("#limit").html(creditLimit);
 viewModel = new ordersViewModel();
 ko.applyBindings(viewModel);

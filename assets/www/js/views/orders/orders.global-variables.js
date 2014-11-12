@@ -1,8 +1,11 @@
 var detailId;
 var detailDate;
+var clientID;
 var route;
 var direction;
 var poblation;
 var entity;
 var cp;
 var colony;
+var creditLimit;
+var num_Fact;

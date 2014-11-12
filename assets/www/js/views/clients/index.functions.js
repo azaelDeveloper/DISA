@@ -1,18 +1,22 @@
-function clientsViewModel(clients){
+function TickViewModel(tickets){
 	var self = this;
-	self.clients = ko.observableArray([clients]);
+	self.clients = ko.observableArray([]);	
+	self.clients(tickets);
+	self.checkTickets = function(client){
+		clientID = client.idClient;				
+		getPage("file:///android_asset/www/views/clients/tickets.title.html", "file:///android_asset/www/views/clients/tickets.html");
+	}
 }
-function getClients(tx) {
-	tx.executeSql('SELECT * FROM clients', [], clients, errorCB);
+function fillClients(tx) {	
+	tx.executeSql('SELECT * FROM clients', [], allclients, errorCB);
 }
-function clients(tx, results) {
+function allclients(tx, results) {
 	var len = results.rows.length;
-	var clients = [];	
-	for (var i = 0; i < len; i++){		
-		clients.push(results.rows.item(i));
+	var tickets = [];		
+	for (var i = 0; i < len; i++){				
+		tickets.push(results.rows.item(i));
 		$("#noRecordsFound").hide("fast");
 	}
-	var viewModel = clientsViewModel(eval(clients));
-	ko.applyBindings(viewModel);		
-	$("#bodyTable").html(table);
+	var viewModel = TickViewModel(eval(tickets));
+	ko.applyBindings(viewModel);			
 }

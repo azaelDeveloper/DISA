@@ -18,19 +18,19 @@ function populateDB(tx) {
 	tx.executeSql('CREATE TABLE IF NOT EXISTS sellers(id INTEGER PRIMARY KEY, sellerIDERP TEXT, nameSeller TEXT, license TEXT, active NUMERIC, routes TEXT, timestamp NUMERIC)');		
 	//CLIENTS
 	//tx.executeSql('DROP TABLE IF EXISTS clients');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS clients(id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, direction TEXT, poblation TEXT, entity TEXT, colony TEXT, cp TEXT, creditLimit TEXT, active TEXT, route TEXT, timestamp NUMERIC)');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS clients(id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, direction TEXT, poblation TEXT, entity TEXT, colony TEXT, cp TEXT, creditLimit TEXT, active INTEGER, route TEXT, timestamp NUMERIC)');
 	// PRODUCTS
 	//tx.executeSql('DROP TABLE IF EXISTS products');	
-	tx.executeSql('CREATE TABLE IF NOT EXISTS products(id INTEGER PRIMARY KEY,selected NUMERIC, idProduct TEXT, nameProduct TEXT, price1 TEXT, price2 TEXT, price3 TEXT, price4 TEXT, priceFree TEXT, account_type TEXT, unit TEXT, category TEXT, existence TEXT, timestampp NUMERIC)');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS products(id INTEGER PRIMARY KEY,selected NUMERIC, idProduct TEXT, nameProduct TEXT, price1 REAL, price2 REAL, price3 REAL, price4 REAL, priceFree REAL, account_type TEXT, unit INTEGER, category TEXT, existence TEXT, timestampp NUMERIC)');
 	//COMMERCIAL_INVOICE
 	tx.executeSql('DROP TABLE IF EXISTS commercial_invoice');	
-	tx.executeSql('CREATE TABLE IF NOT EXISTS commercial_invoice (id INTEGER PRIMARY KEY, clientID TEXT, nameClient TEXT, num_Fact NUMERIC, amount TEXT, expiration TEXT, timestamp NUMERIC)');	
+	tx.executeSql('CREATE TABLE IF NOT EXISTS commercial_invoice (id INTEGER PRIMARY KEY, clientID TEXT, nameClient TEXT, num_Fact REAL, amount REAL, paid REAL, expiration TEXT, timestamp NUMERIC)');	
 	//COMERCIAL_DETAIL
 	tx.executeSql('DROP TABLE IF EXISTS commercial_detail');	
-	tx.executeSql('CREATE TABLE IF NOT EXISTS commercial_invoice (id INTEGER PRIMARY KEY, clientID TEXT, nameClient TEXT, num_Fact NUMERIC, paid TEXT, totalPaid TEXT, timestamp NUMERIC)');	
+	tx.executeSql('CREATE TABLE IF NOT EXISTS commercial_detail (id INTEGER PRIMARY KEY, num_Fact TEXT, paid REAL, totalPaid REAL, timestamp NUMERIC)');	
 	//PAYMENTS
 	tx.executeSql('DROP TABLE IF EXISTS payments');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS payments (id INTEGER PRIMARY KEY, IdClient INTEGER, num_Fact TEXT, amount TEXT,  timestamp NUMERIC)');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS payments (id INTEGER PRIMARY KEY, IdClient INTEGER, num_Fact REAL, amount TEXT,  timestamp NUMERIC)');
 	// DEBTS
 	tx.executeSql('DROP TABLE IF EXISTS debts');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS debts (id INTEGER PRIMARY KEY, title TEXT, code TEXT, version TEXT, expiration TEXT, description TEXT, documentType INTEGER, parentDoc INTEGER, html TEXT)');
@@ -38,11 +38,11 @@ function populateDB(tx) {
 	tx.executeSql('DROP TABLE IF EXISTS categorys');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS categorys (id INTEGER PRIMARY KEY, category TEXT, timestamp NUMERIC)');
 	//SELLS
-	//tx.executeSql('DROP TABLE IF EXISTS sells');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS sells (id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, total TEXT, idSeller TEXT, synchronized NUMERIC, timestamp NUMERIC)');
+	tx.executeSql('DROP TABLE IF EXISTS sells');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS sells (id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, total REAL, idSeller TEXT, synchronized NUMERIC, timestamp NUMERIC)');
 	//SELLSDETAIL
-	//tx.executeSql('DROP TABLE IF EXISTS sellsdetail');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS sellsdetail (id INTEGER PRIMARY KEY, idSell TEXT, idProduct TEXT, unit TEXT, nameProduct TEXT, quantity TEXT, price TEXT, minPrice TEXT, subtotal TEXT)');
+	tx.executeSql('DROP TABLE IF EXISTS sellsdetail');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS sellsdetail (id INTEGER PRIMARY KEY, idSell TEXT, idProduct TEXT, unit TEXT, nameProduct TEXT, quantity INTEGER, price REAL, minPrice REAL, subtotal REAL)');
 }
 
 // Transaction success callback

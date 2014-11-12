@@ -2,7 +2,7 @@
 <br />
 <br />
 <h2>Clientes</h2>
-<p>Seleccione un cliente para hacer el pedido.</p>
+<p>Seleccione un cliente para ver facturas.</p>
 <table class="table table-striped" data-bind='visible: clients().length > 0'>
   <thead>
     <tr>
@@ -16,29 +16,36 @@
       <th>Límite</th>
       <th>Ruta</th>
       <th>Activo</th>
-      <th>Última visita</th>
+      <th>
+        Seleccionar
+      </th>
     </tr>
   </thead>  
   <tbody data-bind="foreach: clients">
     <tr>      
-      <td><p data-bind="text: IdClient"></p></td>
+      <td><b data-bind="text: idClient"></b></td>
       <td><p data-bind="text: nameClient"></p></td>
       <td><p data-bind="text: direction"></p></td>
       <td><p data-bind="text: poblation"></p></td>
       <td><p data-bind="text: entity"></p></td>
       <td><p data-bind="text: colony"></p></td>
       <td><p data-bind="text: cp"></p></td>      
-      <td><p data-bind="text: limit"></p></td>
-      <td><p data-bind="text: route"></p>      </td>
-      <td><span data-bind="visible: Active" class="glyphicon glyphicon-ok"></span></td>
-      <td><b data-bind="text: timestamp"></b></td>
+      <td><p data-bind="text: creditLimit"></p></td>
+      <td><p data-bind="text: route"></p></td>
+      <td><span data-bind="visible: active" class="glyphicon glyphicon-ok"></span></td>
+      <td>
+        <div class="btn-group">
+          <button class="btn btn-primary" type="button" data-bind="click: checkTickets">
+            <span class="glyphicon glyphicon-check"></span>
+          </button>
+        </div>
+      </td>
     </tr>
   </tbody>
-
 </table>
 
-
-</div>
+<script type="text/javascript" charset="utf-8"
+  src="file:///android_asset/www/js/views/clients/clientsCoreSyncronized.functions.js"></script>
 
 <script type="text/javascript" charset="utf-8"
   src="file:///android_asset/www/js/views/clients/clients.global-variables.js"></script>
@@ -51,3 +58,4 @@
 
 <script type="text/javascript" charset="utf-8"
 	src="file:///android_asset/www/js/views/clients/index.bind.js"></script>
+

@@ -1,0 +1,35 @@
+<br />
+<br />
+<br />
+<h2>Detalle de Facturas</h2>
+<table class="table table-striped" data-bind='visible: details().length > 0'>
+  <thead>
+    <tr>
+      <th>Numero pago</th>
+      <th>Numero Factura</th>
+      <th>Abono</th>
+      <th>Fecha</th>      
+    </tr>
+  </thead>  
+  <tbody data-bind="foreach: details">
+    <tr>      
+      <td><b data-bind="text: id"></b></td>
+      <td><p data-bind="text: num_Fact"></p></td>
+      <td><p data-bind="text: paid"></p></td>      
+      <td><p data-bind="text: timestamp"></p></td>      
+    </tr>
+  </tbody>
+</table>
+<h3 data-bind="visible: totalSurcharge() > 0">Pagos Totales: $<span data-bind='text: totalSurcharge().toFixed(2), valueUpdate: "afterkeydown"'></span></h3>
+<script type="text/javascript" charset="utf-8"
+  src="file:///android_asset/www/js/views/clients/ticketsDetaiCoreSync.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/clients/ticketsDetail.functions.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+  src="file:///android_asset/www/js/views/clients/ticketsDetail.init.js"></script>
+
+<script type="text/javascript" charset="utf-8"
+	src="file:///android_asset/www/js/views/clients/ticketsDetail.bind.js"></script>
+

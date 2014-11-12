@@ -1,3 +1,4 @@
+var self;
 var detailId;
 var detailDate;
 var route;
@@ -6,3 +7,4 @@ var poblation;
 var entity;
 var cp;
 var colony;
+var clientID;
