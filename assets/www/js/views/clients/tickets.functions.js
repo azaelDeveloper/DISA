@@ -3,13 +3,21 @@ function TicketsClientsViewModel(tickets){
 	self.tickets = ko.observableArray([]);	
 	self.tickets(tickets);	
 	self.totalSurcharge = ko.computed(function() {
-       var total = 0;
-       for (var i = 0; i < self.tickets().length; i++){       	
-        total += parseFloat(self.tickets()[i].amount - self.tickets()[i].paid);                		
-       }
-       grandTotal = total;
-       return total;
-    }); 
+       	var total = 0;
+       	for (var i = 0; i < self.tickets().length; i++){       	
+        	total += parseFloat(self.tickets()[i].amount);                		
+       	}
+       	grandTotal = total;
+       	return total;
+    });
+    self.percentage = ko.computed(function() {
+       	var tAmount = 0, tPaid = 0;
+       	for (var i = 0; i < self.tickets().length; i++){       	
+			tAmount += parseFloat(self.tickets()[i].amount);
+			tPaid += parseFloat(self.tickets()[i].paid);
+       	}
+       	return (tPaid / tAmount) * 100;
+    });
     self.detailReports = function(fac) {
 		num_Fact = fac.num_Fact;		
 		getPage("file:///android_asset/www/views/clients/ticketsDetail.title.html", "file:///android_asset/www/views/clients/ticketsDetail.html");

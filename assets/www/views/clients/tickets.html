@@ -36,6 +36,7 @@
   </tbody>
 </table>
 <h3 data-bind="visible: totalSurcharge() > 0">Deuda Total: $<span data-bind='text: totalSurcharge().toFixed(2), valueUpdate: "afterkeydown"'></span></h3>
+<h3 data-bind="visible: totalSurcharge() > 0">Porcentaje pagado: <span data-bind='text: percentage().toFixed(2), valueUpdate: "afterkeydown"'></span>%</h3>
 <script type="text/javascript" charset="utf-8"
   src="file:///android_asset/www/js/views/clients/ticketsCoreSyncronized.functions.js"></script>
 
