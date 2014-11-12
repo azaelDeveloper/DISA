@@ -92,6 +92,15 @@ function getAllTickets() {
 	"timestamp": "10/11/2014"
 },
 {
+	"clientID": 1001,
+	"nameClient": "Jesús Corona Hurtado",
+	"num_Fact": 17964,
+	"amount": 1000,
+	"paid": 400,
+	"expiration": "1",	
+	"timestamp": "10/11/2014"
+},
+{
 	"clientID": 1003,
 	"nameClient": "Rafael Larios Rufian",
 	"num_Fact": 15721,
@@ -179,6 +188,33 @@ function getAllTickets() {
 	"amount": 600,
 	"paid": 400,
 	"expiration": "1",
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1006,
+	"nameClient": "Roberto Pérez Melgoza",
+	"num_Fact": 15721,
+	"amount": 800,
+	"paid": 600,
+	"expiration": "3",
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1006,
+	"nameClient": "Roberto Pérez Melgoza",
+	"num_Fact": 15731,
+	"amount": 900,
+	"paid": 700,
+	"expiration": "2",
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1006,
+	"nameClient": "Roberto Pérez Melgoza",
+	"num_Fact": 15812,
+	"amount": 1300,
+	"paid": 800,
+	"expiration": "0",
 	"timestamp": "10/11/2014"
 }];
 			newTickets(result);
