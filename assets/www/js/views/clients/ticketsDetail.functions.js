@@ -11,8 +11,7 @@ function DetailViewModel(detail){
        return total;
     }); 
 }
-function fillDetailT(tx) {	
-	alert(num_Fact)
+function fillDetailT(tx) {		
 	tx.executeSql('SELECT * FROM commercial_detail WHERE num_Fact = ' +  num_Fact, [], allDetailTick, errorCB);
 }
 function allDetailTick(tx, results) {
