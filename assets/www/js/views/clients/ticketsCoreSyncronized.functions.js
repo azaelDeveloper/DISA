@@ -54,6 +54,132 @@ function getAllTickets() {
 	"paid": 400,
 	"expiration": "9",	
 	"timestamp": "12/03/2003"
+},
+{
+	"clientID": 1001,
+	"nameClient": "Jesús Corona Hurtado",
+	"num_Fact": 16879,
+	"amount": 500,
+	"paid": 100,
+	"expiration": "5",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1001,
+	"nameClient": "Jesús Corona Hurtado",
+	"num_Fact": 16880,
+	"amount": 1100,
+	"paid": 500,
+	"expiration": "4",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1001,
+	"nameClient": "Jesús Corona Hurtado",
+	"num_Fact": 16907,
+	"amount": 800,
+	"paid": 700,
+	"expiration": "3",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1001,
+	"nameClient": "Jesús Corona Hurtado",
+	"num_Fact": 17932,
+	"amount": 1500,
+	"paid": 1100,
+	"expiration": "2",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1003,
+	"nameClient": "Rafael Larios Rufian",
+	"num_Fact": 15721,
+	"amount": 1000,
+	"paid": 500,
+	"expiration": "1",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1003,
+	"nameClient": "Rafael Larios Rufian",
+	"num_Fact": 15838,
+	"amount": 2000,
+	"paid": 700,
+	"expiration": "2",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1003,
+	"nameClient": "Rafael Larios Rufian",
+	"num_Fact": 15840,
+	"amount": 1000,
+	"paid": 200,
+	"expiration": "2",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1004,
+	"nameClient": "Alberto Lopez Marroquin",
+	"num_Fact": 15768,
+	"amount": 800,
+	"paid": 200,
+	"expiration": "3",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1004,
+	"nameClient": "Alberto Lopez Marroquin",
+	"num_Fact": 15794,
+	"amount": 700,
+	"paid": 350,
+	"expiration": "1",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1004,
+	"nameClient": "Alberto Lopez Marroquin",
+	"num_Fact": 15856,
+	"amount": 1200,
+	"paid": 600,
+	"expiration": "1",	
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1005,
+	"nameClient": "Juan Luis Corona Hurtado",
+	"num_Fact": 15624,
+	"amount": 200,
+	"paid": 150,
+	"expiration": "4",
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1005,
+	"nameClient": "Juan Luis Corona Hurtado",
+	"num_Fact": 15744,
+	"amount": 350,
+	"paid": 70,
+	"expiration": "3",
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1005,
+	"nameClient": "Juan Luis Corona Hurtado",
+	"num_Fact": 15765,
+	"amount": 900,
+	"paid": 780,
+	"expiration": "2",
+	"timestamp": "10/11/2014"
+},
+{
+	"clientID": 1005,
+	"nameClient": "Juan Luis Corona Hurtado",
+	"num_Fact": 15804,
+	"amount": 600,
+	"paid": 400,
+	"expiration": "1",
+	"timestamp": "10/11/2014"
 }];
 			newTickets(result);
 				pass = true;
@@ -83,7 +209,7 @@ function newTicketsViewModel(tickets){
 	db.transaction(updateTickets, errorCB);	
 	function updateTickets(tx){				
 		for (var x = 0; x < self.tickets2().length; x++){						
-			alert(self.tickets2()[x].num_Fact)
+			// alert(self.tickets2()[x].num_Fact)
 			var query = "INSERT INTO commercial_invoice(clientID, nameClient, num_Fact, amount, paid, expiration, timestamp) VALUES ("+ self.tickets2()[x].clientID +", '"+ self.tickets2()[x].nameClient +"', " + self.tickets2()[x].num_Fact +", '"+ self.tickets2()[x].amount +"', '"+ self.tickets2()[x].paid +"', '"+ self.tickets2()[x].expiration +"', '"+ self.tickets2()[x].timestamp +"')";				
 			tx.executeSql(query);			
 		}
