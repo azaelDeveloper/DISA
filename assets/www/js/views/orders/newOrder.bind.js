@@ -5,13 +5,11 @@ $("#backHomeTablet").click(function(){
 	getPage("file:///android_asset/www/views/home/index.title.html", "file:///android_asset/www/views/home/index.html");
 });
 $('#searchTablet').click(function() {	
-	sqlLike = $('#filterProductTablet').val();		
-	navigator.notification.alert("Buscando: " + sqlLike, alertMiss, "Buscandor", "Aceptar");	            
+	sqlLike = $('#filterProductTablet').val();			
 	db.transaction(likeProducts, errorCB);	
 });
 $('#searchPhone').click(function() {	
-	sqlLike = $('#filterProductPhone').val();		
-	navigator.notification.alert("Buscando: " + sqlLike, alertMiss, "Buscador", "Aceptar");	            
+	sqlLike = $('#filterProductPhone').val();			
 	db.transaction(likeProducts, errorCB);		
 });
 $("#idProductT").click(function(){	
