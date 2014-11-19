@@ -165,10 +165,9 @@ function checkPrices(){
 	var allGood = true;	
 	for(var i=0; i < self.lines().length; i++){				
 		if(self.lines()[i].price() < self.lines()[i].minPrice())
-		{
-			alert("Wrong");
+		{			
 			allGood = false;
-			alert("Error en el precio mínimo de '"+ self.lines()[i].nameProduct() +"' : " + (i + 1) +", precio: "+ self.lines()[i].price() + ", precio mínimo :" + self.lines()[i].minPrice());
+			alert("Error en el precio de '"+ self.lines()[i].nameProduct() +"': #" + (i + 1) +" de pedido, precio: "+ self.lines()[i].price() + ", precio mínimo :" + self.lines()[i].minPrice());
 		}
 	}	
 	return allGood;
