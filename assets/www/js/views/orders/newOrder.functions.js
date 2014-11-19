@@ -11,7 +11,7 @@ function CartLine (id, idProd, product, price, minPrice, quantity, unit){
 	    self1.formattedPrice = ko.computed(function() {
         var subtotal = self1.price();    
         self1.subtotal(subtotal * self1.quantity());
-        return subtotal ? "$" + parseFloat(subtotal * self1.quantity()).toFixed(2) : "0.0";        
+        return subtotal ? "$" + (subtotal * self1.quantity()) : "0.0";        
     	});     	
 	    // Whenever the category changes, reset the product selection	    
 }	

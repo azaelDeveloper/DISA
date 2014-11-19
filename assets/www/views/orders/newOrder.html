@@ -77,7 +77,7 @@ Municipio: <b>Michoácan</b><br />
                     <input type="number" data-bind='value: price, valueUpdate: ["afterkeydown", "keyup", "keypress", "input"]' size="8" />
                 </td>                                
                 <td>
-                    <strong><span data-bind="text: formattedPrice"></span></strong>
+                    <strong><span data-bind="text: formattedPrice().toFixed(2)"></span></strong>
                 </td>
                 <td>
                     <button data-bind='click: $parent.removeLine' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>

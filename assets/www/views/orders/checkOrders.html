@@ -27,7 +27,7 @@
 	<tbody data-bind='foreach: sells'>
 		<tr>
 			<td>
-				<input type="checkbox" name="synchronize" data-bind="checked: listSyncSells, disabled: synchronized" />
+				<input type="checkbox" name="synchronize" data-bind="click: $root.listSyncSells" />
 			</td>
 			<td data-bind="text: id"></td>
 			<td data-bind="text: nameClient"></td>
