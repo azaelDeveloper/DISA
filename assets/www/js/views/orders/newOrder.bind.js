@@ -160,6 +160,10 @@ function saveDetail(tx){
 		navigator.notification.alert("Se guardo pedido con éxito...", alertMiss, "Pedido guardado", "Aceptar");	            
 		getPage("file:///android_asset/www/views/orders/checkOrders.title.html", "file:///android_asset/www/views/orders/checkOrders.html");		
 	}
+	else
+	{
+		tx.executeSql("DELETE FROM sells WHERE id = " + lastID);
+	}
 }
 function checkPrices(){
 	var allGood = true;	
