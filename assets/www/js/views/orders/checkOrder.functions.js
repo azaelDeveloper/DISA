@@ -15,6 +15,23 @@ function sellsMasterModel(orders) {
 		detailDate = $(this).attr("timestamp");
 		getPage("file:///android_asset/www/views/orders/detailOrder.title.html", "file:///android_asset/www/views/orders/detailOrder.html");
 	};
+
+	self.listSyncSells = function(sell){
+		alert(sell.id);
+		//val isMarked = $("#" + sell.id).is(":checked");
+		/*if(isMarked){
+			//alert("add");
+			unsynchronized.push(sell);
+			idunsynchronized.push(sell.id);
+		}
+		else{
+			unsynchronized.remove(sell);
+			idunsynchronized.remove(sell.id);
+			//alert("remove");
+		}*/
+		//alert(isMarked);
+		return true;
+	}
 };
 function getOrders(tx) {
 	var QUERY = 'SELECT * FROM sells';
@@ -24,10 +41,10 @@ function sells(tx, results) {
 	var len = results.rows.length;
 	var sells = [];
 	for (var i = 0; i < len; i++) {				
-		if(results.rows.item(i).synchronized == 0){
-			unsynchronized.push(results.rows.item(i));		
+		/*if(results.rows.item(i).synchronized == 0){
+			unsynchronized.push(results.rows.item(i));
 			idunsynchronized.push(results.rows.item(i).id);
-		}
+		}*/
 		sells.push(results.rows.item(i));		
 	}		
 	viewModel = new sellsMasterModel(eval(sells));
