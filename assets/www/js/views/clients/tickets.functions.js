@@ -20,6 +20,8 @@ function TicketsClientsViewModel(tickets){
     });
     self.detailReports = function(fac) {
 		num_Fact = fac.num_Fact;		
+		factureNumber = fac.num_Fact;	
+		debt = fac.amount;	
 		getPage("file:///android_asset/www/views/clients/ticketsDetail.title.html", "file:///android_asset/www/views/clients/ticketsDetail.html");
 	};
 }

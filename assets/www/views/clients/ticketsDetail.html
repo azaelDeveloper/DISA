@@ -1,7 +1,15 @@
 <br />
 <br />
 <br />
-<h2>Detalle de Facturas</h2>
+<h2>Detalle de Factura: <h2 id="fac_Number"></h2></h2>
+
+<table id="noRecordsFound" class="table table-striped table-bordered" style="display: none;">
+  <thead>
+    <tr>
+      <th>Sin regístros</th>
+    </tr>
+  </thead>
+</table>
 <table class="table table-striped" data-bind='visible: details().length > 0'>
   <thead>
     <tr>
@@ -20,9 +28,19 @@
     </tr>
   </tbody>
 </table>
-<h3 data-bind="visible: totalSurcharge() > 0">Pagos Totales: $<span data-bind='text: totalSurcharge().toFixed(2), valueUpdate: "afterkeydown"'></span></h3>
+<h3 data-bind="visible: totalDebt() > 0">Total de Deuda: $<span data-bind='text: totalDebt().toFixed(2), valueUpdate: "afterkeydown"'></span></h3>
+<h3 data-bind="visible: totalSurcharge() > 0">Total de Pagos: $<span data-bind='text: totalSurcharge().toFixed(2), valueUpdate: "afterkeydown"'></span></h3>
+<h3 data-bind="visible: remainingDebt() > 0">Deuda a Pagar: $<span data-bind='text: remainingDebt().toFixed(2), valueUpdate: "afterkeydown"'></span></h3>
+
+<br /> 
+<br /> 
+<br /> 
+
+$<input type="number" class="col-sm-1" id="payment">
+<button class="btn btn-success">Abonar  <span class="glyphicon glyphicon-credit-card"></span></button>
+
 <script type="text/javascript" charset="utf-8"
-  src="file:///android_asset/www/js/views/clients/ticketsDetaiCoreSync.functions.js"></script>
+  src="file:///android_asset/www/js/views/clients/ticketsDetailCoreSync.functions.js"></script>
 
 <script type="text/javascript" charset="utf-8"
 	src="file:///android_asset/www/js/views/clients/ticketsDetail.functions.js"></script>

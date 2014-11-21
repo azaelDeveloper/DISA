@@ -9,6 +9,7 @@ var orchardsLeft;
 var guidUserKey;
 var clientID;
 var clientName;
+var factureNumber;
 //One navegation step back title url
 var backTitleUrl;
 

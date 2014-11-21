@@ -8,3 +8,5 @@ var entity;
 var cp;
 var colony;
 var clientID;
+var num_Fact;
+var debt;
