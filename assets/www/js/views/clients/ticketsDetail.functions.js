@@ -42,3 +42,25 @@ function allDetailTick(tx, results) {
 	var viewModel = DetailViewModel(eval(detail));
 	ko.applyBindings(viewModel);			
 }
+function sendPayment(){
+  var payment = $("#payment")val();
+  $.ajax({
+      type: "POST",
+      url: url,
+      data: { "payment": payment, "idTicket" : num_Fact, "timestampp": getCurrentDate()},
+      contentType: "text/json",
+      dataType: "text",
+      cache: false,
+      success: function(result) {               
+        if(result == "true"){
+            navigator.notification.alert("Pago registrado por:" + payment + " actualize por favor.", alertMiss, "Pago registrado", "Aceptar");        
+        }
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        navigator.notification.alert("No se puede contactar al servidor", alertMiss, "Respuesta del servidor", "Aceptar");        
+        //getPage("file:///android_asset/www/views/initial_configuration/clients.title.html", "file:///android_asset/www/views/initial_configuration/clients.html");
+      },
+      async: true
+  });
+
+}

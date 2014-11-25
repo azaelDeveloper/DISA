@@ -8,3 +8,7 @@ $("#syncDetails").click(function(){
 		$(this).attr("disabled", "disabled");		
 		getAllDetails();
 });
+$("#paymentToTicket").click(function(){	
+	$(this).attr("disabled", "disabled");
+	sendPayment();
+});
