@@ -42,8 +42,10 @@ function allDetailTick(tx, results) {
 	var viewModel = DetailViewModel(eval(detail));
 	ko.applyBindings(viewModel);			
 }
-function sendPayment(){
-  var payment = $("#payment")val();
+
+function sendPayment(){    
+  var payment = $("#payment").val();
+  alert("pago :" +payment + " factura: " + num_Fact + "fecha: " + getCurrentDate());  
   $.ajax({
       type: "POST",
       url: url,
@@ -52,8 +54,9 @@ function sendPayment(){
       dataType: "text",
       cache: false,
       success: function(result) {               
-        if(result == "true"){
+        if(result != null){
             navigator.notification.alert("Pago registrado por:" + payment + " actualize por favor.", alertMiss, "Pago registrado", "Aceptar");        
+            db.transaction(registerPayment, errorCB);
         }
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -62,5 +65,11 @@ function sendPayment(){
       },
       async: true
   });
-
+}
+function registerPayment(tx){
+  var payment = $("#payment").val();
+  //payments id INTEGER PRIMARY KEY, IdClient INTEGER, nameClient TEXT, num_Fact REAL, amount TEXT,  timestamp NUMERIC
+  var sql = "INSERT INTO payments (IdClient, nameClient, num_Fact, amount, timestamp) VALUES";
+  sql += "('"+ clientID +"', '"+ nameClient +"', '"+ num_Fact +"', '"+ payment +"', '"+ getCurrentDate() +"')";
+  alert(sql);
 }

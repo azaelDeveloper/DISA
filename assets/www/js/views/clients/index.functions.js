@@ -3,7 +3,8 @@ function TickViewModel(tickets){
 	self.clients = ko.observableArray([]);	
 	self.clients(tickets);
 	self.checkTickets = function(client){
-		clientID = client.idClient;				
+		clientID = client.idClient;		
+		nameClient = client.nameClient;		
 		getPage("file:///android_asset/www/views/clients/tickets.title.html", "file:///android_asset/www/views/clients/tickets.html");
 	}
 }

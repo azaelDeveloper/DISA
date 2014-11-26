@@ -9,6 +9,6 @@ $("#syncDetails").click(function(){
 		getAllDetails();
 });
 $("#paymentToTicket").click(function(){	
-	$(this).attr("disabled", "disabled");
+	//$(this).attr("disabled", "disabled");
 	sendPayment();
 });

@@ -23,14 +23,14 @@ function populateDB(tx) {
 	//tx.executeSql('DROP TABLE IF EXISTS products');	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS products(id INTEGER PRIMARY KEY,selected NUMERIC, idProduct TEXT, nameProduct TEXT, price1 REAL, price2 REAL, price3 REAL, price4 REAL, priceFree REAL, account_type TEXT, unit INTEGER, category TEXT, existence TEXT, timestampp NUMERIC)');
 	//COMMERCIAL_INVOICE
-	tx.executeSql('DROP TABLE IF EXISTS commercial_invoice');	
+	//tx.executeSql('DROP TABLE IF EXISTS commercial_invoice');	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS commercial_invoice (id INTEGER PRIMARY KEY, clientID TEXT, nameClient TEXT, num_Fact REAL, amount REAL, paid REAL, expiration TEXT, timestamp NUMERIC)');	
 	//COMERCIAL_DETAIL
-	tx.executeSql('DROP TABLE IF EXISTS commercial_detail');	
+	//tx.executeSql('DROP TABLE IF EXISTS commercial_detail');	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS commercial_detail (id INTEGER PRIMARY KEY, num_Fact TEXT, paid REAL, totalPaid REAL, timestamp NUMERIC)');	
 	//PAYMENTS
 	tx.executeSql('DROP TABLE IF EXISTS payments');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS payments (id INTEGER PRIMARY KEY, IdClient INTEGER, num_Fact REAL, amount TEXT,  timestamp NUMERIC)');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS payments (id INTEGER PRIMARY KEY, IdClient INTEGER, nameClient TEXT, num_Fact REAL, amount TEXT,  timestamp NUMERIC)');
 	// DEBTS
 	tx.executeSql('DROP TABLE IF EXISTS debts');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS debts (id INTEGER PRIMARY KEY, title TEXT, code TEXT, version TEXT, expiration TEXT, description TEXT, documentType INTEGER, parentDoc INTEGER, html TEXT)');

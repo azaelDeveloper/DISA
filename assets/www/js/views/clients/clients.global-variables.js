@@ -10,3 +10,4 @@ var colony;
 var clientID;
 var num_Fact;
 var debt;
+var nameClient;
