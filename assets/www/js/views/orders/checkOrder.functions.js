@@ -17,19 +17,19 @@ function sellsMasterModel(orders) {
 	};
 
 	self.listSyncSells = function(sell){
-		alert(sell.id);
-		//val isMarked = $("#" + sell.id).is(":checked");
-		/*if(isMarked){
-			//alert("add");
+		//val isMarked = $(this).is(":checked");
+		if($.inArray(sell.id, idunsynchronized) == -1){
 			unsynchronized.push(sell);
 			idunsynchronized.push(sell.id);
 		}
 		else{
-			unsynchronized.remove(sell);
-			idunsynchronized.remove(sell.id);
-			//alert("remove");
-		}*/
-		//alert(isMarked);
+			unsynchronized = $.grep(unsynchronized, function(value){
+				return value != sell;
+			});
+			idunsynchronized = $.grep(idunsynchronized, function(value){
+				return value != sell.id;
+			});
+		}
 		return true;
 	}
 };

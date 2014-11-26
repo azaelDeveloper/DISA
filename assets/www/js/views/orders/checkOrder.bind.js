@@ -7,5 +7,5 @@ $("#backHomeTablet").click(function(){
 $("#syncOrders").click(function(){
 	$(this).button('loading');
 	syncronizedOrders(idunsynchronized, unsynchronized);
-	//$(this).button('reset');
+	$(this).button('reset');
 });

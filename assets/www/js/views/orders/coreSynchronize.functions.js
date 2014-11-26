@@ -1,5 +1,6 @@
 function syncronizedOrders(ids, unsynchronized){
-	var json = ko.mapping.toJSON(unsynchronized);
+	jsonSells = [];
+	sellCount = 0;
 	db.transaction(getDetails, errorCB);
 }
 function getDetails(tx){
@@ -9,10 +10,17 @@ function getDetails(tx){
 	}
 }
 function detailsOrder(tx, results){
+	var jsonDetail = [];
+	jsonDetail.push(unsynchronized[sellCount]);
 	var len = results.rows.length;
+	/*for (var i = 0; i < len; i++) {
+		jsonDetail.push(results.rows.item(i));
+	}*/
 	for (var i = 0; i < len; i++) {
 		jsonDetail.push(results.rows.item(i));
 	}
+	jsonSells.push(ko.mapping.toJSON(jsonDetail));
 	alert(ko.mapping.toJSON(jsonDetail));
+	sellCount ++;
 }
 
