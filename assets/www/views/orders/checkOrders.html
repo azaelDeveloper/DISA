@@ -15,7 +15,7 @@
 <table data-bind='visible: sells().length > 0' class="table table-striped table-bordered" style="display: none;">
 	<thead>
 		<tr>
-			<th></th>
+			<th><input type="checkbox" id="checkAll" name="checkAll" data-bind="click: $root.checkAll" /></th>
 			<th>Id</th>
 			<th>Nombre del cliente</th>
 			<th>Total</th>

@@ -29,7 +29,31 @@ function sellsMasterModel(orders) {
 			idunsynchronized = $.grep(idunsynchronized, function(value){
 				return value != sell.id;
 			});
+			/*unsynchronized.remove(sell);
+			idunsynchronized.remove(sell.id);*/
 		}
+		return true;
+	}
+
+	self.checkAll = function(){
+		if($("#checkAll").is(":checked")){
+			$("input[type=checkbox]").prop("checked","checked");
+			var len = orders.length;
+			for (var i = 0; i < len; i++) {
+				if($.inArray(orders[i].id, idunsynchronized) == -1 && orders[i].synchronized == 0){
+					unsynchronized.push(orders[i]);
+					idunsynchronized.push(orders[i].id);
+				}
+			}
+		}
+		else{
+			$("input[type=checkbox]").filter(function() {
+				return !this.disabled && this.checked;
+			}).prop("checked","");
+			unsynchronized.length = 0;
+			idunsynchronized.length = 0;
+		}
+		
 		return true;
 	}
 };

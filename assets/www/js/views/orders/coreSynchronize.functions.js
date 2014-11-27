@@ -13,9 +13,6 @@ function detailsOrder(tx, results){
 	var jsonDetail = [];
 	jsonDetail.push(unsynchronized[sellCount]);
 	var len = results.rows.length;
-	/*for (var i = 0; i < len; i++) {
-		jsonDetail.push(results.rows.item(i));
-	}*/
 	for (var i = 0; i < len; i++) {
 		jsonDetail.push(results.rows.item(i));
 	}
