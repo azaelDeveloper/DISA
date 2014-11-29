@@ -45,7 +45,9 @@ function allDetailTick(tx, results) {
 
 function sendPayment(){    
   var payment = $("#payment").val();
+  //Clave del cliente, clave de vendedor
   alert("pago :" +payment + " factura: " + num_Fact + "fecha: " + getCurrentDate());  
+  var url = "http://www.siaa.mx/app/AppDataService.asmx/Clientes";
   $.ajax({
       type: "POST",
       url: url,

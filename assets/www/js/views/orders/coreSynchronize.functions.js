@@ -15,6 +15,7 @@ function detailsOrder(tx, results){
 	var len = results.rows.length;
 	for (var i = 0; i < len; i++) {
 		jsonDetail.push(results.rows.item(i));
+		//$.ajax call
 	}
 	jsonSells.push(ko.mapping.toJSON(jsonDetail));
 	alert(ko.mapping.toJSON(jsonDetail));
