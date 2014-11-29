@@ -43,7 +43,7 @@ $("#filteredTable").on("click","button[id='addProduct']", function(){
 	idToAdd = idToAdd.replace(" ", "");		
 	$("input:radio:checked").each(function(index){				
 		price = $(this).val();		
-		price = parseFloat(price).toFixed(2)
+		price = parseFloat(price).toFixed(2);
 		switch(price){
 		case price1:			
 			self.lines.push(new CartLine(self.lines().length + 1, idToAdd, nameProduct, price, parseFloat(price1).toFixed(2), 1, unit));
