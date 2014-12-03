@@ -4,6 +4,5 @@ var self;
 var unsynchronized = [];
 var unsynchronizedDetail = [];
 var idunsynchronized = [];
-var jsonSells = [];
 var sellCount = 0;
 db.transaction(getOrders, errorCB);

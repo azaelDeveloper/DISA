@@ -29,8 +29,6 @@ function sellsMasterModel(orders) {
 			idunsynchronized = $.grep(idunsynchronized, function(value){
 				return value != sell.id;
 			});
-			/*unsynchronized.remove(sell);
-			idunsynchronized.remove(sell.id);*/
 		}
 		return true;
 	}
@@ -53,7 +51,6 @@ function sellsMasterModel(orders) {
 			unsynchronized.length = 0;
 			idunsynchronized.length = 0;
 		}
-		
 		return true;
 	}
 };

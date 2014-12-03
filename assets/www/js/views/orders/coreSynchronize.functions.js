@@ -1,5 +1,4 @@
 function syncronizedOrders(ids, unsynchronized){
-	jsonSells = [];
 	sellCount = 0;
 	db.transaction(getDetails, errorCB);
 }
@@ -12,13 +11,30 @@ function getDetails(tx){
 function detailsOrder(tx, results){
 	var jsonDetail = [];
 	jsonDetail.push(unsynchronized[sellCount]);
+	var sellID = idunsynchronized[sellCount];
 	var len = results.rows.length;
 	for (var i = 0; i < len; i++) {
 		jsonDetail.push(results.rows.item(i));
-		//$.ajax call
 	}
-	jsonSells.push(ko.mapping.toJSON(jsonDetail));
-	alert(ko.mapping.toJSON(jsonDetail));
+	$.ajax({
+	    type: "POST",
+	    url: "http://siaa.mx/app/AppDataService.asmx/Ventas%20Cabecera%20Detalle",
+	    data: { Archivo: "" + ko.mapping.toJSON(jsonDetail) },
+	    dataType: "text",
+	    cache: false,
+	    success: function(data) {
+	    	if($.trim(data) === "True"){
+	    		db.transaction(updateOrder, errorCB);
+			}
+	    }
+	});
+	function updateOrder (tx){
+		tx.executeSql("UPDATE sells SET synchronized = 1 WHERE id = " + sellID);
+		sellCount--;
+		if(sellCount == 0){
+			getPage("file:///android_asset/www/views/orders/checkOrders.title.html", "file:///android_asset/www/views/orders/checkOrders.html");
+		}
+	}
+	//alert(ko.mapping.toJSON(jsonDetail));
 	sellCount ++;
 }
-
