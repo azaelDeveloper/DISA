@@ -11,6 +11,7 @@ function getDetails(tx){
 function detailsOrder(tx, results){
 	var jsonDetail = [];
 	jsonDetail.push(unsynchronized[sellCount]);
+	jsonDetail.push("DETALLES");
 	var sellID = idunsynchronized[sellCount];
 	var len = results.rows.length;
 	for (var i = 0; i < len; i++) {
