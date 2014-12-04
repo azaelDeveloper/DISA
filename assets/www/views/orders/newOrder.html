@@ -77,7 +77,7 @@ Municipio: <b>Michoácan</b><br />
                     <input type="number" data-bind='value: price, valueUpdate: ["afterkeydown", "keyup", "keypress", "input"]' size="8" />
                 </td>                                
                 <td>
-                    <strong><span data-bind="text: formattedPrice.toFixed(2)"></span></strong>
+                    <strong><span data-bind="text: formattedPrice"></span></strong>
                 </td>
                 <td>
                     <button data-bind='click: $parent.removeLine' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
@@ -85,7 +85,7 @@ Municipio: <b>Michoácan</b><br />
             </tr>
         </tbody>
     </table>
-  <h2 class="pull-right" data-bind="visible: totalSurcharge() > 0">Total: $<span data-bind='text: totalSurcharge().toFixed(2)'></span></h2>
+  <h2 class="pull-right" data-bind="visible: totalSurcharge() > 0">Total: $<span data-bind='text: totalSurcharge()'></span></h2>
   <br /> <br />
 
 <div id="filteredTable"></div>
