@@ -45,20 +45,19 @@ function allDetailTick(tx, results) {
 
 function sendPayment(){    
   var payment = $("#payment").val();
-  //Clave del cliente, clave de vendedor
-  alert("pago :" +payment + " factura: " + num_Fact + "fecha: " + getCurrentDate());  
+  alert("pago :" +payment + " factura: " + num_Fact + "fecha: " + getCurrentDate() +" ClienteID: " + clientID + " vendedorID:" + licenseUser);  
   var url = "http://www.siaa.mx/app/AppDataService.asmx/Clientes";
   $.ajax({
       type: "POST",
       url: url,
-      data: { "payment": payment, "idTicket" : num_Fact, "timestampp": getCurrentDate()},
+      data: { "payment": payment, "idTicket" : num_Fact, "timestampp": getCurrentDate(), "clientID": clientID, "sellerID": licenseUser},
       contentType: "text/json",
       dataType: "text",
       cache: false,
       success: function(result) {               
-        if(result != null){
+        if(result != null){            
+            db.transaction(registerPayment, errorCB);            
             navigator.notification.alert("Pago registrado por:" + payment + " actualize por favor.", alertMiss, "Pago registrado", "Aceptar");        
-            db.transaction(registerPayment, errorCB);
         }
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -69,9 +68,10 @@ function sendPayment(){
   });
 }
 function registerPayment(tx){
-  var payment = $("#payment").val();
-  //payments id INTEGER PRIMARY KEY, IdClient INTEGER, nameClient TEXT, num_Fact REAL, amount TEXT,  timestamp NUMERIC
-  var sql = "INSERT INTO payments (IdClient, nameClient, num_Fact, amount, timestamp) VALUES";
+  var payment = parseFloat($("#payment").val());
+  payment = payment.toFixed(2);  
+  var sql = "INSERT INTO payments (IdClient, nameClient, num_Fact, amount, timestamp) VALUES ";  
   sql += "('"+ clientID +"', '"+ nameClient +"', '"+ num_Fact +"', '"+ payment +"', '"+ getCurrentDate() +"')";
-  alert(sql);
+  tx.executeSql(sql);
+  $("#payment").val("");
 }

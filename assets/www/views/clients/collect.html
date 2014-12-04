@@ -1,22 +1,28 @@
+<br />
+<br />
+<br />
+<br />
+
 <H2>Cobranzas</H2>
-<table class="table table-striped">
+<table class="table table-striped" data-bind="visible: payments().length > 0">
 	<thead>
 		<tr>
 			<th>Cliente</th>
-			<th>Cantidad</th>
 			<th>Factura</th>
+			<th>Cantidad</th>			
 			<th>Fecha</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody data-bind="foreach: payments">
 		<tr>
-			<th>Juan López</th>
-			<th>$2440</th>
-			<th>3442</th>
-			<th>26/11/2014</th>
+			<td><span data-bind="text: nameClient"></span></td>			
+			<td><span data-bind="text: num_Fact"></span></td>
+			<td>$<span data-bind="text: amount"></span></td>
+			<td><span data-bind="text: timestamp"></span></td>
 		</tr>
 	</tbody>
 </table>
+<h3 data-bind="visible: totalPayed() > 0">Total Cobrado: $<span data-bind='text: totalPayed().toFixed(2), valueUpdate: "afterkeydown"'></span></h3>
 
 <script type="text/javascript" charset="utf-8"
 	src="file:///android_asset/www/js/views/clients/collect.functions.js"></script>
