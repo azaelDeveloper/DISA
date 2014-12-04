@@ -29,7 +29,7 @@ function populateDB(tx) {
 	//tx.executeSql('DROP TABLE IF EXISTS commercial_detail');	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS commercial_detail (id INTEGER PRIMARY KEY, num_Fact TEXT, paid REAL, totalPaid REAL, timestamp NUMERIC)');	
 	//PAYMENTS
-	tx.executeSql('DROP TABLE IF EXISTS payments');
+	//tx.executeSql('DROP TABLE IF EXISTS payments');
 	tx.executeSql('CREATE TABLE IF NOT EXISTS payments (id INTEGER PRIMARY KEY, IdClient INTEGER, nameClient TEXT, num_Fact REAL, amount TEXT,  timestamp NUMERIC)');
 	// DEBTS
 	tx.executeSql('DROP TABLE IF EXISTS debts');
