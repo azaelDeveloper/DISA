@@ -11,7 +11,7 @@ function Save() {
 function saveAdmin(tx) {
 	getGPS();
 	if (adminId == ""){
-		var query = "INSERT INTO users (name,  lastName, password, system_data, email, application_role, remember_me, timestamp, gps)";
+		var query = "INSERT INTO users (name,  lastName, password, system_data, email, application_role, remember_me, timestampp, gps)";
 		query += "VALUES('" + adminName + "', '" + adminLastName + "', '"
 				+ encriptedPass + "', " + p4 + ", '" + adminEmail + "', '" + role
 				+ "', 0, '" + getCurrentDateTime() + "', '" + gps + "')";
@@ -21,9 +21,9 @@ function saveAdmin(tx) {
 	if(adminId != ""){
 		
 		var query = "UPDATE users SET name='" + adminName + "', lastName = '" + adminLastName + "', password = '" + encriptedPass + "', system_data = '" + p4 
-		+ "', email = '" + adminEmail  + "', application_role = '" + role + "', remember_me = 0, timestamp = '" + getCurrentDateTime() + "', gps ='" + gps + "' WHERE id = " + adminId;
+		+ "', email = '" + adminEmail  + "', application_role = '" + role + "', remember_me = 0, timestampp = '" + getCurrentDateTime() + "', gps ='" + gps + "' WHERE id = " + adminId;
 		alert(query);
-		/*var query = "UPDATE INTO users (name,  lastName, password, system_data, email, application_role, remember_me, timestamp, gps)";
+		/*var query = "UPDATE INTO users (name,  lastName, password, system_data, email, application_role, remember_me, timestampp, gps)";
 		query += "VALUES('" + adminName + "', '" + adminLastName + "', '"
 				+ encriptedPass + "', " + p4 + ", '" + adminEmail + "', '" + role
 				+ "', 0, '" + getCurrentDateTime() + "', '" + gps + "')";*/

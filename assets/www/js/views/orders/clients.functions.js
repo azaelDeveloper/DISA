@@ -3,6 +3,7 @@ function ClientsOrderViewModel(clients){
 	self.clients = ko.observableArray([]);	
 	self.clients(clients);	
 	self.detailReports = function(client) {				
+		clientID = client.idClient;
 		clientName = client.nameClient;
 		route = client.route;
 		direction = client.direction;
@@ -11,7 +12,7 @@ function ClientsOrderViewModel(clients){
 		cp = client.cp;
 		creditLimit = client.creditLimit
 		getPage("file:///android_asset/www/views/orders/newOrder.title.html", "file:///android_asset/www/views/orders/newOrder.html");
-		//tx.executeSql('CREATE TABLE IF NOT EXISTS clients(id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, direction TEXT, poblation TEXT, entity TEXT, colony TEXT, cp TEXT, creditLimit TEXT, active INTEGER, route TEXT, timestamp NUMERIC)');
+		//tx.executeSql('CREATE TABLE IF NOT EXISTS clients(id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, direction TEXT, poblation TEXT, entity TEXT, colony TEXT, cp TEXT, creditLimit TEXT, active INTEGER, route TEXT, timestampp NUMERIC)');
 	};
 }
 function getClients(tx) {

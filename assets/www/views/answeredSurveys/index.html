@@ -23,7 +23,7 @@
 		<tbody data-bind='foreach: suppliersMasters'>
 			<tr>
 				<td data-bind="text: id"></td>
-				<td data-bind="text: timestamp"></td>
+				<td data-bind="text: timestampp"></td>
 				<td>
 					<div class="btn-group">
 						<button class="btn btn-primary" type="button" data-bind="click: $root.editSupplierMaster, id: id, uniqueName: true, visible: finished">
@@ -53,7 +53,7 @@
 		<tbody data-bind='foreach: suppliersMasters'>
 			<tr>
 				<td data-bind="text: id"></td>
-				<td><b>Fecha y Hora</b></br><label data-bind="text: timestamp"></label>
+				<td><b>Fecha y Hora</b></br><label data-bind="text: timestampp"></label>
 					<div class="btn-group">
 						<button class="btn btn-primary" type="button"
 							data-bind="click: $root.editSupplierMaster, id: id, uniqueName: true, visible: finished">

@@ -69,17 +69,20 @@ Municipio: <b>Michoácan</b><br />
                 </td>
                 <td>
                 	<span data-bind="text: unit"></span>
+                    <input type="hidden" data-bind='value: category' />
                 </td>
                 <td>
-                    <span data-bind="text: product"></span>
+                    <span data-bind="text: nameProduct"></span>
                 </td>                
                 <td>
                     <input type="number" data-bind='value: price, valueUpdate: ["afterkeydown", "keyup", "keypress", "input"]' size="8" />
                 </td>                                
                 <td>
-                    <strong><span data-bind="text: formattedPrice"></span></strong>
+                    <strong><span data-bind="text: formattedPrice"></span></strong><!--span data-bind="text: priceSelected"--></span>
                 </td>
                 <td>
+                    <!--input type="hidden" data-bind='value: iva'/>
+                    <input type="hidden" data-bind='value: ieps' /-->
                     <button data-bind='click: $parent.removeLine' class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
                 </td>
             </tr>

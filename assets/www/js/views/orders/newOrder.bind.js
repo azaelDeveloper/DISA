@@ -40,30 +40,33 @@ $("#filteredTable").on("click","button[id='addProduct']", function(){
 	var price3 = parseFloat($(this).attr("data-price3")).toFixed(2);		
 	var price4 = parseFloat($(this).attr("data-price4")).toFixed(2);		
 	var unit = $(this).attr("data-unit");		
+	var category = $(this).attr("data-category");
+	var iva = $(this).attr("data-iva");
+	var ieps = $(this).attr("data-ieps");
 	idToAdd = idToAdd.replace(" ", "");		
 	$("input:radio:checked").each(function(index){				
 		price = $(this).val();		
 		price = parseFloat(price).toFixed(2);
 		switch(price){
 		case price1:			
-			self.lines.push(new CartLine(self.lines().length + 1, idToAdd, nameProduct, price, parseFloat(price1).toFixed(2), 1, unit));
+			self.lines.push(new CartLine(self.lines().length + 1, idToAdd, nameProduct, price, parseFloat(price1).toFixed(2), 1, unit, category, iva, ieps, "1"));
 			$(this).attr("checked", false);
-			navigator.notification.alert("Se agrego producto: " + idToAdd, alertMiss, "Producto agregado", "Aceptar");	            
+			//navigator.notification.alert("Se agrego producto: " + idToAdd, alertMiss, "Producto agregado", "Aceptar");	            
 		break;
 		case price2:			
-			self.lines.push(new CartLine(self.lines().length + 1, idToAdd, nameProduct, price, parseFloat(price1).toFixed(2), 1, unit));
+			self.lines.push(new CartLine(self.lines().length + 1, idToAdd, nameProduct, price, parseFloat(price1).toFixed(2), 1, unit, category, iva, ieps, "2"));
 			$(this).attr("checked", false);
-			navigator.notification.alert("Se agrego producto: " + idToAdd, alertMiss, "Producto agregado", "Aceptar");	            
+			//navigator.notification.alert("Se agrego producto: " + idToAdd, alertMiss, "Producto agregado", "Aceptar");	            
 		break;
 		case price3:
-			self.lines.push(new CartLine(self.lines().length + 1, idToAdd, nameProduct, price, parseFloat(price1).toFixed(2), 1, unit));
+			self.lines.push(new CartLine(self.lines().length + 1, idToAdd, nameProduct, price, parseFloat(price1).toFixed(2), 1, unit, category, iva, ieps, "3"));
 			$(this).attr("checked", false);
-			navigator.notification.alert("Se agrego producto: " + idToAdd, alertMiss, "Producto agregado", "Aceptar");	            
+			//navigator.notification.alert("Se agrego producto: " + idToAdd, alertMiss, "Producto agregado", "Aceptar");	            
 		break;
 		case price4:
-			self.lines.push(new CartLine(self.lines().length + 1, idToAdd, nameProduct, price, parseFloat(price1).toFixed(2), 1, unit));
+			self.lines.push(new CartLine(self.lines().length + 1, idToAdd, nameProduct, price, parseFloat(price1).toFixed(2), 1, unit, category, iva, ieps, "4"));
 			$(this).attr("checked", false);
-			navigator.notification.alert("Se agrego producto: " + idToAdd, alertMiss, "Producto agregado", "Aceptar");	            
+			//navigator.notification.alert("Se agrego producto: " + idToAdd, alertMiss, "Producto agregado", "Aceptar");	            
 		break;
 		default:
 			$(this).attr("checked", false);
@@ -73,7 +76,7 @@ $("#filteredTable").on("click","button[id='addProduct']", function(){
 	});
 		
 });
-//tx.executeSql('CREATE TABLE IF NOT EXISTS sells (id INTEGER PRIMARY KEY, idClient TEXT, idSeller TEXT, timestamp NUMERIC)');
+//tx.executeSql('CREATE TABLE IF NOT EXISTS sells (id INTEGER PRIMARY KEY, idClient TEXT, idSeller TEXT, timestampp NUMERIC)');
 //tx.executeSql('CREATE TABLE IF NOT EXISTS sellsdetail (id INTEGER PRIMARY KEY, idSell TEXT, idProduct TEXT, cuantity TEXT, price TEXT, total TEXT)');
 function likeProducts(tx){	
 	var sql = "";
@@ -99,7 +102,7 @@ function foundedProducts(tx, results){
 	table += "</tr></thead><tbody>";				
 	for(var i = 0; i < len; i++){		
 		table += "<tr><td><b>"+ results.rows.item(i).idProduct +"</b></td><td>"+ results.rows.item(i).unit  +"</td><td><p>"+ results.rows.item(i).nameProduct +"</p></td><td>"+ parseFloat(results.rows.item(i).price1).toFixed(2) +"&nbsp;<input type='radio' id='"+ results.rows.item(i).idProduct +"-1' name='prices' value='"+ parseFloat(results.rows.item(i).price1).toFixed(2) +"'></td><td>"+ parseFloat(results.rows.item(i).price2).toFixed(2) +"&nbsp;<input type='radio' id='"+ results.rows.item(i).idProduct +"-2' value='"+ parseFloat(results.rows.item(i).price2).toFixed(2) +"' name='prices'></td><td>"+ parseFloat(results.rows.item(i).price3).toFixed(2) +"&nbsp; <input id='"+ results.rows.item(i).idProduct +"-3' value='"+ parseFloat(results.rows.item(i).price3).toFixed(2) +"' type='radio' name='prices'></td><td>"+ parseFloat(results.rows.item(i).price4).toFixed(2) +"&nbsp; <input id='"+ results.rows.item(i).idProduct +"-4' value='"+ parseFloat(results.rows.item(i).price4).toFixed(2) +"' type='radio' name='prices'></td>";
-		table += "<td>"+ results.rows.item(i).existence +"</td><td><button id='addProduct' class='btn btn-primary' data-idProduct='"+ results.rows.item(i).idProduct +"' data-minPrice='"+ results.rows.item(i).price1 +"' data-price1='"+ results.rows.item(i).price1 +"' data-price2='"+ results.rows.item(i).price2 +"' data-price3='"+ results.rows.item(i).price3 +"' data-price4='"+ results.rows.item(i).price4 +"' data-nameProduct='"+ results.rows.item(i).nameProduct +"' data-unit='"+ results.rows.item(i).unit + "'><span class='glyphicon glyphicon-plus-sign'></span></button></td></tr>";
+		table += "<td>"+ results.rows.item(i).existence +"</td><td><button id='addProduct' class='btn btn-primary' data-idProduct='"+ results.rows.item(i).idProduct +"' data-minPrice='"+ results.rows.item(i).price1 +"' data-price1='"+ results.rows.item(i).price1 +"' data-price2='"+ results.rows.item(i).price2 +"' data-price3='"+ results.rows.item(i).price3 +"' data-price4='"+ results.rows.item(i).price4 +"' data-nameProduct='"+ results.rows.item(i).nameProduct +"' data-unit='"+ results.rows.item(i).unit + "' data-category='"+ results.rows.item(i).category + "' data-iva='"+ results.rows.item(i).iva + "' data-ieps='"+ results.rows.item(i).ieps + "'><span class='glyphicon glyphicon-plus-sign'></span></button></td></tr>";
 		fields.push(results.rows.item(i));
 	}			
 	table += "</tbody></table>";
@@ -127,8 +130,9 @@ $("#saveOrder").click(function(){
 		navigator.notification.alert("Por favor agrege productos....", alertMiss, "No hay pedido", "Aceptar");	            	
 });
 function saveOrder(tx){
-	var sqlOrder = 'INSERT INTO sells(idClient, nameClient, total, idSeller, synchronized, timestamp) VALUES ';
+	var sqlOrder = 'INSERT INTO sells(idClient, nameClient, total, idSeller, synchronized, timestampp) VALUES ';
 	sqlOrder += "('"+ clientID +"', '"+ clientName +"', '"+ grandTotal +"', '"+ licenseUser +"', 0, '"+ getCurrentDateTime() +"')";
+	//console.log(sqlOrder);
 	tx.executeSql(sqlOrder);	
 }
 function getLastOrder(tx) {
@@ -142,7 +146,7 @@ function lastorder(tx, results) {
 		}					
 	}		 
 }
-//tx.executeSql('CREATE TABLE IF NOT EXISTS sells (id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, total TEXT, idSeller TEXT, timestamp NUMERIC)');
+//tx.executeSql('CREATE TABLE IF NOT EXISTS sells (id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, total TEXT, idSeller TEXT, timestampp NUMERIC)');
 //tx.executeSql('CREATE TABLE IF NOT EXISTS sellsdetail (id INTEGER PRIMARY KEY, idSell TEXT, idProduct TEXT, nameProduct TEXT, quantity TEXT, price TEXT, subtotal TEXT)');
 function saveDetail(tx){
 	var error = false;
@@ -153,11 +157,12 @@ function saveDetail(tx){
 	//HACER UN DELETE LAST ID SI ALGO SALE MAL
 	if(allGood == true){
 		for(var i=0; i < self.lines().length; i++){				
-			var sqlDetail = 'INSERT INTO sellsdetail (idSell, idProduct, unit, nameProduct, quantity, price, minPrice, subtotal) VALUES';
-			sqlDetail += "('"+ lastID +"', '" + self.lines()[i].idProd() + "', '"+ self.lines()[i].unit() +"',  '"+ self.lines()[i].product() +"', '"+ self.lines()[i].quantity() +"', '"+ self.lines()[i].price() +"', '"+ self.lines()[i].minPrice() +"', '"+ parseFloat(self.lines()[i].subtotal()).toFixed(2) +"')";				
+			var sqlDetail = 'INSERT INTO sellsdetail (idSell, idProduct, unit, category, nameProduct, quantity, price, priceType, minPrice, iva, ieps, subtotal) VALUES';
+			sqlDetail += "('"+ lastID +"', '" + self.lines()[i].idProd() + "', '"+ self.lines()[i].unit() +"',  '"+ self.lines()[i].category() +"',  '"+ self.lines()[i].nameProduct() +"', '"+ self.lines()[i].quantity() +"', '"+ self.lines()[i].price() +"', '"+ self.lines()[i].priceType() +"', '"+ self.lines()[i].minPrice() +"', '"+ self.lines()[i].iva() +"', '"+ self.lines()[i].ieps() +"', '"+ parseFloat(self.lines()[i].subtotal()).toFixed(2) +"')";				
+			//console.log(sqlDetail);
 			tx.executeSql(sqlDetail);							
 		}
-		navigator.notification.alert("Se guardo pedido con éxito...", alertMiss, "Pedido guardado", "Aceptar");	            
+		//navigator.notification.alert("Se guardo pedido con éxito...", alertMiss, "Pedido guardado", "Aceptar");	            
 		getPage("file:///android_asset/www/views/orders/checkOrders.title.html", "file:///android_asset/www/views/orders/checkOrders.html");		
 	}
 	else
@@ -177,7 +182,7 @@ function checkPrices(){
 	return allGood;
 }
 function messageSuccess(){
-	navigator.notification.alert("Se guardo pedido con éxito...", alertMiss, "Pedido guardado", "Aceptar");	            
+	//navigator.notification.alert("Se guardo pedido con éxito...", alertMiss, "Pedido guardado", "Aceptar");	            
 	getPage("file:///android_asset/www/views/orders/checkOrders.title.html", "file:///android_asset/www/views/orders/checkOrders.html");		
 }
 function messageError(line, minprice, actualPrice){

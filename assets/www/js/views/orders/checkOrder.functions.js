@@ -12,7 +12,7 @@ function sellsMasterModel(orders) {
 	
 	self.detailReports = function(dailyMaster) {
 		detailId = $(this).attr("id");		
-		detailDate = $(this).attr("timestamp");
+		detailDate = $(this).attr("timestampp");
 		getPage("file:///android_asset/www/views/orders/detailOrder.title.html", "file:///android_asset/www/views/orders/detailOrder.html");
 	};
 

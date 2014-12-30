@@ -1,4 +1,4 @@
-//payments (id INTEGER PRIMARY KEY, IdClient INTEGER, nameClient TEXT, num_Fact REAL, amount TEXT,  timestamp NUMERIC);
+//payments (id INTEGER PRIMARY KEY, IdClient INTEGER, nameClient TEXT, num_Fact REAL, amount TEXT,  timestampp NUMERIC);
 function PaymentsViewModel(payments){
 	var self = this;
 	self.payments = ko.observableArray([]);	

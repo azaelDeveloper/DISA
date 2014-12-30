@@ -61,19 +61,19 @@ function Check(tx, results){
 	}	
 }
 function insertKey(tx){
-	tx.executeSql("INSERT INTO registered_user (guidUser, timestamp, gps) VALUES ('"+ guidUserKey +"', '" +getCurrentDateTime() +"', '"+ getGPS() +"')");
+	tx.executeSql("INSERT INTO registered_user (guidUser, timestampp, gps) VALUES ('"+ guidUserKey +"', '" +getCurrentDateTime() +"', '"+ getGPS() +"')");
 	$("#icon").removeClass("icon-remove icon-white").addClass("icon-ok icon-white");
 	$("#backRound").removeClass("btn btn-danger").addClass("btn btn-success");	
 	navigator.notification.alert("Licencia registrada.", alertMiss, "Clave válida", "Aceptar");							
 }
 function updateKey(tx){
-	tx.executeSql("UPDATE registered_user SET guidUser = '"+ guidUserKey +"', timestamp = '" +getCurrentDateTime() +"', gps = '"+ getGPS() +"'");
+	tx.executeSql("UPDATE registered_user SET guidUser = '"+ guidUserKey +"', timestampp = '" +getCurrentDateTime() +"', gps = '"+ getGPS() +"'");
 	$("#icon").removeClass("icon-remove icon-white").addClass("icon-ok icon-white");
 	$("#backRound").removeClass("btn btn-danger").addClass("btn btn-success");	
 	navigator.notification.alert("Licencia actualizada.", alertMiss, "Clave actualizada", "Aceptar");							
 }
 function insertIDs(tx){
-	var sql ="INSERT INTO idWebSurveys(first_aidID, pesticidesID, pestsID, suppliersID, timestamp) ";		
+	var sql ="INSERT INTO idWebSurveys(first_aidID, pesticidesID, pestsID, suppliersID, timestampp) ";		
 	if(surveysIDArray.length > 0){
 		sql += "VALUES ('"+ surveysIDArray[0] +"','"+ surveysIDArray[1] +"','"+ surveysIDArray[2] +"','"+ surveysIDArray[3] +"','"+ getCurrentDateTime() +"')";
 		tx.executeSql("DELETE FROM idWebSurveys");

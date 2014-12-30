@@ -122,7 +122,7 @@ function getGPS() {
 //
 function onSuccessGPS(position) {
 	gps = position.coords.latitude + "," + position.coords.longitude + ","
-			+ position.coords.accuracy + "," + position.timestamp;
+			+ position.coords.accuracy + "," + position.timestampp;
 }
 
 // onError Callback receives a PositionError object

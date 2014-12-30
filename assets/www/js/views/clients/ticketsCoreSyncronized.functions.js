@@ -1,5 +1,5 @@
 function getAllTickets() {
-	var url = "http://www.siaa.mx/app/AppDataService.asmx/Clientes";	
+	var url = urlService + "Clientes";	
 	$.ajax({
 	    type: "POST",
 	    url: url,
@@ -10,14 +10,14 @@ function getAllTickets() {
 	    success: function(result) {       	    	
 	      	if (result != null){	      		
 				//chargeClients(result);
-			result = [{
+			result = [/*{
 	"clientID": 1002,
 	"nameClient": "Azael Sánchez Ortiz",
 	"num_Fact": 3399,
 	"amount": 6000,
 	"paid": 2000,
 	"expiration": "2",	
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"clientID": 1002,
@@ -26,7 +26,7 @@ function getAllTickets() {
 	"amount": 1000,
 	"paid": 900,
 	"expiration": "1",	
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"clientID": 1002,
@@ -35,7 +35,7 @@ function getAllTickets() {
 	"amount": 2000,
 	"paid": 1000,
 	"expiration": "3",	
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"clientID": 1002,
@@ -44,7 +44,7 @@ function getAllTickets() {
 	"amount": 800,
 	"paid": 600,
 	"expiration": "4",	
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"clientID": 1002,
@@ -53,7 +53,7 @@ function getAllTickets() {
 	"amount": 800,
 	"paid": 400,
 	"expiration": "9",	
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"clientID": 1001,
@@ -62,7 +62,7 @@ function getAllTickets() {
 	"amount": 500,
 	"paid": 100,
 	"expiration": "5",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1001,
@@ -71,7 +71,7 @@ function getAllTickets() {
 	"amount": 1100,
 	"paid": 500,
 	"expiration": "4",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1001,
@@ -80,7 +80,7 @@ function getAllTickets() {
 	"amount": 800,
 	"paid": 700,
 	"expiration": "3",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1001,
@@ -89,7 +89,7 @@ function getAllTickets() {
 	"amount": 1500,
 	"paid": 1100,
 	"expiration": "2",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1001,
@@ -98,7 +98,7 @@ function getAllTickets() {
 	"amount": 1000,
 	"paid": 400,
 	"expiration": "1",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1003,
@@ -107,7 +107,7 @@ function getAllTickets() {
 	"amount": 1000,
 	"paid": 500,
 	"expiration": "1",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1003,
@@ -116,7 +116,7 @@ function getAllTickets() {
 	"amount": 2000,
 	"paid": 700,
 	"expiration": "2",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1003,
@@ -125,7 +125,7 @@ function getAllTickets() {
 	"amount": 1000,
 	"paid": 200,
 	"expiration": "2",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1004,
@@ -134,7 +134,7 @@ function getAllTickets() {
 	"amount": 800,
 	"paid": 200,
 	"expiration": "3",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1004,
@@ -143,7 +143,7 @@ function getAllTickets() {
 	"amount": 700,
 	"paid": 350,
 	"expiration": "1",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1004,
@@ -152,7 +152,7 @@ function getAllTickets() {
 	"amount": 1200,
 	"paid": 600,
 	"expiration": "1",	
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1005,
@@ -161,7 +161,7 @@ function getAllTickets() {
 	"amount": 200,
 	"paid": 150,
 	"expiration": "4",
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1005,
@@ -170,7 +170,7 @@ function getAllTickets() {
 	"amount": 350,
 	"paid": 70,
 	"expiration": "3",
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1005,
@@ -179,7 +179,7 @@ function getAllTickets() {
 	"amount": 900,
 	"paid": 780,
 	"expiration": "2",
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1005,
@@ -188,7 +188,7 @@ function getAllTickets() {
 	"amount": 600,
 	"paid": 400,
 	"expiration": "1",
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1006,
@@ -197,7 +197,7 @@ function getAllTickets() {
 	"amount": 800,
 	"paid": 600,
 	"expiration": "3",
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1006,
@@ -206,7 +206,7 @@ function getAllTickets() {
 	"amount": 900,
 	"paid": 700,
 	"expiration": "2",
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"clientID": 1006,
@@ -215,8 +215,10 @@ function getAllTickets() {
 	"amount": 1300,
 	"paid": 800,
 	"expiration": "0",
-	"timestamp": "10/11/2014"
-}];
+	"timestampp": "10/11/2014"
+}*/
+{"clientID":768,"nameClient":"ADELA PONCE ORNELAS ","num_Fact":"1 ","amount":1485.90,"paid":1000.00,"expiration":"16/09/2014","timestampp":" "},{"clientID":1209,"nameClient":"ADILENE GUEVARA PEREZ ","num_Fact":"2 ","amount":740.23,"paid":500.00,"expiration":"23/09/2014","timestampp":" "},{"clientID":411,"nameClient":"ADELA FLORES CORIA ","num_Fact":"3 ","amount":392.68,"paid":250.00,"expiration":"17/09/2014","timestampp":" "},{"clientID":1021,"nameClient":"AGUSTINA MENERA CARRILLO ","num_Fact":"4 ","amount":711.14,"paid":25.00,"expiration":"17/09/2014","timestampp":" "},{"clientID":1,"nameClient":"OLIVIA RAZO MARTINEZ ","num_Fact":"5 ","amount":451.52,"paid":0.00,"expiration":"20/09/2014","timestampp":" "},{"clientID":1205,"nameClient":"ABARROTERA CENTRAL DE TARETAN SA DE CV ","num_Fact":"1 ","amount":1.00,"paid":2.00,"expiration":"09/10/2014","timestampp":" "}
+];
 			newTickets(result);
 				pass = true;
 				//navigator.notification.alert("Se actualizaron facturas...", alertMiss, "Respuesta del servidor", "Aceptar");	            
@@ -246,7 +248,7 @@ function newTicketsViewModel(tickets){
 	function updateTickets(tx){				
 		for (var x = 0; x < self.tickets2().length; x++){						
 			// alert(self.tickets2()[x].num_Fact)
-			var query = "INSERT INTO commercial_invoice(clientID, nameClient, num_Fact, amount, paid, expiration, timestamp) VALUES ("+ self.tickets2()[x].clientID +", '"+ self.tickets2()[x].nameClient +"', " + self.tickets2()[x].num_Fact +", '"+ self.tickets2()[x].amount +"', '"+ self.tickets2()[x].paid +"', '"+ self.tickets2()[x].expiration +"', '"+ self.tickets2()[x].timestamp +"')";				
+			var query = "INSERT INTO commercial_invoice(clientID, nameClient, num_Fact, amount, paid, expiration, timestampp) VALUES ("+ self.tickets2()[x].clientID +", '"+ self.tickets2()[x].nameClient +"', " + self.tickets2()[x].num_Fact +", '"+ self.tickets2()[x].amount +"', '"+ self.tickets2()[x].paid +"', '"+ self.tickets2()[x].expiration +"', '"+ self.tickets2()[x].timestampp +"')";				
 			tx.executeSql(query);			
 		}
 	}

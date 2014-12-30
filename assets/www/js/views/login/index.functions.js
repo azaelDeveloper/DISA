@@ -58,7 +58,7 @@ function foundUser(tx, results) {
 
 function rememberUser(tx) {
 	getGPS();
-	var query = "UPDATE users SET remember_me = 1, timestamp = '"
+	var query = "UPDATE users SET remember_me = 1, timestampp = '"
 			+ getCurrentDateTime() + "', gps ='" + gps + "' WHERE email = '"
 			+ mail + "'";
 	tx.executeSql(query);

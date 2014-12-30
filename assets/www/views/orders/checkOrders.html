@@ -27,12 +27,12 @@
 	<tbody data-bind='foreach: sells'>
 		<tr>
 			<td>
-				<input type="checkbox" name="selected" data-bind="click: $root.listSyncSells, checked: synchronized, disable: synchronized" />
+				<div class="btn-group"><input type="checkbox" name="selected" data-bind="click: $root.listSyncSells, disable: synchronized, checked: synchronized" /></div>
 			</td>
 			<td data-bind="text: id"></td>
 			<td data-bind="text: nameClient"></td>
 			<td data-bind="text: total"></td>
-			<td data-bind="text: timestamp"></td>
+			<td data-bind="text: timestampp"></td>
 			<td>
 				<div class="btn-group">
 					<button class="btn btn-primary" type="button"

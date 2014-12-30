@@ -11,7 +11,7 @@ function Save() {
 function saveChecker(tx) {
 	getGPS();
 	if (checkerId == ""){
-		var query = "INSERT INTO users (name,  lastName, password, system_data, email, application_role, remember_me, timestamp, gps)";
+		var query = "INSERT INTO users (name,  lastName, password, system_data, email, application_role, remember_me, timestampp, gps)";
 		query += "VALUES('" + checkerName + "', '" + checkerLastName + "', '"
 				+ encriptedPass + "', " + p4 + ", '" + checkerEmail + "', '" + role
 				+ "', 0, '" + getCurrentDateTime() + "', '" + gps + "')";
@@ -21,9 +21,9 @@ function saveChecker(tx) {
 	if(checkerId != ""){
 		
 		var query = "UPDATE users SET name='" + checkerName + "', lastName = '" + checkerLastName + "', password = '" + encriptedPass + "', system_data = '" + p4 
-		+ "', email = '" + checkerEmail  + "', application_role = '" + role + "', remember_me = 0, timestamp = '" + getCurrentDateTime() + "', gps ='" + gps + "' WHERE id = " + checkerId;
+		+ "', email = '" + checkerEmail  + "', application_role = '" + role + "', remember_me = 0, timestampp = '" + getCurrentDateTime() + "', gps ='" + gps + "' WHERE id = " + checkerId;
 		alert(query);
-		/*var query = "UPDATE INTO users (name,  lastName, password, system_data, email, application_role, remember_me, timestamp, gps)";
+		/*var query = "UPDATE INTO users (name,  lastName, password, system_data, email, application_role, remember_me, timestampp, gps)";
 		query += "VALUES('" + adminName + "', '" + adminLastName + "', '"
 				+ encriptedPass + "', " + p4 + ", '" + adminEmail + "', '" + role
 				+ "', 0, '" + getCurrentDateTime() + "', '" + gps + "')";*/

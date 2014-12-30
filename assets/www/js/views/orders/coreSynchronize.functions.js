@@ -19,7 +19,8 @@ function detailsOrder(tx, results){
 	}
 	$.ajax({
 	    type: "POST",
-	    url: "http://siaa.mx/app/AppDataService.asmx/Ventas%20Cabecera%20Detalle",
+	    url: urlService + "Ventas%20Cabecera%20Detalle",
+	    //url: urlService + "SaveSell",
 	    data: { Archivo: "" + ko.mapping.toJSON(jsonDetail) },
 	    dataType: "text",
 	    cache: false,

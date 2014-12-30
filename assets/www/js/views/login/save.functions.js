@@ -28,11 +28,11 @@ function Save() {
 			// using "context" in de global.variables.js at
 			// js/views/shared/
 			// complete sql command with data above.
-			var query = 'INSERT INTO users (name,  lastName, password, email, role, timeStamp)';
+			var query = 'INSERT INTO users (name,  lastName, password, email, role, timestampp)';
 			query += "VALUES ('" + nameUser + "', '" + lastNameUser + "', '"
 					+ passwordUser + "', '" + emailUser + "', 'admin',  '"
 					+ dateTime + "')";
-			//var query += 'INSERT INTO users (name,  lastName, password, email, role, timeStamp)';
+			//var query += 'INSERT INTO users (name,  lastName, password, email, role, timestampp)';
 			//query += 'VALUES ("capturista", "capturista", "user", user@email.com, "user", "' + dateTime "');';	
 			alert(query);
 			tx.executeSql(query);

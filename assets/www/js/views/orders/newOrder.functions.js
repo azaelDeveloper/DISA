@@ -1,12 +1,17 @@
-function CartLine (id, idProd, product, price, minPrice, quantity, unit){
+function CartLine (id, idProd, product, price, minPrice, quantity, unit, category, iva, ieps, priceSelected){
 	    var self1 = this;
 	    self1.idSell = ko.observable(id);	    
 	    self1.idProd = ko.observable(idProd);	    
-	    self1.product = ko.observable(product);	    
+	    self1.nameProduct = ko.observable(product);	    
 	    self1.price = ko.observable(price);
 	    self1.minPrice = ko.observable(minPrice);
 	    self1.quantity = ko.observable(quantity);
 	    self1.unit = ko.observable(unit);
+	    self1.category = ko.observable(category);
+	    self1.iva = ko.observable(iva);
+	    self1.ieps = ko.observable(ieps);
+	    self1.priceSelected = ko.observable(priceSelected);
+	    self1.priceType = ko.observable(priceSelected);
 	    self1.subtotal = ko.observable(0);
 	    self1.formattedPrice = ko.computed(function() {
         var subtotal = self1.price();    
@@ -30,11 +35,11 @@ function ordersViewModel() {
     self.addLine = function(product) {     	
     	if(price != undefined){    		
     		if(price === product.price1 || price === product.price2 || price === product.price3){
-    			self.lines.push(new CartLine((self.lines().length + 1), product.idProduct, product.nameProduct, parseFloat(price), parseFloat(price1), 1));    			
+    			self.lines.push(new CartLine((self.lines().length + 1), product.idProduct, product.nameProduct, parseFloat(price), parseFloat(price1), 1, product.category, product.iva, product.ieps, "1"));    			
     			$("input:radio").each(function(index){
     				$(this).attr("checked", false);
     			});
-    			navigator.notification.alert("Se agrego producto:" + product.idProduct, alertMiss, "Producto agregado", "Aceptar");	            
+    			//navigator.notification.alert("Se agrego producto:" + product.idProduct, alertMiss, "Producto agregado", "Aceptar");	            
     		}
     		else
     		{

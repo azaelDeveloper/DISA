@@ -43,7 +43,9 @@ var p2='';
 var p3=0;
 var p4='';
 
-var urlService = "http://test.tcertifica.com/Service/";
+var licenseUser;
+
+var urlService = "http://www.siaa.mx/app/AppDataService.asmx/";
 
 $(function () {
 	db = window.openDatabase("disapp", "1.0", "disapp", 99999900);

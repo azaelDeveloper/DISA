@@ -29,6 +29,6 @@ function saveAccountType(tx) {
 function usersRegister(accountType, tx){
 	// Query the success callback
 	getGPS();
-	var query = "UPDATE contract SET account_type=" + accountType + ", timestamp = '" + getCurrentDateTime() + "', gps ='" + gps + "' WHERE id = 1";
+	var query = "UPDATE contract SET account_type=" + accountType + ", timestampp = '" + getCurrentDateTime() + "', gps ='" + gps + "' WHERE id = 1";
 	tx.executeSql(query);
 }

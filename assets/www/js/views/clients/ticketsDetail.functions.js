@@ -46,7 +46,7 @@ function allDetailTick(tx, results) {
 function sendPayment(){    
   var payment = $("#payment").val();
   alert("pago :" +payment + " factura: " + num_Fact + "fecha: " + getCurrentDate() +" ClienteID: " + clientID + " vendedorID:" + licenseUser);  
-  var url = "http://www.siaa.mx/app/AppDataService.asmx/Clientes";
+  var url = urlService + "Clientes";
   $.ajax({
       type: "POST",
       url: url,
@@ -70,7 +70,7 @@ function sendPayment(){
 function registerPayment(tx){
   var payment = parseFloat($("#payment").val());
   payment = payment.toFixed(2);  
-  var sql = "INSERT INTO payments (IdClient, nameClient, num_Fact, amount, timestamp) VALUES ";  
+  var sql = "INSERT INTO payments (IdClient, nameClient, num_Fact, amount, timestampp) VALUES ";  
   sql += "('"+ clientID +"', '"+ nameClient +"', '"+ num_Fact +"', '"+ payment +"', '"+ getCurrentDate() +"')";
   tx.executeSql(sql);
   $("#payment").val("");

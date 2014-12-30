@@ -1,5 +1,5 @@
 function getAllDetails(){	
-	var url = "http://www.siaa.mx/app/AppDataService.asmx/Clientes";
+	var url = urlService + "Clientes";
 	$.ajax({
 	    type: "POST",
 	    url: url,
@@ -10,101 +10,101 @@ function getAllDetails(){
 	    success: function(result) {       	    	
 	      	if (result != null){	      		
 				//chargeClients(result);
-			result = [{
+			result = [/*{
 	"num_Fact": 3399,
 	"paid": 1000,	
-	"timestamp": "10/11/2014"	
+	"timestampp": "10/11/2014"	
 	},
 	{
 	"num_Fact": 3399,
 	"paid": 1000,	
-	"timestamp": "10/11/2014"	
+	"timestampp": "10/11/2014"	
 	},
 {
 	"num_Fact": 100000000,
 	"paid": 900,
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"num_Fact": 23423,
 	"paid": 800,
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"num_Fact": 23423,
 	"paid": 200,
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"num_Fact": 3321,
 	"paid": 400,
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"num_Fact": 3321,
 	"paid": 200,
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"num_Fact": 76867,
 	"paid": 400,
-	"timestamp": "12/03/2003"
+	"timestampp": "12/03/2003"
 },
 {
 	"num_Fact": 16879,
 	"paid": 100,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 16880,
 	"paid": 500,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 16907,
 	"paid": 400,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 16907,
 	"paid": 300,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 17932,
 	"paid": 600,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 }
 ,
 {
 	"num_Fact": 17932,
 	"paid": 500,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 17964,
 	"paid": 200,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 17964,
 	"paid": 200,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15721,
 	"paid": 500,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15838,
 	"paid": 200,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15838,
 	"paid": 500,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15840,
@@ -119,53 +119,55 @@ function getAllDetails(){
 {
 	"num_Fact": 15794,
 	"paid": 350,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15856,
 	"paid": 600,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15624,
 	"paid": 150,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15744,
 	"paid": 70,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15765,
 	"paid": 780,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15804,
 	"paid": 400,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15721,
 	"paid": 600,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15731,
 	"paid": 700,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15812,
 	"paid": 400,
-	"timestamp": "10/11/2014"
+	"timestampp": "10/11/2014"
 },
 {
 	"num_Fact": 15812,
 	"paid": 400,
-	"timestamp": "10/11/2014"
-}];
+	"timestampp": "10/11/2014"
+}*/
+{"num_Fact":"3 ","paid":200.00,"timestampp":"02/09/2014"},{"num_Fact":"3 ","paid":50.00,"timestampp":"02/09/2014"},{"num_Fact":"1 ","paid":1000.00,"timestampp":"02/09/2014"},{"num_Fact":"2 ","paid":500.00,"timestampp":"02/09/2014"},{"num_Fact":"4 ","paid":25.00,"timestampp":"02/09/2014"}
+];
 			detailFac(result);
 				pass = true;
 				navigator.notification.alert("Se actualizaron pagos de factura...", alertMiss, "Respuesta del servidor", "Aceptar");	            
@@ -194,7 +196,7 @@ function facDetailViewModel(clients){
 	db.transaction(updateDetaFact, errorCB);	
 	function updateDetaFact(tx){		
 		for (var x = 0; x < self.detail2().length; x++){		
-			var query = "INSERT INTO commercial_detail (num_Fact, paid, timestamp) VALUES ("+ self.detail2()[x].num_Fact +", '"+ self.detail2()[x].paid +"', '" + self.detail2()[x].timestamp +"')";				
+			var query = "INSERT INTO commercial_detail (num_Fact, paid, timestampp) VALUES ("+ self.detail2()[x].num_Fact +", '"+ self.detail2()[x].paid +"', '" + self.detail2()[x].timestampp +"')";				
 			tx.executeSql(query);
 		}
 	}
