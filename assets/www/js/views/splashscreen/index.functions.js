@@ -18,7 +18,7 @@ function populateDB(tx) {
 	tx.executeSql('CREATE TABLE IF NOT EXISTS sellers(id INTEGER PRIMARY KEY, sellerIDERP TEXT, nameSeller TEXT, license TEXT, active NUMERIC, routes TEXT, timestampp NUMERIC)');		
 	//CLIENTS
 	//tx.executeSql('DROP TABLE IF EXISTS clients');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS clients(id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, direction TEXT, poblation TEXT, entity TEXT, colony TEXT, cp TEXT, creditLimit TEXT, active INTEGER, route INTEGER, timestampp NUMERIC)');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS clients(id INTEGER PRIMARY KEY, idClient TEXT, nameClient TEXT, direction TEXT, poblation TEXT, entity TEXT, colony TEXT, cp TEXT, creditLimit TEXT, Active INTEGER, route INTEGER, timestampp NUMERIC)');
 	// PRODUCTS
 	//tx.executeSql('DROP TABLE IF EXISTS products');	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS products(id INTEGER PRIMARY KEY,selected NUMERIC, idProduct TEXT, nameProduct TEXT, price1 REAL, price2 REAL, price3 REAL, price4 REAL, priceFree REAL, account_type TEXT, unit TEXT, category TEXT, existence REAL, iva REAL, ieps REAL, timestampp NUMERIC)');
